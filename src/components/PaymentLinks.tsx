@@ -5,7 +5,7 @@ import { toast } from 'sonner'
 import { useMerchantLinkIds, usePaymentLink, useCreatePaymentLink, useDeactivatePaymentLink } from '../store'
 import { formatUSDC } from './format-utils'
 import QRModal from './QRModal'
-import { parseAmount } from '@/onchain-money'
+import { parseAmount, formatUsdc } from '@/onchain-money'
 import { ARC_TESTNET_CHAIN_ID } from '../contract'
 
 function LinkCard({ linkId, onShowQR }: { linkId: string; onShowQR: (id: string, title: string, amount: bigint, memo: string) => void }) {
@@ -17,7 +17,9 @@ function LinkCard({ linkId, onShowQR }: { linkId: string; onShowQR: (id: string,
 
   if (!link) return null
 
-  const url = `${window.location.origin}?checkout=${linkId}&amount=${link.amount ?? ''}&memo=${encodeURIComponent(link.memo)}`
+  // link.amount is raw onchain (6 decimals) — convert to display USDC string for URL
+  const amountDisplay = link.amount ? formatUsdc(link.amount) : ''
+  const url = `${window.location.origin}?checkout=${linkId}&amount=${amountDisplay}&memo=${encodeURIComponent(link.memo)}`
   const handleCopy = () => {
     void navigator.clipboard.writeText(url)
     setCopied(true)

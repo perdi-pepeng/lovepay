@@ -299,7 +299,7 @@ export default function WalletButton() {
                         onClick={() => { show?.(); closeModal() }}
                         disabled={isConnecting}
                         className="w-full py-3 rounded-2xl text-sm font-semibold transition-all disabled:opacity-40 flex items-center justify-center gap-2"
-                        style={{ background: 'var(--ink)', color: '#fff' }}
+                        style={{ background: 'var(--gradient-love)', color: '#fff', boxShadow: '0 4px 20px var(--love-glow)' }}
                       >
                         {isConnecting
                           ? <><Loader2 className="w-4 h-4 animate-spin" /> Menghubungkan…</>
