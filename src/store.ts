@@ -3,7 +3,7 @@
  * No mock data. Every hook reads onchain state via wagmi useReadContract.
  */
 import { useReadContract, usePublicClient } from 'wagmi'
-import { erc20Abi, type Abi, parseAbiItem, type Address } from 'viem'
+import { erc20Abi, type Abi } from 'viem'
 import { useEffect, useState } from 'react'
 import { LOVEPAY_CONTRACT, ARC_TESTNET_CHAIN_ID } from './contract'
 import { getUsdc } from '@/onchain-facts'
@@ -66,6 +66,7 @@ export interface ChainPayment {
   status: number      // 0=pending 1=success 2=failed 3=refunded
   createdAt: bigint
   txRef: string
+  blockNumber: bigint // block number saat pay() dikonfirmasi
 }
 
 // ─── Merchant hooks ───────────────────────────────────────────────────────────
@@ -258,10 +259,10 @@ export function usePayment(paymentId?: string) {
     chainId: ARC_TESTNET_CHAIN_ID,
     query: { enabled: !!paymentId },
   })
-  // ABI: [id, payer, merchant, amount, linkId, invoiceId, memo, status, createdAt, txRef]
-  const raw = data as [`0x${string}`, string, string, bigint, `0x${string}`, `0x${string}`, string, number, bigint, string] | undefined
+  // ABI: [id, payer, merchant, amount, linkId, invoiceId, memo, status, createdAt, txRef, blockNumber]
+  const raw = data as [`0x${string}`, string, string, bigint, `0x${string}`, `0x${string}`, string, number, bigint, string, bigint] | undefined
   const payment: ChainPayment | undefined = raw && raw[8] > 0n
-    ? { id: raw[0], payer: raw[1], merchant: raw[2], amount: raw[3], linkId: raw[4], invoiceId: raw[5], memo: raw[6], status: Number(raw[7]), createdAt: raw[8], txRef: raw[9] }
+    ? { id: raw[0], payer: raw[1], merchant: raw[2], amount: raw[3], linkId: raw[4], invoiceId: raw[5], memo: raw[6], status: Number(raw[7]), createdAt: raw[8], txRef: raw[9], blockNumber: raw[10] }
     : undefined
   return { payment, isLoading }
 }
@@ -351,61 +352,62 @@ export function usePay() {
 }
 
 // ─── usePaymentTxHashes ────────────────────────────────────────────────────────
-// Fetch PaymentMade event logs from blockchain — returns Map<paymentId, txHash>
-// Cross-device, cross-browser, permanent onchain — no localStorage needed.
-const PAYMENT_MADE_EVENT = parseAbiItem(
-  'event PaymentMade(bytes32 indexed paymentId, address indexed payer, address indexed merchant, uint256 amount, bytes32 linkId, bytes32 invoiceId)'
-)
+// Fetch tx hash for a set of payments using blockNumber stored in each PaymentRecord.
+// For each unique block, call getBlock({blockNumber, includeTransactions: true}) and
+// find the tx that called the LovepayRegistry contract. No scan, no getLogs.
+// Cross-device, cross-browser, permanent onchain.
 
-export function usePaymentTxHashes(address: string | undefined): Map<string, string> {
+export function usePaymentTxHashes(
+  payments: Array<{ id: string; blockNumber: bigint }> | undefined
+): Map<string, string> {
   const [txMap, setTxMap] = useState<Map<string, string>>(new Map())
   const client = usePublicClient({ chainId: ARC_TESTNET_CHAIN_ID })
 
   useEffect(() => {
-    if (!address || !client) return
-    const addr = address as Address
+    if (!payments || payments.length === 0 || !client) return
     let cancelled = false
 
-    const fetchLogs = async () => {
+    const fetchTxHashes = async () => {
       try {
-        const latestBlock = await client.getBlockNumber()
-        // Scan last 50,000 blocks — safe range for Arc Testnet RPC
-        const fromBlock = latestBlock > 50_000n ? latestBlock - 50_000n : 0n
-
-        // Fetch logs where address is payer OR merchant (two separate calls, merged)
-        const [payerLogs, merchantLogs] = await Promise.all([
-          client.getLogs({
-            address: LOVEPAY_CONTRACT.address as Address,
-            event: PAYMENT_MADE_EVENT,
-            args: { payer: addr },
-            fromBlock,
-            toBlock: latestBlock,
-          }),
-          client.getLogs({
-            address: LOVEPAY_CONTRACT.address as Address,
-            event: PAYMENT_MADE_EVENT,
-            args: { merchant: addr },
-            fromBlock,
-            toBlock: latestBlock,
-          }),
-        ])
-
-        if (cancelled) return
-        const map = new Map<string, string>()
-        for (const log of [...payerLogs, ...merchantLogs]) {
-          if (log.args.paymentId && log.transactionHash) {
-            map.set(log.args.paymentId, log.transactionHash)
-          }
+        // Group payments by blockNumber to minimise RPC calls
+        const blockMap = new Map<bigint, string[]>()
+        for (const p of payments) {
+          if (!p.blockNumber || p.blockNumber === 0n) continue
+          const ids = blockMap.get(p.blockNumber) ?? []
+          ids.push(p.id)
+          blockMap.set(p.blockNumber, ids)
         }
-        setTxMap(map)
+
+        const contractAddr = LOVEPAY_CONTRACT.address.toLowerCase()
+        const map = new Map<string, string>()
+
+        await Promise.all(
+          [...blockMap.entries()].map(async ([blockNumber, paymentIds]) => {
+            try {
+              const block = await client.getBlock({ blockNumber, includeTransactions: true })
+              for (const tx of block.transactions) {
+                if (typeof tx === 'object' && tx.to?.toLowerCase() === contractAddr) {
+                  // Match this tx to a paymentId via index — first tx to contract in block
+                  // maps to first paymentId from this block (ordering matches contract execution)
+                  const id = paymentIds.shift()
+                  if (id) map.set(id, tx.hash)
+                }
+              }
+            } catch {
+              // skip block if RPC fails for this specific block
+            }
+          })
+        )
+
+        if (!cancelled) setTxMap(map)
       } catch {
-        // silently ignore — link just shows — if RPC fails
+        // silently ignore
       }
     }
 
-    void fetchLogs()
+    void fetchTxHashes()
     return () => { cancelled = true }
-  }, [address, client])
+  }, [payments, client])
 
   return txMap
 }

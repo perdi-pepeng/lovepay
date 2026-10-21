@@ -450,7 +450,8 @@ contract LovepayRegistryTest is Test {
             string memory memo,
             uint8 status,
             uint256 createdAt,
-            /* txRef */
+            /* txRef */,
+            /* blockNumber */
         ) = registry.payments(paymentId);
 
         assertEq(storedId, paymentId);

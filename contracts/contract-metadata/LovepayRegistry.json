@@ -1,13 +1,20 @@
 {
-  "contractAddress": "0xf1d2f4b823a2ec8ffa91be154029e8c0e5113b65",
+  "contractAddress": "0xf2f7052b9d116c283540f88adf2137f0f1d741fc",
   "network": "ARC-TESTNET",
   "deployerWalletId": "3c2464b2-8369-52e2-a782-800bbeca5396",
   "contract_code_path": "/home/user/app/contracts/LovepayRegistry.sol",
   "contract_compiled_code_path": "/home/user/app/contracts/out/LovepayRegistry.sol/LovepayRegistry.json",
   "contract_network_and_links": {
-    "Arc Testnet": "https://explorer.testnet.arc.io/address/0xf1d2f4b823a2ec8ffa91be154029e8c0e5113b65"
+    "Arc Testnet": "https://explorer.testnet.arc.io/address/0xf2f7052b9d116c283540f88adf2137f0f1d741fc"
   },
   "contract_deployments": [
+    {
+      "chain": "Arc Testnet",
+      "address": "0xf2f7052b9d116c283540f88adf2137f0f1d741fc",
+      "explorerUrl": "https://explorer.testnet.arc.io/address/0xf2f7052b9d116c283540f88adf2137f0f1d741fc",
+      "txHash": "0x99cc75546df52e8fdc1a1ddb36c02e6bfdce370e96dfccceafca211215a98ccc",
+      "deployedAt": "2026-10-21T11:01:49.776Z"
+    },
     {
       "chain": "Arc Testnet",
       "address": "0xf1d2f4b823a2ec8ffa91be154029e8c0e5113b65",
@@ -691,6 +698,11 @@
           "name": "txRef",
           "type": "bytes32",
           "internalType": "bytes32"
+        },
+        {
+          "name": "blockNumber",
+          "type": "uint256",
+          "internalType": "uint256"
         }
       ],
       "stateMutability": "view"

@@ -69,6 +69,7 @@ contract LovepayRegistry {
         uint8 status;
         uint256 createdAt;
         bytes32 txRef;
+        uint256 blockNumber;
     }
 
     mapping(address => Merchant) public merchants;
@@ -332,7 +333,8 @@ contract LovepayRegistry {
             memo: memo,
             status: 1,
             createdAt: block.timestamp,
-            txRef: txRef
+            txRef: txRef,
+            blockNumber: block.number
         });
 
         if (linkId != bytes32(0)) {

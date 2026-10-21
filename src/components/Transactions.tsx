@@ -1,30 +1,64 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Search, Download, ArrowUpDown, Loader2, ArrowDownLeft, ArrowUpRight as ArrowUpRightIcon } from 'lucide-react'
 import { useAllMyPaymentIds, usePayment } from '../store'
 import { formatUSDC, StatusBadge } from './format-utils'
 import { buildTxExplorerUrl } from '@/onchain-facts'
-import { ARC_TESTNET_CHAIN_ID } from '../contract'
-import { usePaymentTxHashes } from '../store'
+import { ARC_TESTNET_CHAIN_ID, LOVEPAY_CONTRACT } from '../contract'
+import { usePublicClient } from 'wagmi'
 
-function PaymentRow({ paymentId, myAddress, directionFilter, txMap }: { paymentId: string; myAddress: string; directionFilter: 'all' | 'in' | 'out'; txMap: Map<string, string> }) {
+/** Fetch tx hash dari blockNumber yang tersimpan di PaymentRecord — satu getBlock call, tanpa scan. */
+function useTxHashFromBlock(blockNumber: bigint | undefined): string | null {
+  const [txHash, setTxHash] = useState<string | null>(null)
+  const client = usePublicClient({ chainId: ARC_TESTNET_CHAIN_ID })
+
+  useEffect(() => {
+    if (!blockNumber || blockNumber === 0n || !client) return
+    let cancelled = false
+    const contractAddr = LOVEPAY_CONTRACT.address.toLowerCase()
+
+    client.getBlock({ blockNumber, includeTransactions: true })
+      .then(block => {
+        if (cancelled) return
+        for (const tx of block.transactions) {
+          if (typeof tx === 'object' && tx.to?.toLowerCase() === contractAddr) {
+            setTxHash(tx.hash)
+            return
+          }
+        }
+      })
+      .catch(() => { /* silently ignore */ })
+
+    return () => { cancelled = true }
+  }, [blockNumber, client])
+
+  return txHash
+}
+
+function PaymentRow({ paymentId, myAddress, directionFilter }: {
+  paymentId: string
+  myAddress: string
+  directionFilter: 'all' | 'in' | 'out'
+}) {
   const { payment, isLoading } = usePayment(paymentId)
+  const txHash = useTxHashFromBlock(payment?.blockNumber)
+
   if (isLoading || !payment) return (
     <tr style={{ borderBottom: '1px solid var(--border)' }}>
       {(Array.from({ length: 7 })).map((_, i) => (
         <td key={i} className="px-5 py-4">
-          <div className="h-3 rounded animate-pulse" style={{ background: 'var(--border)', width: i === 4 ? '60px' : i === 0 ? '80px' : '50px' }} />
+          <div className="h-3 rounded animate-pulse"
+            style={{ background: 'var(--border)', width: i === 4 ? '60px' : i === 0 ? '80px' : '50px' }} />
         </td>
       ))}
     </tr>
   )
 
   const isIncoming = payment.merchant.toLowerCase() === myAddress.toLowerCase()
-  // Apply direction filter now that we have payment data
   if (directionFilter === 'in' && !isIncoming) return null
   if (directionFilter === 'out' && isIncoming) return null
+
   const counterparty = isIncoming ? payment.payer : payment.merchant
   const date = new Date(Number(payment.createdAt) * 1000)
-  const txHash = txMap.get(paymentId) ?? null
   const txUrl = txHash ? buildTxExplorerUrl(ARC_TESTNET_CHAIN_ID, txHash) : null
 
   return (
@@ -69,7 +103,7 @@ function PaymentRow({ paymentId, myAddress, directionFilter, txMap }: { paymentI
       {/* Status */}
       <td className="px-5 py-3"><StatusBadge status={payment.status} /></td>
 
-      {/* Bukti */}
+      {/* Bukti — tx hash dari block */}
       <td className="px-5 py-3">
         {txUrl ? (
           <a href={txUrl} target="_blank" rel="noreferrer"
@@ -78,7 +112,13 @@ function PaymentRow({ paymentId, myAddress, directionFilter, txMap }: { paymentI
             Explorer
           </a>
         ) : (
-          <span className="text-xs" style={{ color: 'var(--subtle)' }}>—</span>
+          <span className="text-xs" style={{ color: 'var(--subtle)' }}>
+            {payment.blockNumber && payment.blockNumber > 0n ? (
+              <span className="inline-flex items-center gap-1">
+                <Loader2 className="w-3 h-3 animate-spin" />
+              </span>
+            ) : '—'}
+          </span>
         )}
       </td>
     </tr>
@@ -89,7 +129,6 @@ interface Props { merchantAddress: string }
 
 export default function Transactions({ merchantAddress }: Props) {
   const { allIds, received, isLoading } = useAllMyPaymentIds(merchantAddress)
-  const txMap = usePaymentTxHashes(merchantAddress)
   const [search, setSearch] = useState('')
   const [sortAsc, setSortAsc] = useState(false)
   const [filter, setFilter] = useState<'all' | 'in' | 'out'>('all')
@@ -100,8 +139,6 @@ export default function Transactions({ merchantAddress }: Props) {
     if (search.trim() && !id.toLowerCase().includes(search.toLowerCase())) return false
     return true
   })
-
-
 
   const handleExport = () => {
     const csv = 'paymentId\n' + sortedIds.join('\n')
@@ -164,13 +201,15 @@ export default function Transactions({ merchantAddress }: Props) {
           <Loader2 className="w-4 h-4 animate-spin" /> Memuat dari blockchain…
         </div>
       ) : filtered.length === 0 ? (
-        <div className="rounded-2xl p-10 text-center" style={{ background: 'var(--surface-strong)', border: '1px solid var(--border)' }}>
+        <div className="rounded-2xl p-10 text-center"
+          style={{ background: 'var(--surface-strong)', border: '1px solid var(--border)' }}>
           <p className="text-sm" style={{ color: 'var(--muted)' }}>
             {search ? 'Tidak ditemukan.' : 'Belum ada transaksi.'}
           </p>
         </div>
       ) : (
-        <div className="rounded-2xl overflow-hidden" style={{ background: 'var(--surface-strong)', border: '1px solid var(--border)' }}>
+        <div className="rounded-2xl overflow-hidden"
+          style={{ background: 'var(--surface-strong)', border: '1px solid var(--border)' }}>
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>
@@ -187,7 +226,7 @@ export default function Transactions({ merchantAddress }: Props) {
               </thead>
               <tbody>
                 {filtered.map(id => (
-                  <PaymentRow key={id} paymentId={id} myAddress={merchantAddress} directionFilter={filter} txMap={txMap} />
+                  <PaymentRow key={id} paymentId={id} myAddress={merchantAddress} directionFilter={filter} />
                 ))}
               </tbody>
             </table>
