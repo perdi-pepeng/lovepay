@@ -105,6 +105,14 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
       setStep('done')
       onSuccess(payHash)
       toast.success('Pembayaran berhasil!')
+      // Simpan tx hash ke localStorage agar Riwayat bisa tampilkan link Explorer
+      try {
+        const stored = JSON.parse(localStorage.getItem('lovepay_tx_hashes') ?? '[]') as Array<{ hash: string; ts: number }>
+        stored.push({ hash: payHash, ts: Math.floor(Date.now() / 1000) })
+        // Simpan maksimal 200 entry
+        if (stored.length > 200) stored.splice(0, stored.length - 200)
+        localStorage.setItem('lovepay_tx_hashes', JSON.stringify(stored))
+      } catch { /* ignore */ }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPaySuccess, payHash])

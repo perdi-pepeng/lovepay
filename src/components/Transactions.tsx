@@ -2,11 +2,19 @@ import { useState } from 'react'
 import { Search, Download, ArrowUpDown, Loader2, ArrowDownLeft, ArrowUpRight as ArrowUpRightIcon } from 'lucide-react'
 import { useAllMyPaymentIds, usePayment } from '../store'
 import { formatUSDC, StatusBadge } from './format-utils'
-import { buildAddressExplorerUrl } from '@/onchain-facts'
-import { ARC_TESTNET_CHAIN_ID, LOVEPAY_CONTRACT } from '../contract'
+import { buildTxExplorerUrl } from '@/onchain-facts'
+import { ARC_TESTNET_CHAIN_ID } from '../contract'
 
-// Explorer URL points to the contract's transaction list — always valid
-const CONTRACT_EXPLORER_URL = buildAddressExplorerUrl(ARC_TESTNET_CHAIN_ID, LOVEPAY_CONTRACT.address)
+// Baca tx hashes yang disimpan saat Checkout berhasil
+function getTxHashForPayment(createdAt: bigint): string | null {
+  try {
+    const stored = JSON.parse(localStorage.getItem('lovepay_tx_hashes') ?? '[]') as Array<{ hash: string; ts: number }>
+    const ts = Number(createdAt)
+    // Match berdasarkan timestamp ±60 detik
+    const match = stored.find(e => Math.abs(e.ts - ts) <= 60)
+    return match?.hash ?? null
+  } catch { return null }
+}
 
 function PaymentRow({ paymentId, myAddress, directionFilter }: { paymentId: string; myAddress: string; directionFilter: 'all' | 'in' | 'out' }) {
   const { payment, isLoading } = usePayment(paymentId)
@@ -26,6 +34,8 @@ function PaymentRow({ paymentId, myAddress, directionFilter }: { paymentId: stri
   if (directionFilter === 'out' && isIncoming) return null
   const counterparty = isIncoming ? payment.payer : payment.merchant
   const date = new Date(Number(payment.createdAt) * 1000)
+  const txHash = getTxHashForPayment(payment.createdAt)
+  const txUrl = txHash ? buildTxExplorerUrl(ARC_TESTNET_CHAIN_ID, txHash) : null
 
   return (
     <tr className="text-sm" style={{ borderBottom: '1px solid var(--border)' }}>
@@ -71,11 +81,15 @@ function PaymentRow({ paymentId, myAddress, directionFilter }: { paymentId: stri
 
       {/* Bukti */}
       <td className="px-5 py-3">
-        <a href={CONTRACT_EXPLORER_URL} target="_blank" rel="noreferrer"
-          className="text-xs underline underline-offset-2"
-          style={{ color: 'var(--accent-hover)' }}>
-          Kontrak
-        </a>
+        {txUrl ? (
+          <a href={txUrl} target="_blank" rel="noreferrer"
+            className="text-xs underline underline-offset-2"
+            style={{ color: 'var(--accent-hover)' }}>
+            Explorer
+          </a>
+        ) : (
+          <span className="text-xs" style={{ color: 'var(--subtle)' }}>—</span>
+        )}
       </td>
     </tr>
   )
