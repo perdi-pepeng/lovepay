@@ -2,8 +2,10 @@
  * Live contract hooks — all data comes from / goes to LovepayRegistry on Arc Testnet.
  * No mock data. Every hook reads onchain state via wagmi useReadContract.
  */
-import { useReadContract } from 'wagmi'
-import { erc20Abi, type Abi } from 'viem'
+import { useReadContract, usePublicClient } from 'wagmi'
+import { erc20Abi, type Abi, parseAbiItem, type Address } from 'viem'
+import { useEffect, useState } from 'react'
+import { requireChain } from '@/onchain-facts'
 import { LOVEPAY_CONTRACT, ARC_TESTNET_CHAIN_ID } from './contract'
 import { getUsdc } from '@/onchain-facts'
 import { parseAmount } from '@/onchain-money'
@@ -347,4 +349,67 @@ export function usePay() {
     })
   }
   return { pay, hash, isPending, isConfirming, isSuccess, error }
+}
+
+// ─── usePaymentTxHashes ────────────────────────────────────────────────────────
+// Fetch PaymentMade event logs from blockchain — returns Map<paymentId, txHash>
+// Cross-device, cross-browser, permanent onchain — no localStorage needed.
+const PAYMENT_MADE_EVENT = parseAbiItem(
+  'event PaymentMade(bytes32 indexed paymentId, address indexed payer, address indexed merchant, uint256 amount, bytes32 linkId, bytes32 invoiceId)'
+)
+
+export function usePaymentTxHashes(address: string | undefined): Map<string, string> {
+  const [txMap, setTxMap] = useState<Map<string, string>>(new Map())
+  const client = usePublicClient({ chainId: ARC_TESTNET_CHAIN_ID })
+
+  useEffect(() => {
+    if (!address || !client) return
+    const addr = address as Address
+    let cancelled = false
+
+    const fetchLogs = async () => {
+      try {
+        const chain = requireChain(ARC_TESTNET_CHAIN_ID)
+        const latestBlock = await client.getBlockNumber()
+        // Scan last 500,000 blocks (~weeks of Arc Testnet history)
+        const fromBlock = latestBlock > 500_000n ? latestBlock - 500_000n : 0n
+
+        // Fetch logs where address is payer OR merchant (two separate calls, merged)
+        const [payerLogs, merchantLogs] = await Promise.all([
+          client.getLogs({
+            address: LOVEPAY_CONTRACT.address as Address,
+            event: PAYMENT_MADE_EVENT,
+            args: { payer: addr },
+            fromBlock,
+            toBlock: latestBlock,
+          }),
+          client.getLogs({
+            address: LOVEPAY_CONTRACT.address as Address,
+            event: PAYMENT_MADE_EVENT,
+            args: { merchant: addr },
+            fromBlock,
+            toBlock: latestBlock,
+          }),
+        ])
+
+        if (cancelled) return
+        const map = new Map<string, string>()
+        for (const log of [...payerLogs, ...merchantLogs]) {
+          if (log.args.paymentId && log.transactionHash) {
+            map.set(log.args.paymentId, log.transactionHash)
+          }
+        }
+        const chainName = chain.name
+        void chainName // used for reference only
+        setTxMap(map)
+      } catch {
+        // silently ignore — link just shows — if RPC fails
+      }
+    }
+
+    void fetchLogs()
+    return () => { cancelled = true }
+  }, [address, client])
+
+  return txMap
 }
