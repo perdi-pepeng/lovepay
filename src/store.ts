@@ -5,7 +5,6 @@
 import { useReadContract, usePublicClient } from 'wagmi'
 import { erc20Abi, type Abi, parseAbiItem, type Address } from 'viem'
 import { useEffect, useState } from 'react'
-import { requireChain } from '@/onchain-facts'
 import { LOVEPAY_CONTRACT, ARC_TESTNET_CHAIN_ID } from './contract'
 import { getUsdc } from '@/onchain-facts'
 import { parseAmount } from '@/onchain-money'
@@ -369,10 +368,9 @@ export function usePaymentTxHashes(address: string | undefined): Map<string, str
 
     const fetchLogs = async () => {
       try {
-        const chain = requireChain(ARC_TESTNET_CHAIN_ID)
         const latestBlock = await client.getBlockNumber()
-        // Scan last 500,000 blocks (~weeks of Arc Testnet history)
-        const fromBlock = latestBlock > 500_000n ? latestBlock - 500_000n : 0n
+        // Scan last 50,000 blocks — safe range for Arc Testnet RPC
+        const fromBlock = latestBlock > 50_000n ? latestBlock - 50_000n : 0n
 
         // Fetch logs where address is payer OR merchant (two separate calls, merged)
         const [payerLogs, merchantLogs] = await Promise.all([
@@ -399,8 +397,6 @@ export function usePaymentTxHashes(address: string | undefined): Map<string, str
             map.set(log.args.paymentId, log.transactionHash)
           }
         }
-        const chainName = chain.name
-        void chainName // used for reference only
         setTxMap(map)
       } catch {
         // silently ignore — link just shows — if RPC fails
