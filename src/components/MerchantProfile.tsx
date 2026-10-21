@@ -11,11 +11,11 @@ const CONTRACT_ABI = LOVEPAY_CONTRACT.abi as Abi
 
 const BIZ_LABELS: Record<string, string> = {
   retail: 'Retail / E-commerce',
-  services: 'Jasa / Konsultasi',
-  food: 'Kuliner / F&B',
-  digital: 'Produk Digital',
-  education: 'Pendidikan',
-  other: 'Lainnya',
+  services: 'Services / Consulting',
+  food: 'Food & Beverage',
+  digital: 'Digital Products',
+  education: 'Education',
+  other: 'Other',
 }
 
 interface Props { merchantAddress: string }
@@ -25,13 +25,11 @@ export default function MerchantProfile({ merchantAddress }: Props) {
   const { write, isPending, isConfirming, isSuccess, error } = useCircleWrite()
 
   const [editing, setEditing] = useState(false)
-  // Initialize directly from merchant (avoids set-state-in-effect)
   const [name, setName] = useState(() => merchant?.name ?? '')
   const [email, setEmail] = useState(() => merchant?.email ?? '')
   const [bizType, setBizType] = useState(() => merchant?.businessType ?? '')
   const [copied, setCopied] = useState(false)
 
-  // Sync form when merchant data first arrives (merchant was undefined on mount)
   const merchantName = merchant?.name ?? ''
   const merchantEmail = merchant?.email ?? ''
   const merchantBizType = merchant?.businessType ?? ''
@@ -39,10 +37,9 @@ export default function MerchantProfile({ merchantAddress }: Props) {
   if (!editing && merchantEmail && email !== merchantEmail) setEmail(merchantEmail)
   if (!editing && merchantBizType && bizType !== merchantBizType) setBizType(merchantBizType)
 
-  // On save success
   useEffect(() => {
     if (isSuccess) {
-      toast.success('Profil berhasil diperbarui!')
+      toast.success('Profile updated successfully!')
       startTransition(() => setEditing(false))
       void refetch()
     }
@@ -50,7 +47,7 @@ export default function MerchantProfile({ merchantAddress }: Props) {
   }, [isSuccess])
 
   useEffect(() => {
-    if (error) toast.error('Gagal menyimpan. Coba lagi.')
+    if (error) toast.error('Failed to save. Please try again.')
   }, [error])
 
   const handleSave = () => {
@@ -70,7 +67,7 @@ export default function MerchantProfile({ merchantAddress }: Props) {
   }
 
   const registeredDate = merchant?.registeredAt
-    ? new Date(Number(merchant.registeredAt) * 1000).toLocaleDateString('id-ID', {
+    ? new Date(Number(merchant.registeredAt) * 1000).toLocaleDateString('en-US', {
         day: 'numeric', month: 'long', year: 'numeric',
       })
     : '—'
@@ -80,7 +77,7 @@ export default function MerchantProfile({ merchantAddress }: Props) {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center py-24 gap-2" style={{ color: 'var(--muted)' }}>
-        <Loader2 className="w-4 h-4 animate-spin" /> Memuat profil…
+        <Loader2 className="w-4 h-4 animate-spin" /> Loading profile…
       </div>
     )
   }
@@ -89,7 +86,7 @@ export default function MerchantProfile({ merchantAddress }: Props) {
     return (
       <div className="py-16 text-center" style={{ color: 'var(--muted)' }}>
         <UserCircle className="w-12 h-12 mx-auto mb-3 opacity-30" />
-        <p className="text-sm">Akun merchant belum terdaftar.</p>
+        <p className="text-sm">Merchant account not registered yet.</p>
       </div>
     )
   }
@@ -103,8 +100,8 @@ export default function MerchantProfile({ merchantAddress }: Props) {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="display text-2xl font-bold" style={{ color: 'var(--ink)' }}>Profil Merchant</h1>
-          <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>Data tersimpan permanen di blockchain Arc Testnet</p>
+          <h1 className="display text-2xl font-bold" style={{ color: 'var(--ink)' }}>Merchant Profile</h1>
+          <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>Data stored permanently on Arc Testnet blockchain</p>
         </div>
         {!editing && (
           <button
@@ -127,8 +124,8 @@ export default function MerchantProfile({ merchantAddress }: Props) {
         }}
       >
         {merchant.active
-          ? <><CheckCircle2 className="w-4 h-4" /> Akun Aktif</>
-          : <><XCircle className="w-4 h-4" /> Akun Nonaktif</>}
+          ? <><CheckCircle2 className="w-4 h-4" /> Account Active</>
+          : <><XCircle className="w-4 h-4" /> Account Inactive</>}
       </div>
 
       {/* Profile card */}
@@ -136,7 +133,7 @@ export default function MerchantProfile({ merchantAddress }: Props) {
         {editing ? (
           <div className="p-5 space-y-4">
             <div>
-              <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: 'var(--subtle)' }}>Nama Bisnis</label>
+              <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: 'var(--subtle)' }}>Business Name</label>
               <input
                 value={name}
                 onChange={e => setName(e.target.value)}
@@ -145,7 +142,7 @@ export default function MerchantProfile({ merchantAddress }: Props) {
               />
             </div>
             <div>
-              <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: 'var(--subtle)' }}>Email Kontak</label>
+              <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: 'var(--subtle)' }}>Contact Email</label>
               <input
                 type="email"
                 value={email}
@@ -155,20 +152,20 @@ export default function MerchantProfile({ merchantAddress }: Props) {
               />
             </div>
             <div>
-              <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: 'var(--subtle)' }}>Jenis Bisnis</label>
+              <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: 'var(--subtle)' }}>Business Type</label>
               <select
                 value={bizType}
                 onChange={e => setBizType(e.target.value)}
                 className="w-full px-3 py-2.5 rounded-xl text-sm outline-none"
                 style={{ background: 'var(--bg)', border: '1px solid var(--border)', color: 'var(--ink)' }}
               >
-                <option value="">Pilih kategori…</option>
+                <option value="">Select category…</option>
                 <option value="retail">Retail / E-commerce</option>
-                <option value="services">Jasa / Konsultasi</option>
-                <option value="food">Kuliner / F&amp;B</option>
-                <option value="digital">Produk Digital</option>
-                <option value="education">Pendidikan</option>
-                <option value="other">Lainnya</option>
+                <option value="services">Services / Consulting</option>
+                <option value="food">Food &amp; Beverage</option>
+                <option value="digital">Digital Products</option>
+                <option value="education">Education</option>
+                <option value="other">Other</option>
               </select>
             </div>
             <div className="flex gap-2 pt-1">
@@ -179,25 +176,25 @@ export default function MerchantProfile({ merchantAddress }: Props) {
                 style={{ background: 'var(--love)' }}
               >
                 {(isPending || isConfirming)
-                  ? <><Loader2 className="w-3.5 h-3.5 animate-spin" /> Menyimpan…</>
-                  : <><Save className="w-3.5 h-3.5" /> Simpan</>}
+                  ? <><Loader2 className="w-3.5 h-3.5 animate-spin" /> Saving…</>
+                  : <><Save className="w-3.5 h-3.5" /> Save</>}
               </button>
               <button
                 onClick={() => { setEditing(false); setName(merchant.name); setEmail(merchant.email); setBizType(merchant.businessType) }}
                 className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all"
                 style={{ background: 'var(--surface-muted)', color: 'var(--muted)' }}
               >
-                <X className="w-3.5 h-3.5" /> Batal
+                <X className="w-3.5 h-3.5" /> Cancel
               </button>
             </div>
           </div>
         ) : (
           <div>
             {[
-              { label: 'Nama Bisnis', value: merchant.name },
-              { label: 'Email Kontak', value: merchant.email },
-              { label: 'Jenis Bisnis', value: BIZ_LABELS[merchant.businessType] ?? merchant.businessType },
-              { label: 'Terdaftar Sejak', value: registeredDate },
+              { label: 'Business Name', value: merchant.name },
+              { label: 'Contact Email', value: merchant.email },
+              { label: 'Business Type', value: BIZ_LABELS[merchant.businessType] ?? merchant.businessType },
+              { label: 'Registered Since', value: registeredDate },
             ].map((row, i, arr) => (
               <div
                 key={row.label}
@@ -222,7 +219,7 @@ export default function MerchantProfile({ merchantAddress }: Props) {
               onClick={copyAddress}
               className="p-2 rounded-lg transition-all"
               style={{ background: 'var(--surface-muted)', color: copied ? 'var(--success)' : 'var(--muted)' }}
-              title="Salin alamat"
+              title="Copy address"
             >
               {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
             </button>
@@ -241,7 +238,7 @@ export default function MerchantProfile({ merchantAddress }: Props) {
 
       {/* Blockchain info */}
       <p className="text-xs text-center pb-4" style={{ color: 'var(--subtle)' }}>
-        Data disimpan di smart contract · Arc Testnet · Terdaftar {registeredDate}
+        Data stored on smart contract · Arc Testnet · Registered {registeredDate}
       </p>
     </motion.div>
   )

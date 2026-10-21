@@ -60,14 +60,14 @@ export default function AboutModal({ open, onClose }: Props) {
             <div className="px-6 pb-6 space-y-4">
               {/* Tagline */}
               <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
-                Platform pembayaran USDC berbasis blockchain. Terima pembayaran dari mana saja,
-                tanpa bank, tanpa perantara — semua transaksi tersimpan permanen di smart contract.
+                Blockchain-based USDC payment platform. Accept payments from anywhere,
+                no banks, no intermediaries — all transactions stored permanently on smart contract.
               </p>
 
               {/* Key stats */}
               <div className="grid grid-cols-3 gap-2">
                 {[
-                  { icon: Shield, label: 'Immutable', sub: 'Kontrak permanen' },
+                  { icon: Shield, label: 'Immutable', sub: 'Permanent contract' },
                   { icon: Zap,    label: 'Sub-second', sub: 'Arc Testnet' },
                   { icon: QrCode, label: 'USDC Only', sub: 'Stablecoin' },
                 ].map(({ icon: Icon, label, sub }) => (
@@ -84,7 +84,7 @@ export default function AboutModal({ open, onClose }: Props) {
               <div className="rounded-2xl p-4 space-y-3"
                 style={{ background: 'var(--surface-muted)', border: '1px solid var(--border)' }}>
                 <p className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: 'var(--subtle)' }}>
-                  Info Kontrak
+                  Contract Info
                 </p>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
@@ -119,7 +119,7 @@ export default function AboutModal({ open, onClose }: Props) {
                 className="flex items-center justify-center gap-2 w-full py-3 rounded-2xl text-sm font-semibold transition-all"
                 style={{ background: 'var(--surface-muted)', color: 'var(--ink-2)', border: '1px solid var(--border)' }}>
                 <ExternalLink className="w-4 h-4" />
-                Lihat di Arc Explorer
+                View on Arc Explorer
               </a>
 
               <p className="text-center text-[10px]" style={{ color: 'var(--subtle)' }}>

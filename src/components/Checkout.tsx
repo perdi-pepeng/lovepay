@@ -14,13 +14,13 @@ const ZERO_BYTES32 = '0x00000000000000000000000000000000000000000000000000000000
 
 function parseOnchainError(error: unknown): string {
   const msg = (error as { message?: string })?.message?.toLowerCase() ?? ''
-  if (msg.includes('user rejected') || msg.includes('user denied')) return 'Transaksi dibatalkan.'
-  if (msg.includes('insufficient funds') || msg.includes('exceeds balance')) return 'Saldo tidak mencukupi.'
-  if (msg.includes('inactive merchant')) return 'Merchant tidak aktif.'
-  if (msg.includes('amount must equal invoice total')) return 'Nominal harus sama dengan total invoice.'
-  if (msg.includes('reverted')) return 'Transaksi ditolak kontrak. Periksa nominal.'
-  if (msg.includes('network') || msg.includes('timeout')) return 'Gangguan jaringan. Coba lagi.'
-  return 'Terjadi kesalahan. Coba lagi.'
+  if (msg.includes('user rejected') || msg.includes('user denied')) return 'Transaction cancelled.'
+  if (msg.includes('insufficient funds') || msg.includes('exceeds balance')) return 'Insufficient balance.'
+  if (msg.includes('inactive merchant')) return 'Merchant is not active.'
+  if (msg.includes('amount must equal invoice total')) return 'Amount must match invoice total.'
+  if (msg.includes('reverted')) return 'Transaction rejected by contract. Check the amount.'
+  if (msg.includes('network') || msg.includes('timeout')) return 'Network issue. Please try again.'
+  return 'Something went wrong. Please try again.'
 }
 
 interface CheckoutProps {
@@ -93,7 +93,7 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
 
   useEffect(() => {
     if (isApproveSuccess) {
-      toast.success('Izin USDC diberikan!')
+      toast.success('USDC approval granted!')
       void refetchAllowance()
       setStep('pay')
     }
@@ -104,15 +104,7 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
       setSuccessHash(payHash)
       setStep('done')
       onSuccess(payHash)
-      toast.success('Pembayaran berhasil!')
-      // Simpan tx hash ke localStorage agar Riwayat bisa tampilkan link Explorer
-      try {
-        const stored = JSON.parse(localStorage.getItem('lovepay_tx_hashes') ?? '[]') as Array<{ hash: string; ts: number }>
-        stored.push({ hash: payHash, ts: Math.floor(Date.now() / 1000) })
-        // Simpan maksimal 200 entry
-        if (stored.length > 200) stored.splice(0, stored.length - 200)
-        localStorage.setItem('lovepay_tx_hashes', JSON.stringify(stored))
-      } catch { /* ignore */ }
+      toast.success('Payment successful!')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPaySuccess, payHash])
@@ -147,7 +139,7 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
     <div className="min-h-dvh flex flex-col items-center justify-start pt-8 pb-24 px-4" style={{ background: 'var(--bg-gradient)' }}>
       <div className="w-full max-w-md">
         <button onClick={onBack} className="flex items-center gap-1.5 text-sm mb-6" style={{ color: 'var(--muted)' }}>
-          <ArrowLeft className="w-4 h-4" /> Kembali
+          <ArrowLeft className="w-4 h-4" /> Back
         </button>
 
         <div className="flex items-center gap-2 mb-6">
@@ -170,12 +162,12 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
                 <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: 'rgba(26,128,71,0.10)' }}>
                   <CheckCircle2 className="w-8 h-8" style={{ color: 'var(--success)' }} />
                 </div>
-                <div className="display text-xl font-bold mb-1" style={{ color: 'var(--ink)' }}>Pembayaran Berhasil!</div>
-                <div className="text-sm mb-1" style={{ color: 'var(--muted)' }}>USDC {Number(amount).toLocaleString('id-ID')} telah dikirim</div>
+                <div className="display text-xl font-bold mb-1" style={{ color: 'var(--ink)' }}>Payment Successful!</div>
+                <div className="text-sm mb-1" style={{ color: 'var(--muted)' }}>{Number(amount).toLocaleString('en-US')} USDC sent</div>
                 {memo && <div className="text-sm mb-4" style={{ color: 'var(--subtle)' }}>"{memo}"</div>}
                 {txUrl && (
                   <a href={txUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: '#1061a6' }}>
-                    Lihat Transaksi <ExternalLink className="w-3.5 h-3.5" />
+                    View Transaction <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 )}
                 <div className="mt-4 mono text-xs px-3 py-2 rounded-lg truncate" style={{ background: 'var(--surface-muted)', color: 'var(--subtle)' }}>
@@ -192,17 +184,17 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
                     <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-lg font-bold text-white" style={{ background: 'var(--love)' }}>M</div>
                     <div>
                       <div className="text-sm font-semibold" style={{ color: 'var(--ink)' }}>
-                        {merchantAddress ? `${merchantAddress.slice(0, 10)}…${merchantAddress.slice(-4)}` : 'Merchant Lovepay'}
+                        {merchantAddress ? `${merchantAddress.slice(0, 10)}…${merchantAddress.slice(-4)}` : 'Lovepay Merchant'}
                       </div>
-                      <div className="text-xs" style={{ color: 'var(--subtle)' }}>{memo || 'Pembayaran Lovepay'}</div>
+                      <div className="text-xs" style={{ color: 'var(--subtle)' }}>{memo || 'Lovepay Payment'}</div>
                     </div>
                   </div>
 
                   <div className="mb-4">
-                    <div className="text-xs font-semibold mb-2" style={{ color: 'var(--ink-2)' }}>Jumlah Pembayaran (USDC)</div>
+                    <div className="text-xs font-semibold mb-2" style={{ color: 'var(--ink-2)' }}>Payment Amount (USDC)</div>
                     {prefillAmount ? (
                       <div className="rounded-2xl px-4 py-3" style={{ background: 'var(--surface-muted)' }}>
-                        <div className="display text-3xl font-bold tabular-nums" style={{ color: 'var(--ink)' }}>{Number(prefillAmount).toLocaleString('id-ID')}</div>
+                        <div className="display text-3xl font-bold tabular-nums" style={{ color: 'var(--ink)' }}>{Number(prefillAmount).toLocaleString('en-US')}</div>
                         <div className="text-xs mt-1" style={{ color: 'var(--subtle)' }}>USDC · Arc Testnet</div>
                       </div>
                     ) : (
@@ -213,7 +205,7 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
                           <span className="text-xs" style={{ color: 'var(--subtle)' }}>USDC</span>
                           {formattedBalance && (
                             <button onClick={() => setAmount(formattedBalance)} className="text-xs font-semibold" style={{ color: 'var(--accent-hover)' }}>
-                              Saldo: {formattedBalance} · Maks
+                              Balance: {formattedBalance} · Max
                             </button>
                           )}
                         </div>
@@ -234,28 +226,28 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
 
                   {needsApprove && hasAmount && isConnected && !wrongChain && (
                     <div className="mb-3 px-3 py-2 rounded-xl text-xs" style={{ background: 'rgba(232,62,140,0.06)', color: 'var(--love)' }}>
-                      Langkah 1/2: Izinkan kontrak menggunakan USDC kamu, lalu konfirmasi pembayaran.
+                      Step 1/2: Approve the contract to use your USDC, then confirm payment.
                     </div>
                   )}
 
                   {!isConnected ? (
                     <div className="text-center py-4">
-                      <div className="text-sm mb-3" style={{ color: 'var(--muted)' }}>Hubungkan wallet untuk membayar</div>
+                      <div className="text-sm mb-3" style={{ color: 'var(--muted)' }}>Connect your wallet to pay</div>
                       <div className="flex justify-center"><ConnectKitButton /></div>
                     </div>
                   ) : wrongChain ? (
                     <button onClick={() => switchChain({ chainId: ARC_TESTNET_CHAIN_ID })} className="w-full py-3.5 rounded-2xl text-sm font-semibold text-white" style={{ background: '#b45309' }}>
-                      Ganti ke Arc Testnet
+                      Switch to Arc Testnet
                     </button>
                   ) : (
                     <button disabled={!hasAmount || !merchantAddress || isPending || isConfirming}
                       onClick={handleAction}
                       className="w-full py-3.5 rounded-2xl text-sm font-semibold text-white transition-all hover:scale-[1.01] active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                       style={{ background: 'var(--love)' }}>
-                      {isPending ? <><Loader2 className="w-4 h-4 animate-spin" /> Konfirmasi di wallet…</>
-                        : isConfirming ? <><Loader2 className="w-4 h-4 animate-spin" /> Memproses…</>
-                        : needsApprove ? `Izinkan & Bayar ${amount ? Number(amount).toLocaleString('id-ID') + ' USDC' : ''}`
-                        : `Bayar${amount ? ` ${Number(amount).toLocaleString('id-ID')} USDC` : ''}`}
+                      {isPending ? <><Loader2 className="w-4 h-4 animate-spin" /> Confirm in wallet…</>
+                        : isConfirming ? <><Loader2 className="w-4 h-4 animate-spin" /> Processing…</>
+                        : needsApprove ? `Approve & Pay ${amount ? Number(amount).toLocaleString('en-US') + ' USDC' : ''}`
+                        : `Pay${amount ? ` ${Number(amount).toLocaleString('en-US')} USDC` : ''}`}
                     </button>
                   )}
                 </div>
@@ -263,7 +255,7 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
 
               <div className="flex items-center gap-2 mt-4 justify-center">
                 <Shield className="w-3.5 h-3.5" style={{ color: 'var(--subtle)' }} />
-                <span className="text-xs" style={{ color: 'var(--subtle)' }}>Disimpan di smart contract · {chain.name}</span>
+                <span className="text-xs" style={{ color: 'var(--subtle)' }}>Stored on smart contract · {chain.name}</span>
               </div>
             </motion.div>
           )}

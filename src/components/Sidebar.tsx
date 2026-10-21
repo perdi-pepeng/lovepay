@@ -11,11 +11,11 @@ interface SidebarProps {
 }
 
 const NAV = [
-  { id: 'dashboard'    as View, label: 'Dasbor',          icon: LayoutDashboard },
-  { id: 'links'        as View, label: 'Payment Link',    icon: Link2 },
-  { id: 'invoices'     as View, label: 'Invoice',         icon: FileText },
-  { id: 'transactions' as View, label: 'Riwayat',         icon: History },
-  { id: 'profile'      as View, label: 'Profil Merchant', icon: UserCircle },
+  { id: 'dashboard'    as View, label: 'Dashboard',        icon: LayoutDashboard },
+  { id: 'links'        as View, label: 'Payment Links',    icon: Link2 },
+  { id: 'invoices'     as View, label: 'Invoices',         icon: FileText },
+  { id: 'transactions' as View, label: 'History',          icon: History },
+  { id: 'profile'      as View, label: 'Merchant Profile', icon: UserCircle },
 ]
 
 export default function Sidebar({ view, onView, onAbout, notifCount }: SidebarProps) {
@@ -33,7 +33,7 @@ export default function Sidebar({ view, onView, onAbout, notifCount }: SidebarPr
         <button
           onClick={onAbout}
           className="px-6 pt-7 pb-5 text-left group transition-all rounded-none hover:opacity-90"
-          title="Tentang Lovepay"
+          title="About Lovepay"
         >
           <div className="flex items-center gap-3">
             <LovepayLogo size={40} className="shrink-0 transition-transform group-hover:scale-105" />
@@ -53,7 +53,7 @@ export default function Sidebar({ view, onView, onAbout, notifCount }: SidebarPr
 
         {/* Section label */}
         <div className="px-6 mb-2">
-          <span className="text-[10px] font-semibold tracking-widest uppercase" style={{ color: 'var(--subtle)' }}>Menu Utama</span>
+          <span className="text-[10px] font-semibold tracking-widest uppercase" style={{ color: 'var(--subtle)' }}>Main Menu</span>
         </div>
 
         {/* Nav */}
@@ -99,7 +99,7 @@ export default function Sidebar({ view, onView, onAbout, notifCount }: SidebarPr
                 style={{ background: 'var(--love)' }} />
             )}
             <BookOpen className="w-4 h-4 shrink-0" />
-            <span>Panduan</span>
+            <span>Guide</span>
           </button>
 
           {/* Notif badge */}
@@ -107,7 +107,7 @@ export default function Sidebar({ view, onView, onAbout, notifCount }: SidebarPr
             <div className="px-3 py-2 rounded-xl flex items-center gap-2 text-xs font-medium"
               style={{ background: 'var(--love-soft)', color: 'var(--love)', border: '1px solid rgba(244,63,143,0.20)' }}>
               <span className="w-1.5 h-1.5 rounded-full" style={{ background: 'var(--love)' }} />
-              {notifCount} notifikasi baru
+              {notifCount} new notifications
             </div>
           )}
         </div>
@@ -122,7 +122,7 @@ export default function Sidebar({ view, onView, onAbout, notifCount }: SidebarPr
           borderTop: '1px solid var(--sidebar-border)',
         }}
       >
-        {[...NAV, { id: 'guide' as View, label: 'Panduan', icon: BookOpen }].map(({ id, label, icon: Icon }) => {
+        {[...NAV, { id: 'guide' as View, label: 'Guide', icon: BookOpen }].map(({ id, label, icon: Icon }) => {
           const active = view === id
           return (
             <button

@@ -6,7 +6,7 @@ import { encodeAbiParameters, parseAbiParameters } from 'viem'
 import { useMerchantInvoiceIds, useInvoice, useCreateInvoice, useUpdateInvoiceStatus, type CreateInvoiceParams } from '../store'
 import { formatUSDC } from './format-utils'
 
-const STATUS_LABELS: Record<number, string> = { 0: 'Draft', 1: 'Terkirim', 2: 'Lunas', 3: 'Terlambat' }
+const STATUS_LABELS: Record<number, string> = { 0: 'Draft', 1: 'Sent', 2: 'Paid', 3: 'Overdue' }
 const STATUS_COLORS: Record<number, string> = { 0: 'var(--muted)', 1: 'var(--accent-hover)', 2: 'var(--success)', 3: 'var(--danger)' }
 
 function InvoiceRow({ invoiceId }: { invoiceId: string }) {
@@ -42,11 +42,11 @@ function InvoiceRow({ invoiceId }: { invoiceId: string }) {
 
   const handleShare = () => {
     if (navigator.share) {
-      void navigator.share({ title: `Invoice ${invoice.invoiceNumber}`, text: `Bayar invoice ${invoice.invoiceNumber} sebesar $${formatUSDC(invoice.total)} USDC`, url: checkoutUrl })
+      void navigator.share({ title: `Invoice ${invoice.invoiceNumber}`, text: `Pay invoice ${invoice.invoiceNumber} for $${formatUSDC(invoice.total)} USDC`, url: checkoutUrl })
     } else {
       void navigator.clipboard.writeText(checkoutUrl).then(() => {
         setCopied(true)
-        toast.success('Link invoice disalin!')
+        toast.success('Invoice link copied!')
         setTimeout(() => setCopied(false), 2000)
       })
     }
@@ -55,7 +55,7 @@ function InvoiceRow({ invoiceId }: { invoiceId: string }) {
   const handleCopy = () => {
     void navigator.clipboard.writeText(checkoutUrl).then(() => {
       setCopied(true)
-      toast.success('Link invoice disalin!')
+      toast.success('Invoice link copied!')
       setTimeout(() => setCopied(false), 2000)
     })
   }
@@ -107,7 +107,7 @@ function InvoiceRow({ invoiceId }: { invoiceId: string }) {
                 className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold"
                 style={{ background: 'var(--love-soft)', color: 'var(--love)' }}
               >
-                <Share2 className="w-3.5 h-3.5" /> Bagikan Invoice
+                <Share2 className="w-3.5 h-3.5" /> Share Invoice
               </button>
 
               <button
@@ -116,7 +116,7 @@ function InvoiceRow({ invoiceId }: { invoiceId: string }) {
                 style={{ background: 'var(--surface-muted)', color: 'var(--ink)' }}
               >
                 {copied ? <Check className="w-3.5 h-3.5" style={{ color: 'var(--success)' }} /> : <Copy className="w-3.5 h-3.5" />}
-                {copied ? 'Tersalin!' : 'Salin Link'}
+                {copied ? 'Copied!' : 'Copy Link'}
               </button>
 
               {/* Tandai Lunas */}
@@ -127,7 +127,7 @@ function InvoiceRow({ invoiceId }: { invoiceId: string }) {
                   className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold disabled:opacity-40"
                   style={{ background: 'rgba(52,211,153,0.12)', color: 'var(--success)' }}
                 >
-                  <Check className="w-3.5 h-3.5" /> Tandai Lunas
+                  <Check className="w-3.5 h-3.5" /> Mark as Paid
                 </button>
               )}
 
@@ -139,7 +139,7 @@ function InvoiceRow({ invoiceId }: { invoiceId: string }) {
                   className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold disabled:opacity-40"
                   style={{ background: 'var(--surface-muted)', color: 'var(--muted)' }}
                 >
-                  Tandai Terkirim
+                  Mark as Sent
                 </button>
               )}
 
@@ -186,7 +186,7 @@ export default function Invoices({ merchantAddress }: Props) {
 
   useEffect(() => {
     if (isSuccess) {
-      toast.success('Invoice berhasil dibuat!')
+      toast.success('Invoice created successfully!')
       startTransition(() => {
         setShowSheet(false)
         setCustomerName('')
@@ -200,7 +200,7 @@ export default function Invoices({ merchantAddress }: Props) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess])
 
-  useEffect(() => { if (error) toast.error('Gagal membuat invoice.') }, [error])
+  useEffect(() => { if (error) toast.error('Failed to create invoice.') }, [error])
 
   const addItem = () => setItems(prev => [...prev, { id: String(Date.now()), description: '', qty: '1', price: '' }])
   const removeItem = (id: string) => setItems(prev => prev.filter(i => i.id !== id))
@@ -241,29 +241,29 @@ export default function Invoices({ merchantAddress }: Props) {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="display text-2xl font-bold" style={{ color: 'var(--ink)' }}>Invoice</h1>
-          <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>{invoiceIds.length} invoice · disimpan onchain</p>
+          <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>{invoiceIds.length} invoices · stored onchain</p>
         </div>
         <button
           onClick={() => setShowSheet(true)}
           className="flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm font-semibold text-white"
           style={{ background: 'var(--gradient-love)', boxShadow: '0 4px 16px var(--love-glow)' }}
         >
-          <Plus className="w-4 h-4" /> Buat Invoice
+          <Plus className="w-4 h-4" /> New Invoice
         </button>
       </div>
 
       {/* List */}
       {isLoading ? (
         <div className="flex items-center justify-center py-16 gap-2" style={{ color: 'var(--muted)' }}>
-          <Loader2 className="w-4 h-4 animate-spin" /> Memuat dari blockchain…
+          <Loader2 className="w-4 h-4 animate-spin" /> Loading from blockchain…
         </div>
       ) : invoiceIds.length === 0 ? (
         <div className="rounded-2xl p-14 text-center" style={{ background: 'var(--surface-strong)', border: '1px solid var(--border)' }}>
           <div className="w-12 h-12 rounded-2xl mx-auto mb-4 flex items-center justify-center" style={{ background: 'var(--surface-muted)' }}>
             <FileText className="w-6 h-6" style={{ color: 'var(--subtle)' }} />
           </div>
-          <p className="text-sm font-semibold mb-1" style={{ color: 'var(--ink)' }}>Belum ada invoice</p>
-          <p className="text-xs" style={{ color: 'var(--muted)' }}>Buat invoice pertamamu dan bagikan ke pelanggan</p>
+          <p className="text-sm font-semibold mb-1" style={{ color: 'var(--ink)' }}>No invoices yet</p>
+          <p className="text-xs" style={{ color: 'var(--muted)' }}>Create your first invoice and share it with customers</p>
         </div>
       ) : (
         <div className="space-y-2">
@@ -292,7 +292,7 @@ export default function Invoices({ merchantAddress }: Props) {
               {/* Modal header */}
               <div className="flex items-center justify-between px-6 pt-6 pb-4" style={{ borderBottom: '1px solid var(--border)' }}>
                 <div>
-                  <h2 className="display text-lg font-bold" style={{ color: 'var(--ink)' }}>Invoice Baru</h2>
+                  <h2 className="display text-lg font-bold" style={{ color: 'var(--ink)' }}>New Invoice</h2>
                   <p className="text-xs font-mono mt-0.5" style={{ color: 'var(--love)' }}>{nextInvNum}</p>
                 </div>
                 <button
@@ -310,14 +310,14 @@ export default function Invoices({ merchantAddress }: Props) {
                 {/* Section: Pelanggan */}
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--subtle)' }}>
-                    Info Pelanggan
+                    Customer Info
                   </p>
                   <div className="space-y-3">
                     <div className="relative">
                       <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" style={{ color: 'var(--subtle)' }} />
                       <input
                         value={customerName} onChange={e => setCustomerName(e.target.value)}
-                        placeholder="Nama pelanggan *"
+                        placeholder="Customer name *"
                         className={inputCls + " pl-10"}
                         style={inputStyle}
                       />
@@ -326,7 +326,7 @@ export default function Invoices({ merchantAddress }: Props) {
                       <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" style={{ color: 'var(--subtle)' }} />
                       <input
                         type="email" value={customerEmail} onChange={e => setCustomerEmail(e.target.value)}
-                        placeholder="Email pelanggan *"
+                        placeholder="Customer email *"
                         className={inputCls + " pl-10"}
                         style={inputStyle}
                       />
@@ -353,15 +353,15 @@ export default function Invoices({ merchantAddress }: Props) {
                       className="flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-lg"
                       style={{ background: 'var(--love-soft)', color: 'var(--love)' }}
                     >
-                      <Plus className="w-3 h-3" /> Tambah Item
+                      <Plus className="w-3 h-3" /> Add Item
                     </button>
                   </div>
 
                   {/* Column headers */}
                   <div className="grid grid-cols-12 gap-2 mb-2 px-1">
-                    <span className="col-span-6 text-[10px] font-medium" style={{ color: 'var(--subtle)' }}>Deskripsi</span>
+                    <span className="col-span-6 text-[10px] font-medium" style={{ color: 'var(--subtle)' }}>Description</span>
                     <span className="col-span-2 text-[10px] font-medium text-center" style={{ color: 'var(--subtle)' }}>Qty</span>
-                    <span className="col-span-3 text-[10px] font-medium" style={{ color: 'var(--subtle)' }}>Harga (USD)</span>
+                    <span className="col-span-3 text-[10px] font-medium" style={{ color: 'var(--subtle)' }}>Price (USD)</span>
                     <span className="col-span-1" />
                   </div>
 
@@ -374,7 +374,7 @@ export default function Invoices({ merchantAddress }: Props) {
                           <input
                             value={item.description}
                             onChange={e => updateItem(item.id, 'description', e.target.value)}
-                            placeholder="Nama produk / jasa"
+                            placeholder="Product / service name"
                             className="w-full rounded-xl pl-8 pr-3 py-2.5 text-xs outline-none"
                             style={inputStyle}
                           />
@@ -409,16 +409,16 @@ export default function Invoices({ merchantAddress }: Props) {
                 {/* Section: PPN + Diskon */}
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--subtle)' }}>
-                    Pajak & Diskon
+                    Tax & Discount
                   </p>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs mb-1.5 font-medium" style={{ color: 'var(--muted)' }}>PPN (%)</label>
+                      <label className="block text-xs mb-1.5 font-medium" style={{ color: 'var(--muted)' }}>VAT (%)</label>
                       <input type="number" value={tax} onChange={e => setTax(Number(e.target.value))}
                         className={inputCls} style={inputStyle} />
                     </div>
                     <div>
-                      <label className="block text-xs mb-1.5 font-medium" style={{ color: 'var(--muted)' }}>Diskon (%)</label>
+                      <label className="block text-xs mb-1.5 font-medium" style={{ color: 'var(--muted)' }}>Discount (%)</label>
                       <input type="number" value={discount} onChange={e => setDiscount(Number(e.target.value))}
                         className={inputCls} style={inputStyle} />
                     </div>
@@ -428,11 +428,11 @@ export default function Invoices({ merchantAddress }: Props) {
                 {/* Notes */}
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--subtle)' }}>
-                    Catatan
+                    Notes
                   </p>
                   <textarea
                     value={notes} onChange={e => setNotes(e.target.value)}
-                    placeholder="Syarat pembayaran, instruksi khusus, atau catatan lainnya…"
+                    placeholder="Payment terms, special instructions, or other notes…"
                     rows={3}
                     className="w-full rounded-xl px-4 py-3 text-sm outline-none resize-none"
                     style={inputStyle}
@@ -441,20 +441,20 @@ export default function Invoices({ merchantAddress }: Props) {
 
                 {/* Summary */}
                 <div className="rounded-2xl p-4 space-y-2" style={{ background: 'var(--surface-muted)', border: '1px solid var(--border)' }}>
-                  <p className="text-[11px] font-semibold uppercase tracking-widest mb-1" style={{ color: 'var(--subtle)' }}>Ringkasan</p>
+                  <p className="text-[11px] font-semibold uppercase tracking-widest mb-1" style={{ color: 'var(--subtle)' }}>Summary</p>
                   <div className="flex justify-between text-sm" style={{ color: 'var(--muted)' }}>
                     <span>Subtotal</span>
                     <span className="tabular-nums font-medium">${subtotal.toFixed(2)}</span>
                   </div>
                   {discountAmt > 0 && (
                     <div className="flex justify-between text-sm" style={{ color: 'var(--success)' }}>
-                      <span>Diskon {discount}%</span>
+                      <span>Discount {discount}%</span>
                       <span className="tabular-nums font-medium">-${discountAmt.toFixed(2)}</span>
                     </div>
                   )}
                   {taxAmt > 0 && (
                     <div className="flex justify-between text-sm" style={{ color: 'var(--muted)' }}>
-                      <span>PPN {tax}%</span>
+                      <span>VAT {tax}%</span>
                       <span className="tabular-nums font-medium">+${taxAmt.toFixed(2)}</span>
                     </div>
                   )}
@@ -477,13 +477,13 @@ export default function Invoices({ merchantAddress }: Props) {
                   style={{ background: 'var(--gradient-love)', boxShadow: '0 4px 16px var(--love-glow)' }}
                 >
                   {isPending
-                    ? <><Loader2 className="w-4 h-4 animate-spin" /> Konfirmasi di wallet…</>
+                    ? <><Loader2 className="w-4 h-4 animate-spin" /> Confirm in wallet…</>
                     : isConfirming
-                    ? <><Loader2 className="w-4 h-4 animate-spin" /> Menyimpan ke blockchain…</>
-                    : <><ChevronRight className="w-4 h-4" /> Buat Invoice</>}
+                    ? <><Loader2 className="w-4 h-4 animate-spin" /> Saving to blockchain…</>
+                    : <><ChevronRight className="w-4 h-4" /> Create Invoice</>}
                 </button>
                 <p className="text-center text-[11px] mt-2.5" style={{ color: 'var(--subtle)' }}>
-                  Invoice akan disimpan permanen di Arc Testnet
+                  Invoice stored permanently on Arc Testnet
                 </p>
               </div>
             </motion.div>

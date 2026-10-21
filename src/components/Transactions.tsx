@@ -6,7 +6,7 @@ import { buildTxExplorerUrl } from '@/onchain-facts'
 import { ARC_TESTNET_CHAIN_ID, LOVEPAY_CONTRACT } from '../contract'
 import { usePublicClient } from 'wagmi'
 
-/** Fetch tx hash dari blockNumber yang tersimpan di PaymentRecord — satu getBlock call, tanpa scan. */
+/** Fetch tx hash from blockNumber stored in PaymentRecord — single getBlock call, no scanning. */
 function useTxHashFromBlock(blockNumber: bigint | undefined): string | null {
   const [txHash, setTxHash] = useState<string | null>(null)
   const client = usePublicClient({ chainId: ARC_TESTNET_CHAIN_ID })
@@ -63,13 +63,13 @@ function PaymentRow({ paymentId, myAddress, directionFilter }: {
 
   return (
     <tr className="text-sm" style={{ borderBottom: '1px solid var(--border)' }}>
-      {/* ID + Tanggal */}
+      {/* ID + Date */}
       <td className="px-5 py-3">
         <p className="font-medium mono text-xs" style={{ color: 'var(--ink)' }}>{paymentId.slice(0, 10)}…</p>
-        <p className="text-xs" style={{ color: 'var(--muted)' }}>{date.toLocaleDateString('id-ID')}</p>
+        <p className="text-xs" style={{ color: 'var(--muted)' }}>{date.toLocaleDateString('en-US')}</p>
       </td>
 
-      {/* Arah */}
+      {/* Direction */}
       <td className="px-5 py-3">
         <span className="inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full"
           style={{
@@ -77,12 +77,12 @@ function PaymentRow({ paymentId, myAddress, directionFilter }: {
             color: isIncoming ? 'var(--success)' : 'var(--danger)',
           }}>
           {isIncoming
-            ? <><ArrowDownLeft className="w-3 h-3" /> Masuk</>
-            : <><ArrowUpRightIcon className="w-3 h-3" /> Keluar</>}
+            ? <><ArrowDownLeft className="w-3 h-3" /> Incoming</>
+            : <><ArrowUpRightIcon className="w-3 h-3" /> Outgoing</>}
         </span>
       </td>
 
-      {/* Counterparty */}
+      {/* Counterparty */}  
       <td className="px-5 py-3 text-xs mono" style={{ color: 'var(--ink-2)' }}>
         {counterparty.slice(0, 8)}…{counterparty.slice(-4)}
       </td>
@@ -94,7 +94,7 @@ function PaymentRow({ paymentId, myAddress, directionFilter }: {
         </p>
       </td>
 
-      {/* Jumlah */}
+      {/* Amount */}
       <td className="px-5 py-3 tabular-nums text-right font-semibold text-sm"
         style={{ color: isIncoming ? 'var(--success)' : 'var(--danger)' }}>
         {isIncoming ? '+' : '-'}${formatUSDC(payment.amount)}
@@ -103,7 +103,7 @@ function PaymentRow({ paymentId, myAddress, directionFilter }: {
       {/* Status */}
       <td className="px-5 py-3"><StatusBadge status={payment.status} /></td>
 
-      {/* Bukti — tx hash dari block */}
+      {/* Proof — tx hash from block */}
       <td className="px-5 py-3">
         {txUrl ? (
           <a href={txUrl} target="_blank" rel="noreferrer"
@@ -154,9 +154,9 @@ export default function Transactions({ merchantAddress }: Props) {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="display text-2xl font-bold" style={{ color: 'var(--ink)' }}>Riwayat Transaksi</h1>
+          <h1 className="display text-2xl font-bold" style={{ color: 'var(--ink)' }}>Transaction History</h1>
           <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>
-            {received.length} diterima · {allIds.length - received.length} dikirim · {allIds.length} total
+            {received.length} received · {allIds.length - received.length} sent · {allIds.length} total
           </p>
         </div>
         <button onClick={handleExport}
@@ -177,34 +177,34 @@ export default function Transactions({ merchantAddress }: Props) {
               color: filter === f ? 'var(--love)' : 'var(--muted)',
               border: filter === f ? '1px solid rgba(244,63,143,0.25)' : '1px solid transparent',
             }}>
-            {f === 'all' ? 'Semua' : f === 'in' ? 'Masuk' : 'Keluar'}
+            {f === 'all' ? 'All' : f === 'in' ? 'Incoming' : 'Outgoing'}
           </button>
         ))}
         <div className="flex-1 flex items-center gap-2 rounded-xl px-3 min-w-[160px]"
           style={{ background: 'var(--surface-strong)', border: '1px solid var(--border)' }}>
           <Search className="w-4 h-4 shrink-0" style={{ color: 'var(--subtle)' }} />
           <input value={search} onChange={e => setSearch(e.target.value)}
-            placeholder="Cari ID transaksi…"
+            placeholder="Search transaction ID…"
             className="flex-1 bg-transparent py-2 text-sm outline-none"
             style={{ color: 'var(--ink)' }} />
         </div>
         <button onClick={() => setSortAsc(v => !v)}
           className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm"
           style={{ background: 'var(--surface-strong)', border: '1px solid var(--border)', color: 'var(--ink-2)' }}>
-          <ArrowUpDown className="w-4 h-4" /> {sortAsc ? 'Lama' : 'Baru'}
+          <ArrowUpDown className="w-4 h-4" /> {sortAsc ? 'Oldest' : 'Newest'}
         </button>
       </div>
 
       {/* Table */}
       {isLoading ? (
         <div className="flex items-center justify-center py-12 gap-2" style={{ color: 'var(--muted)' }}>
-          <Loader2 className="w-4 h-4 animate-spin" /> Memuat dari blockchain…
+          <Loader2 className="w-4 h-4 animate-spin" /> Loading from blockchain…
         </div>
       ) : filtered.length === 0 ? (
         <div className="rounded-2xl p-10 text-center"
           style={{ background: 'var(--surface-strong)', border: '1px solid var(--border)' }}>
           <p className="text-sm" style={{ color: 'var(--muted)' }}>
-            {search ? 'Tidak ditemukan.' : 'Belum ada transaksi.'}
+            {search ? 'No results found.' : 'No transactions yet.'}
           </p>
         </div>
       ) : (
@@ -215,13 +215,13 @@ export default function Transactions({ merchantAddress }: Props) {
               <thead>
                 <tr className="text-xs font-semibold uppercase tracking-wide"
                   style={{ color: 'var(--muted)', borderBottom: '1px solid var(--border)' }}>
-                  <th className="px-5 py-3">ID / Tanggal</th>
-                  <th className="px-5 py-3">Arah</th>
-                  <th className="px-5 py-3">Pihak Lain</th>
+                  <th className="px-5 py-3">ID / Date</th>
+                  <th className="px-5 py-3">Direction</th>
+                  <th className="px-5 py-3">Counterparty</th>
                   <th className="px-5 py-3">Memo</th>
-                  <th className="px-5 py-3 text-right">Jumlah</th>
+                  <th className="px-5 py-3 text-right">Amount</th>
                   <th className="px-5 py-3">Status</th>
-                  <th className="px-5 py-3">Bukti</th>
+                  <th className="px-5 py-3">Proof</th>
                 </tr>
               </thead>
               <tbody>

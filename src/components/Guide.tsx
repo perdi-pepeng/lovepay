@@ -34,33 +34,33 @@ export default function Guide() {
     <div className="space-y-8 max-w-2xl">
       {/* Header */}
       <div>
-        <h1 className="display text-2xl font-bold mb-1" style={{ color: 'var(--ink)' }}>Panduan Lovepay</h1>
-        <p className="text-sm" style={{ color: 'var(--muted)' }}>Pelajari cara menggunakan setiap fitur platform</p>
+        <h1 className="display text-2xl font-bold mb-1" style={{ color: 'var(--ink)' }}>Lovepay Guide</h1>
+        <p className="text-sm" style={{ color: 'var(--muted)' }}>Learn how to use every feature of the platform</p>
       </div>
 
-      {/* Cara Kerja — 3 langkah */}
+      {/* How it works */}
       <div>
         <p className="text-[11px] font-semibold uppercase tracking-widest mb-4" style={{ color: 'var(--subtle)' }}>
-          Cara Kerja
+          How It Works
         </p>
         <div className="grid grid-cols-1 gap-3">
           {[
             {
               step: '01',
-              title: 'Daftar sebagai Merchant',
-              desc: 'Connect wallet, isi nama bisnis dan email. Data tersimpan permanen di blockchain — hanya perlu sekali.',
+              title: 'Register as a Merchant',
+              desc: 'Connect your wallet, enter your business name and email. Data is stored permanently on the blockchain — only needs to be done once.',
               color: 'var(--love)',
             },
             {
               step: '02',
-              title: 'Buat Payment Link atau Invoice',
-              desc: 'Payment Link untuk pembayaran umum yang bisa dibagikan ke siapa saja. Invoice untuk tagihan formal ke pelanggan tertentu dengan rincian item.',
+              title: 'Create a Payment Link or Invoice',
+              desc: 'Payment Links are for general payments shareable with anyone. Invoices are formal bills for specific customers with itemized details.',
               color: 'var(--accent-hover)',
             },
             {
               step: '03',
-              title: 'Bagikan & Terima Pembayaran',
-              desc: 'Bagikan link ke pelanggan. Customer connect wallet, approve USDC sekali, lalu bayar. USDC langsung masuk ke wallet kamu.',
+              title: 'Share & Receive Payments',
+              desc: 'Share the link with your customers. They connect their wallet, approve USDC once, then pay. USDC goes directly into your wallet.',
               color: 'var(--success)',
             },
           ].map(({ step, title, desc, color }) => (
@@ -79,10 +79,10 @@ export default function Guide() {
         </div>
       </div>
 
-      {/* Fitur-fitur */}
+      {/* Features */}
       <div>
         <p className="text-[11px] font-semibold uppercase tracking-widest mb-4" style={{ color: 'var(--subtle)' }}>
-          Penjelasan Fitur
+          Feature Overview
         </p>
         <div className="space-y-2">
           {[
@@ -90,31 +90,31 @@ export default function Guide() {
               icon: Link2,
               title: 'Payment Link',
               color: 'var(--accent-hover)',
-              desc: 'Buat link pembayaran yang bisa dibagikan via WhatsApp, email, atau QR code. Bisa single-use (satu kali bayar) atau multi-use (berkali-kali). Opsional set nominal tetap atau biarkan customer isi sendiri.',
+              desc: 'Create shareable payment links via WhatsApp, email, or QR code. Can be single-use (one payment only) or multi-use (unlimited). Optionally set a fixed amount or let the customer enter their own.',
             },
             {
               icon: FileText,
               title: 'Invoice',
               color: 'var(--love)',
-              desc: 'Tagihan formal dengan nomor invoice, nama pelanggan, rincian item, PPN, dan diskon. Nominal terkunci — customer harus bayar sesuai total. Status invoice otomatis berubah ke Lunas setelah dibayar.',
+              desc: 'Formal bill with invoice number, customer name, itemized breakdown, VAT, and discounts. Amount is locked — customer must pay the exact total. Invoice status automatically updates to Paid after payment.',
             },
             {
               icon: QrCode,
               title: 'QR Code',
               color: 'var(--success)',
-              desc: 'Setiap payment link punya QR code yang bisa diunduh dan dicetak. Customer scan QR dengan kamera HP → langsung ke halaman pembayaran.',
+              desc: 'Every payment link has a downloadable, printable QR code. Customers scan the QR with their phone camera and land directly on the payment page.',
             },
             {
               icon: History,
-              title: 'Riwayat Transaksi',
+              title: 'Transaction History',
               color: 'var(--love)',
-              desc: 'Semua transaksi masuk (pembayaran dari customer) dan keluar (pembayaran yang kamu kirim). Filter berdasarkan arah, search by ID, dan export ke CSV.',
+              desc: 'All incoming payments (from customers) and outgoing payments (sent by you). Filter by direction, search by ID, and export to CSV.',
             },
             {
               icon: UserCircle,
-              title: 'Profil Merchant',
+              title: 'Merchant Profile',
               color: 'var(--accent-hover)',
-              desc: 'Data bisnis kamu yang tersimpan di blockchain: nama, email, jenis bisnis, wallet address. Bisa diupdate kapan saja — perubahan disimpan onchain.',
+              desc: 'Your business data stored on the blockchain: name, email, business type, wallet address. Can be updated at any time — changes are saved onchain.',
             },
           ].map(({ icon: Icon, title, color, desc }) => (
             <div key={title} className="flex gap-4 p-4 rounded-2xl"
@@ -132,16 +132,16 @@ export default function Guide() {
         </div>
       </div>
 
-      {/* Kenapa Blockchain */}
+      {/* Why blockchain */}
       <div>
         <p className="text-[11px] font-semibold uppercase tracking-widest mb-4" style={{ color: 'var(--subtle)' }}>
-          Kenapa Blockchain?
+          Why Blockchain?
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {[
-            { icon: Shield, title: 'Tidak Bisa Dimanipulasi', desc: 'Semua data tersimpan di smart contract yang immutable — tidak ada yang bisa mengubah atau menghapus riwayat transaksi.' },
-            { icon: Zap,    title: 'Instan & Murah', desc: 'Transaksi konfirmasi dalam hitungan detik di Arc Testnet. Gas fee stabil karena Arc menggunakan USDC sebagai gas.' },
-            { icon: Globe,  title: 'Tanpa Bank', desc: 'Terima pembayaran dari siapa saja di seluruh dunia tanpa rekening bank, tanpa proses KYC rumit, tanpa biaya transfer internasional.' },
+            { icon: Shield, title: 'Tamper-Proof', desc: 'All data is stored in an immutable smart contract — no one can alter or delete transaction history.' },
+            { icon: Zap,    title: 'Instant & Low Cost', desc: 'Transactions confirm in seconds on Arc Testnet. Gas fees are stable because Arc uses USDC as gas.' },
+            { icon: Globe,  title: 'No Bank Required', desc: 'Accept payments from anyone worldwide without a bank account, no complex KYC, no international transfer fees.' },
           ].map(({ icon: Icon, title, desc }) => (
             <div key={title} className="p-4 rounded-2xl text-center"
               style={{ background: 'var(--surface-strong)', border: '1px solid var(--border)' }}>
@@ -159,32 +159,32 @@ export default function Guide() {
       {/* FAQ */}
       <div>
         <p className="text-[11px] font-semibold uppercase tracking-widest mb-4" style={{ color: 'var(--subtle)' }}>
-          Pertanyaan Umum
+          FAQ
         </p>
         <div className="space-y-2">
           <Accordion
-            q="Apa itu USDC?"
-            a="USDC adalah stablecoin yang nilainya selalu setara 1 USD. Diterbitkan oleh Circle dan digunakan sebagai mata uang di Lovepay. Tidak seperti Bitcoin atau ETH, USDC tidak fluktuatif sehingga aman untuk transaksi bisnis."
+            q="What is USDC?"
+            a="USDC is a stablecoin always pegged 1:1 to the US Dollar. Issued by Circle and used as the currency on Lovepay. Unlike Bitcoin or ETH, USDC does not fluctuate — safe for business transactions."
           />
           <Accordion
-            q="Apakah data saya aman?"
-            a="Data merchant, payment link, invoice, dan transaksi tersimpan di smart contract yang immutable di blockchain Arc Testnet. Tidak ada server pusat yang bisa diretas atau dimanipulasi. Hanya wallet kamu yang bisa mengubah data bisnismu."
+            q="Is my data safe?"
+            a="Merchant data, payment links, invoices, and transactions are stored in an immutable smart contract on the Arc Testnet blockchain. There is no central server that can be hacked or manipulated. Only your wallet can change your business data."
           />
           <Accordion
-            q="Bagaimana customer membayar?"
-            a="Customer buka link yang kamu bagikan, connect wallet mereka (MetaMask, Rabby, atau wallet lain), approve penggunaan USDC sekali, lalu konfirmasi pembayaran. USDC langsung masuk ke wallet kamu tanpa perantara."
+            q="How do customers pay?"
+            a="Customers open the link you shared, connect their wallet (MetaMask, Rabby, or any other), approve USDC spending once, then confirm the payment. USDC goes directly into your wallet with no intermediaries."
           />
           <Accordion
-            q="Apa bedanya Payment Link dan Invoice?"
-            a="Payment Link bisa dibagikan ke siapa saja dan bisa multi-use (banyak orang bayar). Invoice ditujukan ke satu pelanggan spesifik dengan rincian item, nomor invoice, dan nominal yang terkunci — lebih formal untuk tagihan bisnis."
+            q="What is the difference between a Payment Link and an Invoice?"
+            a="A Payment Link can be shared with anyone and can be multi-use (many people can pay). An Invoice is directed at a specific customer with itemized breakdown, invoice number, and a locked amount — more formal for business billing."
           />
           <Accordion
-            q="Apakah ada biaya platform?"
-            a="Lovepay tidak memungut biaya platform. Kamu hanya perlu membayar gas fee jaringan Arc (sangat kecil, dibayar dalam USDC). Semua pembayaran masuk 100% ke wallet kamu."
+            q="Are there any platform fees?"
+            a="Lovepay does not charge platform fees. You only pay the Arc network gas fee (very small, paid in USDC). 100% of every payment goes directly into your wallet."
           />
           <Accordion
-            q="Ini untuk testnet atau mainnet?"
-            a="Saat ini Lovepay berjalan di Arc Testnet — semua USDC adalah testnet token tanpa nilai nyata. Ini untuk demonstrasi dan pengembangan. Untuk produksi dengan uang sungguhan, perlu deploy ke Arc Mainnet."
+            q="Is this testnet or mainnet?"
+            a="Lovepay currently runs on Arc Testnet — all USDC is testnet tokens with no real value. This is for demonstration and development. For production with real funds, deploy to Arc Mainnet."
           />
         </div>
       </div>
@@ -193,13 +193,13 @@ export default function Guide() {
       <div className="rounded-2xl p-5 space-y-3"
         style={{ background: 'var(--surface-strong)', border: '1px solid var(--border)' }}>
         <p className="text-[11px] font-semibold uppercase tracking-widest" style={{ color: 'var(--subtle)' }}>
-          Informasi Teknis
+          Technical Info
         </p>
         <div className="space-y-2 text-xs">
           {[
             ['Smart Contract', 'LovepayRegistry.sol'],
             ['Network', 'Arc Testnet (Chain ID: 5042002)'],
-            ['Currency', 'USDC (6 desimal)'],
+            ['Currency', 'USDC (6 decimals)'],
             ['Contract Address', `${LOVEPAY_CONTRACT.address.slice(0, 18)}…${LOVEPAY_CONTRACT.address.slice(-6)}`],
           ].map(([k, v]) => (
             <div key={k} className="flex justify-between">
@@ -211,7 +211,7 @@ export default function Guide() {
         <a href={explorerUrl} target="_blank" rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 text-xs font-semibold mt-1"
           style={{ color: 'var(--love)' }}>
-          Lihat Kontrak di Explorer <ArrowRight className="w-3.5 h-3.5" />
+          View Contract on Explorer <ArrowRight className="w-3.5 h-3.5" />
         </a>
       </div>
     </div>

@@ -16,13 +16,13 @@ export default function MerchantOnboarding({ address }: Props) {
 
   useEffect(() => {
     if (isSuccess) {
-      toast.success('Merchant berhasil terdaftar!')
+      toast.success('Merchant registered successfully!')
       setTimeout(() => window.location.reload(), 1500)
     }
   }, [isSuccess])
 
   useEffect(() => {
-    if (error) toast.error('Pendaftaran gagal. Coba lagi.')
+    if (error) toast.error('Registration failed. Please try again.')
   }, [error])
 
   const valid = name.trim().length > 0 && email.trim().length > 0 && bizType.trim().length > 0
@@ -39,21 +39,21 @@ export default function MerchantOnboarding({ address }: Props) {
         <div className="w-12 h-12 rounded-2xl mb-5 flex items-center justify-center" style={{ background: 'var(--love-soft)' }}>
           <span style={{ color: 'var(--love)', fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 20 }}>L</span>
         </div>
-        <h1 className="display text-2xl font-bold mb-1" style={{ color: 'var(--ink)' }}>Daftar sebagai Merchant</h1>
-        <p className="text-sm mb-6" style={{ color: 'var(--muted)' }}>Data kamu disimpan permanen di blockchain. Hanya perlu sekali.</p>
+        <h1 className="display text-2xl font-bold mb-1" style={{ color: 'var(--ink)' }}>Register as Merchant</h1>
+        <p className="text-sm mb-6" style={{ color: 'var(--muted)' }}>Your data is stored permanently on the blockchain. Only needs to be done once.</p>
 
         <div className="space-y-3">
           <div>
-            <label className="block text-xs font-semibold mb-1.5 tracking-wide uppercase" style={{ color: 'var(--subtle)' }}>Nama Bisnis</label>
+            <label className="block text-xs font-semibold mb-1.5 tracking-wide uppercase" style={{ color: 'var(--subtle)' }}>Business Name</label>
             <input
               value={name} onChange={e => setName(e.target.value)}
-              placeholder="Contoh: Toko Digital Abadi"
+              placeholder="e.g. Digital Store Pro"
               className="w-full rounded-xl px-4 py-3 text-sm outline-none"
               style={{ background: 'var(--surface-muted)', color: 'var(--ink)', border: '1px solid var(--border)' }}
             />
           </div>
           <div>
-            <label className="block text-xs font-semibold mb-1.5 tracking-wide uppercase" style={{ color: 'var(--subtle)' }}>Email Kontak</label>
+            <label className="block text-xs font-semibold mb-1.5 tracking-wide uppercase" style={{ color: 'var(--subtle)' }}>Contact Email</label>
             <input
               type="email" value={email} onChange={e => setEmail(e.target.value)}
               placeholder="merchant@email.com"
@@ -62,19 +62,19 @@ export default function MerchantOnboarding({ address }: Props) {
             />
           </div>
           <div>
-            <label className="block text-xs font-semibold mb-1.5 tracking-wide uppercase" style={{ color: 'var(--subtle)' }}>Jenis Bisnis</label>
+            <label className="block text-xs font-semibold mb-1.5 tracking-wide uppercase" style={{ color: 'var(--subtle)' }}>Business Type</label>
             <select
               value={bizType} onChange={e => setBizType(e.target.value)}
               className="w-full rounded-xl px-4 py-3 text-sm outline-none"
               style={{ background: 'var(--surface-muted)', color: bizType ? 'var(--ink)' : 'var(--subtle)', border: '1px solid var(--border)' }}
             >
-              <option value="">Pilih kategori…</option>
+              <option value="">Select category…</option>
               <option value="retail">Retail / E-commerce</option>
-              <option value="services">Jasa / Konsultasi</option>
-              <option value="food">Kuliner / F&amp;B</option>
-              <option value="digital">Produk Digital</option>
-              <option value="education">Pendidikan</option>
-              <option value="other">Lainnya</option>
+              <option value="services">Services / Consulting</option>
+              <option value="food">Food &amp; Beverage</option>
+              <option value="digital">Digital Products</option>
+              <option value="education">Education</option>
+              <option value="other">Other</option>
             </select>
           </div>
         </div>
@@ -86,7 +86,7 @@ export default function MerchantOnboarding({ address }: Props) {
         {isSuccess && txUrl && (
           <div className="mb-4 flex items-center gap-2 text-sm" style={{ color: 'var(--success)' }}>
             <CheckCircle2 className="w-4 h-4" />
-            <a href={txUrl} target="_blank" rel="noreferrer" className="underline underline-offset-2">Lihat transaksi</a>
+            <a href={txUrl} target="_blank" rel="noreferrer" className="underline underline-offset-2">View transaction</a>
           </div>
         )}
 
@@ -97,10 +97,10 @@ export default function MerchantOnboarding({ address }: Props) {
           style={{ background: 'var(--accent)' }}
         >
           {isPending ? (
-            <span className="flex items-center justify-center gap-2"><Loader2 className="w-4 h-4 animate-spin" /> Konfirmasi di wallet…</span>
+            <span className="flex items-center justify-center gap-2"><Loader2 className="w-4 h-4 animate-spin" /> Confirm in wallet…</span>
           ) : isConfirming ? (
-            <span className="flex items-center justify-center gap-2"><Loader2 className="w-4 h-4 animate-spin" /> Memproses…</span>
-          ) : 'Daftar Sekarang'}
+            <span className="flex items-center justify-center gap-2"><Loader2 className="w-4 h-4 animate-spin" /> Processing…</span>
+          ) : 'Register Now'}
         </button>
       </motion.div>
     </div>

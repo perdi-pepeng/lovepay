@@ -5,7 +5,7 @@ export function formatUSDC(raw: bigint): string {
   return Amount.fromRaw(raw, usdcDecimalsFor(ARC_TESTNET_CHAIN_ID)).toFixed(2)
 }
 
-const STATUS_LABELS: Record<number, string> = { 0: 'Draft', 1: 'Dikirim', 2: 'Lunas', 3: 'Batal' }
+const STATUS_LABELS: Record<number, string> = { 0: 'Draft', 1: 'Sent', 2: 'Paid', 3: 'Cancelled' }
 const STATUS_COLORS: Record<number, string> = {
   0: 'var(--muted)',
   1: 'var(--accent-hover)',

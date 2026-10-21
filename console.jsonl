@@ -1,308 +1,3 @@
-{"level":"debug","message":"[vite] connected.","timestamp":1792468290468}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792467574089:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792468292757}
-{"level":"debug","message":"[vite] connected.","timestamp":1792468293404}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792467574089:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792468298919}
-{"level":"debug","message":"[vite] connected.","timestamp":1792468494535}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792467574089:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792468494836}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792467574089:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792468499265}
-{"level":"debug","message":"[vite] connected.","timestamp":1792468580697}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792467574089:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792468581108}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792467574089:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792468648898}
-{"level":"error","message":"Error checking Cross-Origin-Opener-Policy: Failed to fetch","timestamp":1792468649183}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792468651952}
-{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792468651952}
-{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792468651953}
-{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792468651953}
-{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792468651953}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792468651953}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792468651953}
-{"level":"debug","message":"[vite] invalidate /src/components/Dashboard.tsx: Could not Fast Refresh (\"formatUSDC\" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports","timestamp":1792468651954}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792468651954}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792468645986:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792468651981}
-{"level":"error","message":"(previous line repeated 1× more)","timestamp":1792468653291}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792468653291}
-{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792468653291}
-{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792468653291}
-{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792468653292}
-{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792468653292}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792468653292}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792468653292}
-{"level":"debug","message":"[vite] invalidate /src/components/Dashboard.tsx: Could not Fast Refresh (\"formatUSDC\" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports","timestamp":1792468653293}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792468653294}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792468646058:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792468653333}
-{"level":"error","message":"(previous line repeated 1× more)","timestamp":1792468653384}
-{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792468653384}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792468653384}
-{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792468653385}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792468653385}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792468653385}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792468646058:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792468656588}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792468646058:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792468657595}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792468646058:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792468657922}
-{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792468743984}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792468646058:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792468749922}
-{"level":"error","message":"Warning: You are calling ReactDOMClient.createRoot() on a container that has already been passed to createRoot() before. Instead, call root.render() on the existing root instead if you want to update it.","timestamp":1792468979668}
-{"level":"debug","message":"[vite] invalidate /src/main.tsx: Could not Fast Refresh (\"true\" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports","timestamp":1792468979672}
-{"level":"debug","message":"[vite] hot updated: /src/main.tsx","timestamp":1792468979672}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792468979672}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792468646058:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792468979835}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792468979993}
-{"level":"error","message":"Warning: You are calling ReactDOMClient.createRoot() on a container that has already been passed to createRoot() before. Instead, call root.render() on the existing root instead if you want to update it.","timestamp":1792468980533}
-{"level":"debug","message":"[vite] invalidate /src/main.tsx: Could not Fast Refresh (\"true\" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports","timestamp":1792468980535}
-{"level":"debug","message":"[vite] hot updated: /src/main.tsx","timestamp":1792468980535}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792468980535}
-{"level":"debug","message":"(previous line repeated 1× more)","timestamp":1792468980691}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792468646058:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792468980691}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792468980863}
-{"level":"error","message":"Warning: You are calling ReactDOMClient.createRoot() on a container that has already been passed to createRoot() before. Instead, call root.render() on the existing root instead if you want to update it.","timestamp":1792469048431}
-{"level":"debug","message":"[vite] invalidate /src/main.tsx: Could not Fast Refresh (\"true\" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports","timestamp":1792469048480}
-{"level":"debug","message":"[vite] hot updated: /src/main.tsx","timestamp":1792469048480}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792469048480}
-{"level":"debug","message":"(previous line repeated 1× more)","timestamp":1792469048530}
-{"level":"error","message":"Warning: You are calling ReactDOMClient.createRoot() on a container that has already been passed to createRoot() before. Instead, call root.render() on the existing root instead if you want to update it.","timestamp":1792469048530}
-{"level":"debug","message":"[vite] invalidate /src/main.tsx: Could not Fast Refresh (\"true\" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports","timestamp":1792469048531}
-{"level":"debug","message":"[vite] hot updated: /src/main.tsx","timestamp":1792469048531}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792469048531}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792468646058:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792469198293}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792468646058:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792469210612}
-{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792469270261}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792468646058:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792469276325}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792468646058:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792469338374}
-{"level":"debug","message":"[vite] connected.","timestamp":1792469338865}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792468646058:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792469339851}
-{"level":"debug","message":"[vite] connected.","timestamp":1792469340464}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792468646058:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792469341700}
-{"level":"error","message":"(previous line repeated 3× more)","timestamp":1792469477992}
-{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792469477992}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792468646058:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792469493890}
-{"level":"error","message":"(previous line repeated 1× more)","timestamp":1792469514732}
-{"level":"error","message":"[vite] failed to connect to websocket.\nyour current setup:\n  (browser) iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/ <--[HTTP]--> localhost:5173/ (server)\n  (browser) iz0hhtz5gxob44qq2a56t.preview.studio.arc.io:/ <--[WebSocket (failing)]--> localhost:5173/ (server)\nCheck out your Vite / network configuration and https://vite.dev/config/server-options.html#server-hmr .","timestamp":1792469514732}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792468646058:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792469561621}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792469725247:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792469733352}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792469725247:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792469852586}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792469955693}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792469955694}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792469956266}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792469956266}
-{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792470051274}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792469951229:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792470062727}
-{"level":"error","message":"[vite] failed to connect to websocket.\nyour current setup:\n  (browser) iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/ <--[HTTP]--> localhost:5173/ (server)\n  (browser) iz0hhtz5gxob44qq2a56t.preview.studio.arc.io:/ <--[WebSocket (failing)]--> localhost:5173/ (server)\nCheck out your Vite / network configuration and https://vite.dev/config/server-options.html#server-hmr .","timestamp":1792470083354}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792470122990}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792470122990}
-{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792470287643}
-{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792470341509}
-{"level":"error","message":"[vite] failed to connect to websocket.\nyour current setup:\n  (browser) iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/ <--[HTTP]--> localhost:5173/ (server)\n  (browser) iz0hhtz5gxob44qq2a56t.preview.studio.arc.io:/ <--[WebSocket (failing)]--> localhost:5173/ (server)\nCheck out your Vite / network configuration and https://vite.dev/config/server-options.html#server-hmr .","timestamp":1792470372074}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792470118050:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792470567924}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792470118050:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792470594362}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792470118050:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792470594527}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792470118050:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792470743675}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792470118050:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792470763373}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792470118050:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792470782952}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792470118050:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792471065301}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792470118050:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792471076685}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792470118050:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792471077303}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792471103418:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792471138279}
-{"level":"error","message":"(previous line repeated 1× more)","timestamp":1792471140450}
-{"level":"error","message":"Warning: You are calling ReactDOMClient.createRoot() on a container that has already been passed to createRoot() before. Instead, call root.render() on the existing root instead if you want to update it.","timestamp":1792471140450}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792471140455}
-{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792471140456}
-{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792471140457}
-{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792471140457}
-{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792471140457}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792471140458}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792471140458}
-{"level":"debug","message":"[vite] invalidate /src/components/Dashboard.tsx: Could not Fast Refresh (\"formatUSDC\" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports","timestamp":1792471140459}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792471140459}
-{"level":"debug","message":"[vite] invalidate /src/main.tsx: Could not Fast Refresh (\"true\" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports","timestamp":1792471140459}
-{"level":"debug","message":"[vite] hot updated: /src/main.tsx","timestamp":1792471140460}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792471103418:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792471140534}
-{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792471141885}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792471141885}
-{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792471141885}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792471141886}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792471141886}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792471141886}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792471141900}
-{"level":"debug","message":"(previous line repeated 1× more)","timestamp":1792471142175}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792471103418:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792471142175}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792471103418:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792471144712}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792471103418:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792471202921}
-{"level":"error","message":"(previous line repeated 1× more)","timestamp":1792471214150}
-{"level":"error","message":"[vite] failed to connect to websocket.\nyour current setup:\n  (browser) iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/ <--[HTTP]--> localhost:5173/ (server)\n  (browser) iz0hhtz5gxob44qq2a56t.preview.studio.arc.io:/ <--[WebSocket (failing)]--> localhost:5173/ (server)\nCheck out your Vite / network configuration and https://vite.dev/config/server-options.html#server-hmr .","timestamp":1792471214150}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792471103418:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792471223812}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792471103418:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792471227380}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792471441734:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792471470525}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792471441734:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792471489539}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792471441734:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792471506383}
-{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792471518681}
-{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792471519630}
-{"level":"debug","message":"[vite] connected.","timestamp":1792471522754}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792471441734:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792471523253}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792471441734:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792471524531}
-{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792471572270}
-{"level":"error","message":"Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s profile \n    at nav\n    at Sidebar (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Sidebar.tsx?t=1792464145126:32:35)\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792471441734:50:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792471601019}
-{"level":"debug","message":"[vite] connected.","timestamp":1792471601040}
-{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1792471609730}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792471609730}
-{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1792471609736}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792471609736}
-{"level":"debug","message":"[vite] connected.","timestamp":1792471658111}
-{"level":"debug","message":"[vite] invalidate /src/components/Dashboard.tsx: Could not Fast Refresh (export removed)","timestamp":1792471787839}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792471787839}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792471787839}
-{"level":"debug","message":"[vite] invalidate /src/components/Dashboard.tsx: Could not Fast Refresh (export removed)","timestamp":1792471787932}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792471787932}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792471787932}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'","timestamp":1792471789183,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'"}
-{"level":"error","message":"[vite] Failed to reload /src/components/Transactions.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471789183}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'","timestamp":1792471789835,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'"}
-{"level":"error","message":"[vite] Failed to reload /src/components/Invoices.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471789836}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'","timestamp":1792471791490,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'"}
-{"level":"error","message":"[vite] Failed to reload /src/App.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471791490}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'","timestamp":1792471791491,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'"}
-{"level":"error","message":"[vite] Failed to reload /src/components/PaymentLinks.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471791491}
-{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792471791492}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792471791492}
-{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792471791492}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792471791492}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792471791493}
-{"level":"debug","message":"[vite] invalidate /src/components/Dashboard.tsx: Could not Fast Refresh (export removed)","timestamp":1792471791874}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792471791875}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792471791875}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'","timestamp":1792471792024,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'"}
-{"level":"error","message":"[vite] Failed to reload /src/components/Transactions.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471792025}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'","timestamp":1792471792379,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'"}
-{"level":"error","message":"[vite] Failed to reload /src/components/Transactions.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471792379}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'","timestamp":1792471793132,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'"}
-{"level":"error","message":"[vite] Failed to reload /src/components/Invoices.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471793132}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'","timestamp":1792471795582,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'"}
-{"level":"error","message":"[vite] Failed to reload /src/components/Invoices.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471795582}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'","timestamp":1792471813170,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'"}
-{"level":"error","message":"[vite] Failed to reload /src/App.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471813170}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'","timestamp":1792471813171,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471762103' does not provide an export named 'formatUSDC'"}
-{"level":"error","message":"[vite] Failed to reload /src/components/PaymentLinks.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471813171}
-{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792471813172}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792471813172}
-{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792471813172}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792471813172}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792471813172}
-{"level":"debug","message":"[vite] invalidate /src/components/Dashboard.tsx: Could not Fast Refresh (export removed)","timestamp":1792471819309}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792471819309}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792471819310}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'StatusBadge'","timestamp":1792471820560,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'StatusBadge'"}
-{"level":"error","message":"[vite] Failed to reload /src/components/Transactions.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471820560}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'formatUSDC'","timestamp":1792471821231,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'formatUSDC'"}
-{"level":"error","message":"[vite] Failed to reload /src/components/Invoices.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471821231}
-{"level":"debug","message":"[vite] invalidate /src/components/Dashboard.tsx: Could not Fast Refresh (export removed)","timestamp":1792471825361}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792471825361}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792471825361}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'StatusBadge'","timestamp":1792471825741,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'StatusBadge'"}
-{"level":"error","message":"[vite] Failed to reload /src/components/Transactions.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471825742}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'formatUSDC'","timestamp":1792471826483,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'formatUSDC'"}
-{"level":"error","message":"[vite] Failed to reload /src/components/Invoices.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471826484}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'formatUSDC'","timestamp":1792471840112,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'formatUSDC'"}
-{"level":"error","message":"[vite] Failed to reload /src/App.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471840113}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'formatUSDC'","timestamp":1792471840113,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'formatUSDC'"}
-{"level":"error","message":"[vite] Failed to reload /src/App.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471840113}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'formatUSDC'","timestamp":1792471840119,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'formatUSDC'"}
-{"level":"error","message":"[vite] Failed to reload /src/components/PaymentLinks.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471840120}
-{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792471840120}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792471840120}
-{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792471840120}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792471840120}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792471840121}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'formatUSDC'","timestamp":1792471840121,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'formatUSDC'"}
-{"level":"error","message":"[vite] Failed to reload /src/components/PaymentLinks.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471840121}
-{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792471840121}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792471840121}
-{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792471840121}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792471840122}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792471840122}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'formatUSDC'","timestamp":1792471841997,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'formatUSDC'"}
-{"level":"error","message":"[vite] Failed to reload /src/App.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471841997}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'formatUSDC'","timestamp":1792471841997,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'formatUSDC'"}
-{"level":"error","message":"[vite] Failed to reload /src/components/PaymentLinks.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471841997}
-{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792471841997}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792471841997}
-{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792471841997}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792471841997}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792471841997}
-{"level":"debug","message":"[vite] invalidate /src/components/Dashboard.tsx: Could not Fast Refresh (export removed)","timestamp":1792471842001}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792471842001}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792471842001}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'formatUSDC'","timestamp":1792471842368,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'formatUSDC'"}
-{"level":"error","message":"[vite] Failed to reload /src/components/PaymentLinks.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471842368}
-{"level":"error","message":"[vite] SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'StatusBadge'","timestamp":1792471842541,"stack":"SyntaxError: The requested module '/src/components/Dashboard.tsx?t=1792471814914' does not provide an export named 'StatusBadge'"}
-{"level":"error","message":"[vite] Failed to reload /src/components/Transactions.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792471842541}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792472248384}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792472248384}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792472354357}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792472354357}
-{"level":"debug","message":"[vite] connected.","timestamp":1792472477975}
-{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792472538868}
-{"level":"debug","message":"[vite] connected.","timestamp":1792472547825}
-{"level":"debug","message":"[vite] connected.","timestamp":1792472636285}
-{"level":"error","message":"[vite] failed to connect to websocket.\nyour current setup:\n  (browser) iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/ <--[HTTP]--> localhost:5173/ (server)\n  (browser) iz0hhtz5gxob44qq2a56t.preview.studio.arc.io:/ <--[WebSocket (failing)]--> localhost:5173/ (server)\nCheck out your Vite / network configuration and https://vite.dev/config/server-options.html#server-hmr .","timestamp":1792473042286}
-{"level":"debug","message":"[vite] connected.","timestamp":1792473043149}
-{"level":"debug","message":"[vite] connected.","timestamp":1792473142542}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792473290837}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792473290837}
-{"level":"error","message":"[vite] failed to connect to websocket.\nyour current setup:\n  (browser) iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/ <--[HTTP]--> localhost:5173/ (server)\n  (browser) iz0hhtz5gxob44qq2a56t.preview.studio.arc.io:/ <--[WebSocket (failing)]--> localhost:5173/ (server)\nCheck out your Vite / network configuration and https://vite.dev/config/server-options.html#server-hmr .","timestamp":1792473325412}
-{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792473341277}
-{"level":"debug","message":"[vite] connected.","timestamp":1792473408583}
-{"level":"debug","message":"[vite] connected.","timestamp":1792473409222}
-{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792473583313}
-{"level":"error","message":"[vite] Failed to reload /src/components/format-utils.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792473776123}
-{"level":"error","message":"Warning: You are calling ReactDOMClient.createRoot() on a container that has already been passed to createRoot() before. Instead, call root.render() on the existing root instead if you want to update it.","timestamp":1792473779038}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792473779039}
-{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792473779040}
-{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792473779040}
-{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792473779040}
-{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792473779041}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792473779041}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792473779041}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792473779041}
-{"level":"debug","message":"[vite] hot updated: /src/components/format-utils.tsx","timestamp":1792473779041}
-{"level":"debug","message":"[vite] invalidate /src/main.tsx: Could not Fast Refresh (\"true\" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports","timestamp":1792473779042}
-{"level":"debug","message":"[vite] hot updated: /src/main.tsx","timestamp":1792473779042}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792473779385}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792473779386}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792473780360}
-{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792473780360}
-{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792473780361}
-{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792473780361}
-{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792473780361}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792473780361}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792473780362}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792473780362}
-{"level":"debug","message":"[vite] hot updated: /src/components/format-utils.tsx","timestamp":1792473780362}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792473780386}
-{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792473854280}
-{"level":"debug","message":"[vite] connected.","timestamp":1792473858243}
-{"level":"error","message":"Warning: You are calling ReactDOMClient.createRoot() on a container that has already been passed to createRoot() before. Instead, call root.render() on the existing root instead if you want to update it.","timestamp":1792474091154}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792474091161}
-{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792474091162}
-{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792474091163}
-{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792474091163}
-{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792474091163}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792474091163}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792474091163}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792474091163}
-{"level":"debug","message":"[vite] invalidate /src/components/format-utils.tsx: Could not Fast Refresh (\"formatUSDC\" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports","timestamp":1792474091164}
-{"level":"debug","message":"[vite] hot updated: /src/components/format-utils.tsx","timestamp":1792474091164}
-{"level":"debug","message":"[vite] invalidate /src/main.tsx: Could not Fast Refresh (\"true\" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports","timestamp":1792474091164}
-{"level":"debug","message":"[vite] hot updated: /src/main.tsx","timestamp":1792474091164}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792474092430}
-{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792474092430}
-{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792474092430}
-{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792474092430}
-{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792474092430}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792474092430}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792474092430}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792474092430}
-{"level":"debug","message":"[vite] hot updated: /src/components/format-utils.tsx","timestamp":1792474092430}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792474092436}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792474092436}
 {"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792474092436}
 {"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792474092437}
 {"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792474092437}
@@ -697,3 +392,631 @@
 {"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792551887289}
 {"level":"error","message":"Error checking Cross-Origin-Opener-Policy: Failed to fetch","timestamp":1792551898405}
 {"level":"debug","message":"[vite] connected.","timestamp":1792551916758}
+{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792552391954}
+{"level":"debug","message":"[vite] connected.","timestamp":1792552594638}
+{"level":"debug","message":"[vite] connected.","timestamp":1792552596638}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792552692418}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792552692418}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792552692418}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792552692418}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792552692419}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792552692419}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792552692419}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792552692419}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792552692996}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792552692997}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792552692997}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792552692997}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792552692997}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792552692997}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792552692998}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792552692998}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792552713796}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792552713796}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792552713797}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792552713797}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792552713798}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792552713798}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792552713798}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792552713798}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792552713800}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792552713800}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792552713800}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792552713800}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792552713800}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792552713800}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792552713800}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792552713800}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792552714032}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792552714032}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792552714032}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792552714033}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792552714033}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792552714033}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792552714033}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792552714033}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792552732490}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792552732490}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792552732490}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792552732490}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792552732490}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792552732490}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792552732490}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792552732490}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792552733826}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792552733826}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792552733826}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792552733827}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792552733827}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792552733827}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792552733827}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792552733827}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792552734207}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792552734207}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792552734207}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792552734207}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792552734207}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792552734208}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792552734208}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792552734208}
+{"level":"debug","message":"[vite] connected.","timestamp":1792553398941}
+{"level":"debug","message":"[vite] connected.","timestamp":1792553399945}
+{"level":"debug","message":"[vite] connected.","timestamp":1792553669817}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580486415}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792580486417}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792580486417}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792580486417}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580486418}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792580486418}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792580486418}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792580486418}
+{"level":"debug","message":"[vite] invalidate /src/components/format-utils.tsx: Could not Fast Refresh (\"formatUSDC\" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports","timestamp":1792580486419}
+{"level":"debug","message":"[vite] hot updated: /src/components/format-utils.tsx","timestamp":1792580486419}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1792580486419}
+{"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1792580486420}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580488033}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792580488033}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792580488033}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792580488033}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580488033}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792580488033}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792580488033}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792580488033}
+{"level":"debug","message":"[vite] invalidate /src/components/format-utils.tsx: Could not Fast Refresh (\"formatUSDC\" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports","timestamp":1792580488034}
+{"level":"debug","message":"[vite] hot updated: /src/components/format-utils.tsx","timestamp":1792580488034}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1792580488034}
+{"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1792580488035}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580489413}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792580489413}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792580489414}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792580489414}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580489414}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792580489414}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792580489415}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792580489415}
+{"level":"debug","message":"[vite] invalidate /src/components/format-utils.tsx: Could not Fast Refresh (\"formatUSDC\" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports","timestamp":1792580489415}
+{"level":"debug","message":"[vite] hot updated: /src/components/format-utils.tsx","timestamp":1792580489416}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1792580489416}
+{"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1792580489416}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580489429}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792580489430}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580489430}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792580489430}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792580489430}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580581553}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792580581554}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792580581554}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792580581554}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580581554}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792580581555}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792580581555}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792580581555}
+{"level":"debug","message":"[vite] invalidate /src/components/format-utils.tsx: Could not Fast Refresh (\"formatUSDC\" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports","timestamp":1792580581556}
+{"level":"debug","message":"[vite] hot updated: /src/components/format-utils.tsx","timestamp":1792580581556}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1792580581556}
+{"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1792580581556}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580581636}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792580581636}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792580581637}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792580581637}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580581637}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792580581637}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792580581637}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792580581637}
+{"level":"debug","message":"[vite] invalidate /src/components/format-utils.tsx: Could not Fast Refresh (\"formatUSDC\" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports","timestamp":1792580581638}
+{"level":"debug","message":"[vite] hot updated: /src/components/format-utils.tsx","timestamp":1792580581638}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1792580581638}
+{"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1792580581638}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580581887}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792580581887}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580581887}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792580581887}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792580581887}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580581893}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792580581893}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580581893}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792580581893}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792580581893}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792580617085}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580617085}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792580617085}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792580617086}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580617086}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792580617086}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792580617086}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792580617086}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792580630111}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580630112}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792580630112}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792580630112}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580630113}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792580630113}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792580630113}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792580630113}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792580718702}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580718702}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792580718702}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792580718702}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580718703}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792580718703}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792580718705}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792580718705}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792580720774}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580720774}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792580720774}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792580720775}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580720775}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792580720775}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792580720775}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792580720775}
+{"level":"error","message":"[vite] ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28","timestamp":1792580755920,"stack":"ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28"}
+{"level":"error","message":"[vite] Failed to reload /src/App.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792580755920}
+{"level":"error","message":"[vite] ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28","timestamp":1792580755932,"stack":"ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28"}
+{"level":"error","message":"[vite] Failed to reload /src/App.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792580755932}
+{"level":"error","message":"[vite] ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28","timestamp":1792580755933,"stack":"ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28"}
+{"level":"error","message":"[vite] Failed to reload /src/components/MerchantProfile.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792580755933}
+{"level":"error","message":"[vite] ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28","timestamp":1792580755934,"stack":"ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28"}
+{"level":"error","message":"[vite] Failed to reload /src/components/Dashboard.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792580755934}
+{"level":"error","message":"[vite] ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28","timestamp":1792580755935,"stack":"ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28"}
+{"level":"error","message":"[vite] Failed to reload /src/components/Invoices.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792580755936}
+{"level":"error","message":"[vite] ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28","timestamp":1792580755936,"stack":"ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28"}
+{"level":"error","message":"[vite] Failed to reload /src/components/Transactions.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792580755936}
+{"level":"error","message":"[vite] ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28","timestamp":1792580755937,"stack":"ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28"}
+{"level":"error","message":"[vite] Failed to reload /src/components/Checkout.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792580755937}
+{"level":"error","message":"[vite] ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28","timestamp":1792580755937,"stack":"ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28"}
+{"level":"error","message":"[vite] Failed to reload /src/components/PaymentLinks.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792580755937}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792580755938}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580755938}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792580755938}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792580755938}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580755939}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792580755939}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792580755939}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792580755939}
+{"level":"error","message":"[vite] ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28","timestamp":1792580755958,"stack":"ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28"}
+{"level":"error","message":"[vite] Failed to reload /src/components/Dashboard.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792580755959}
+{"level":"error","message":"[vite] ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28","timestamp":1792580755959,"stack":"ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28"}
+{"level":"error","message":"[vite] Failed to reload /src/components/Checkout.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792580755959}
+{"level":"error","message":"[vite] ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28","timestamp":1792580755960,"stack":"ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28"}
+{"level":"error","message":"[vite] Failed to reload /src/components/Invoices.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792580755960}
+{"level":"error","message":"[vite] ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28","timestamp":1792580755960,"stack":"ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28"}
+{"level":"error","message":"[vite] Failed to reload /src/components/MerchantProfile.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792580755960}
+{"level":"error","message":"[vite] ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28","timestamp":1792580755960,"stack":"ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28"}
+{"level":"error","message":"[vite] Failed to reload /src/components/Transactions.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792580755961}
+{"level":"error","message":"[vite] ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28","timestamp":1792580755961,"stack":"ReferenceError: parseAbiItem is not defined\n    at https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/store.ts?t=1792580753167:233:28"}
+{"level":"error","message":"[vite] Failed to reload /src/components/PaymentLinks.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)","timestamp":1792580755961}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792580755961}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580755961}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792580755961}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792580755961}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580755961}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792580755961}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792580755961}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792580755961}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792580781344}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580781345}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792580781345}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792580781345}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580781345}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792580781346}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792580781346}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792580781346}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792580781359}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580781360}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792580781360}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792580781360}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580781361}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792580781361}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792580781361}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792580781362}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580861408}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580861408}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580861411}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580861411}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792580898529}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580898529}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792580898529}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792580898529}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580898530}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792580898530}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792580898531}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792580898531}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792580898807}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792580898807}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792580898807}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792580898808}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792580898808}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792580898808}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792580898808}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792580898808}
+{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792581001006}
+{"level":"debug","message":"[vite] connected.","timestamp":1792581235996}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792581311568}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581311568}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792581311877}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581311877}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1792581335792}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581335792}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1792581335917}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581335917}
+{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792581345877}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1792581352019}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581352019}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1792581352022}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581352022}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1792581352022}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581352023}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1792581371967}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581371968}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1792581371980}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581371980}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1792581371980}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581371980}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1792581391239}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581391239}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1792581391243}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581391243}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1792581391244}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581391244}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1792581411221}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581411221}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1792581412331}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581412331}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1792581412854}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581412854}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581472046}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581472047}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581472049}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581472049}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581476546}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581476547}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581498036}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581498036}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581498042}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581498042}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581498364}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581498364}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581514618}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581514619}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581515152}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581515152}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581515510}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581515510}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581535303}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581535303}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581535303}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581535303}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581535304}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581535304}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581556549}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581556549}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581557361}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581557361}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581557736}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581557736}
+{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792581623142}
+{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792581623483}
+{"level":"error","message":"[vite] failed to connect to websocket.\nyour current setup:\n  (browser) iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/ <--[HTTP]--> localhost:5173/ (server)\n  (browser) iz0hhtz5gxob44qq2a56t.preview.studio.arc.io:/ <--[WebSocket (failing)]--> localhost:5173/ (server)\nCheck out your Vite / network configuration and https://vite.dev/config/server-options.html#server-hmr .","timestamp":1792581649106}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581740519}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581740520}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581741174}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581741174}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581760379}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581760380}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581764569}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581764569}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581781421}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581781421}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581781424}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581781424}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581801621}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581801621}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581801624}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581801624}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581823405}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581823406}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581823427}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581823428}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581844968}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581844969}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581844970}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581844970}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581865181}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581865181}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581865183}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581865183}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581887385}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581887385}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581887390}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581887390}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581908446}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581908446}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581908449}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581908449}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581929368}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581929368}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581929370}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581929370}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581959211}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581959211}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581959214}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581959214}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581973779}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581973779}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581973779}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581973779}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581997819}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581997819}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792581997822}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792581997822}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582020663}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582020663}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582020665}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582020665}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582050491}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582050491}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582051313}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582051313}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582067362}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582067362}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582067404}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582067404}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582086791}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582086791}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582086847}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582086848}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582106656}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582106656}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582106659}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582106659}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582158902}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582158903}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582158905}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582158905}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582175007}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582175007}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582175009}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582175009}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582191136}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582191137}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582191138}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582191139}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582215492}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582215492}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582215494}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582215495}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582222463}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582222463}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582222477}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582222477}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582236475}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582236475}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582236478}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582236478}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582250505}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582250505}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582250505}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582250505}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582267196}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582267196}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582267198}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582267198}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582281233}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582281233}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582281236}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582281236}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582295077}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582295077}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582295079}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582295080}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582308633}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582308633}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582309062}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582309062}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582322911}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582322912}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792582322915}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582322915}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582337165}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582337166}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582337168}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582337168}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582351548}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582351548}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582351702}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582351702}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582365910}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582365910}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582365912}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582365912}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582379377}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582379377}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582379379}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582379379}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582392981}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582392981}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582392984}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582392984}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582422733}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582422733}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582423122}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582423122}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582424499}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582424499}
+{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792582427865}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582439960}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582439960}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582442048}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582442048}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582462196}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582462196}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582473158}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582473158}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582473550}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582473550}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582475434}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582475435}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582478465}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582478466}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582488853}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582488853}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582504966}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582504966}
+{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792582520357}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582522767}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582522767}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582532994}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582532994}
+{"level":"error","message":"[vite] failed to connect to websocket.\nyour current setup:\n  (browser) iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/ <--[HTTP]--> localhost:5173/ (server)\n  (browser) iz0hhtz5gxob44qq2a56t.preview.studio.arc.io:/ <--[WebSocket (failing)]--> localhost:5173/ (server)\nCheck out your Vite / network configuration and https://vite.dev/config/server-options.html#server-hmr .","timestamp":1792582544396}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582562894}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582562894}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582566416}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582566417}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582576846}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582576846}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582592844}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582592844}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582647283}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582647283}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582666951}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582666952}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582677162}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582677162}
+{"level":"debug","message":"[vite] connected.","timestamp":1792582692188}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582715391}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582715391}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582737451}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582737451}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792582758289}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582758289}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582794682}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582794682}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582817379}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582817380}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582835447}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582835448}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582858271}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582858271}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582858275}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582858275}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582859778}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582859778}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582859779}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582859779}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582871602}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582871602}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582880747}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582880748}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582887059}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582887059}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582887572}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582887572}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582907055}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582907055}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582907063}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582907063}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582916752}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582916753}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582919340}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582919340}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582931878}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582931879}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582947102}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582947102}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582965284}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582965284}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582967678}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582967678}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582981540}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582981540}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792582983124}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582983124}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792582997085}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582997085}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792582997090}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792582997090}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792583012246}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583012246}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792583215283}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583215283}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1792583215895}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583215895}
+{"level":"error","message":"Error checking Cross-Origin-Opener-Policy: Failed to fetch","timestamp":1792583238343}
+{"level":"debug","message":"[vite] connected.","timestamp":1792583245554}
+{"level":"debug","message":"[vite] connected.","timestamp":1792583245950}
+{"level":"debug","message":"[vite] hot updated: /src/components/WalletButton.tsx","timestamp":1792583278957}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583278957}
+{"level":"debug","message":"[vite] hot updated: /src/components/WalletButton.tsx","timestamp":1792583280444}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583280444}
+{"level":"debug","message":"[vite] hot updated: /src/components/WalletButton.tsx","timestamp":1792583280856}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583280857}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1792583297345}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583297345}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1792583297346}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583297347}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1792583297347}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583297347}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1792583313065}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583313065}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1792583313067}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583313068}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1792583313068}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583313068}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1792583327576}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583327576}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1792583327578}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583327578}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1792583327578}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583327579}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1792583343101}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583343101}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1792583343101}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583343102}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1792583343102}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583343102}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792583389560}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583389560}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792583389561}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583389562}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792583389562}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583389562}
+{"level":"debug","message":"[vite] invalidate /src/components/format-utils.tsx: Could not Fast Refresh (\"formatUSDC\" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports","timestamp":1792583424497}
+{"level":"debug","message":"[vite] hot updated: /src/components/format-utils.tsx","timestamp":1792583424497}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583424497}
+{"level":"debug","message":"[vite] invalidate /src/components/format-utils.tsx: Could not Fast Refresh (\"formatUSDC\" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports","timestamp":1792583424860}
+{"level":"debug","message":"[vite] hot updated: /src/components/format-utils.tsx","timestamp":1792583424860}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583424860}
+{"level":"debug","message":"(previous line repeated 1× more)","timestamp":1792583426298}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792583426298}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792583426298}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792583426298}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792583426298}
+{"level":"debug","message":"(previous line repeated 1× more)","timestamp":1792583426424}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792583426424}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792583426425}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792583426425}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792583426425}
+{"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1792583465877}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583465877}
+{"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1792583465879}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792583465879}

@@ -28,7 +28,7 @@ function RecentPaymentRow({ paymentId, myAddress }: { paymentId: string; myAddre
           {counterparty.slice(0, 6)}…{counterparty.slice(-4)}
         </p>
         <p className="text-xs truncate" style={{ color: 'var(--muted)' }}>
-          {isIncoming ? 'Masuk' : 'Keluar'} · {payment.memo || 'Pembayaran langsung'}
+          {isIncoming ? 'Incoming' : 'Outgoing'} · {payment.memo || 'Direct payment'}
         </p>
       </div>
       <div className="text-right shrink-0">
@@ -59,14 +59,14 @@ function MerchantSetupBanner({ onDone }: { onDone: () => void }) {
 
   useEffect(() => {
     if (isSuccess) {
-      toast.success('Merchant berhasil terdaftar!')
+      toast.success('Merchant registered successfully!')
       void queryClient.invalidateQueries()
       setTimeout(onDone, 1500)
     }
   }, [isSuccess, onDone, queryClient])
 
   useEffect(() => {
-    if (error) toast.error('Pendaftaran gagal. Coba lagi.')
+    if (error) toast.error('Registration failed. Please try again.')
   }, [error])
 
   const valid = name.trim().length > 0 && email.trim().length > 0 && bizType.length > 0
@@ -96,8 +96,8 @@ function MerchantSetupBanner({ onDone }: { onDone: () => void }) {
               <Store className="w-5 h-5 text-white" />
             </div>
             <div className="flex-1">
-              <p className="text-sm font-bold" style={{ color: 'var(--love)' }}>Lengkapi profil merchant kamu</p>
-              <p className="text-xs" style={{ color: 'var(--muted)' }}>Diperlukan untuk mulai menerima pembayaran</p>
+              <p className="text-sm font-bold" style={{ color: 'var(--love)' }}>Complete your merchant profile</p>
+              <p className="text-xs" style={{ color: 'var(--muted)' }}>Required to start accepting payments</p>
             </div>
             <ChevronRight
               className="w-4 h-4 transition-transform shrink-0"
@@ -108,16 +108,16 @@ function MerchantSetupBanner({ onDone }: { onDone: () => void }) {
           <div className="px-5 pb-5 pt-1 space-y-3">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: 'var(--subtle)' }}>Nama Bisnis</label>
+                <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: 'var(--subtle)' }}>Business Name</label>
                 <input
                   value={name} onChange={e => setName(e.target.value)}
-                  placeholder="Toko Digital Abadi"
+                  placeholder="My Digital Store"
                   className="w-full rounded-xl px-3 py-2.5 text-sm outline-none focus:ring-1"
                   style={{ ...inputStyle, '--tw-ring-color': 'var(--love)' } as React.CSSProperties}
                 />
               </div>
               <div>
-                <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: 'var(--subtle)' }}>Email Kontak</label>
+                <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: 'var(--subtle)' }}>Contact Email</label>
                 <input
                   type="email" value={email} onChange={e => setEmail(e.target.value)}
                   placeholder="merchant@email.com"
@@ -127,19 +127,19 @@ function MerchantSetupBanner({ onDone }: { onDone: () => void }) {
               </div>
             </div>
             <div>
-              <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: 'var(--subtle)' }}>Jenis Bisnis</label>
+              <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: 'var(--subtle)' }}>Business Type</label>
               <select
                 value={bizType} onChange={e => setBizType(e.target.value)}
                 className="w-full rounded-xl px-3 py-2.5 text-sm outline-none"
                 style={{ ...inputStyle, color: bizType ? 'var(--ink)' : 'var(--subtle)' }}
               >
-                <option value="">Pilih kategori…</option>
+                <option value="">Select category…</option>
                 <option value="retail">Retail / E-commerce</option>
-                <option value="services">Jasa / Konsultasi</option>
-                <option value="food">Kuliner / F&B</option>
-                <option value="digital">Produk Digital</option>
-                <option value="education">Pendidikan</option>
-                <option value="other">Lainnya</option>
+                <option value="services">Services / Consulting</option>
+                <option value="food">Food & Beverage</option>
+                <option value="digital">Digital Products</option>
+                <option value="education">Education</option>
+                <option value="other">Other</option>
               </select>
             </div>
             <button
@@ -148,12 +148,12 @@ function MerchantSetupBanner({ onDone }: { onDone: () => void }) {
               className="w-full py-3 rounded-2xl text-sm font-bold text-white transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-love"
             >
               {isPending ? (
-                <span className="flex items-center justify-center gap-2"><Loader2 className="w-4 h-4 animate-spin" />Konfirmasi di wallet…</span>
+                <span className="flex items-center justify-center gap-2"><Loader2 className="w-4 h-4 animate-spin" />Confirm in wallet…</span>
               ) : isConfirming ? (
-                <span className="flex items-center justify-center gap-2"><Loader2 className="w-4 h-4 animate-spin" />Menyimpan ke blockchain…</span>
+                <span className="flex items-center justify-center gap-2"><Loader2 className="w-4 h-4 animate-spin" />Saving to blockchain…</span>
               ) : isSuccess ? (
-                <span className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4" />Terdaftar!</span>
-              ) : 'Daftar Sekarang'}
+                <span className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4" />Registered!</span>
+              ) : 'Register Now'}
             </button>
           </div>
         </motion.div>
@@ -176,24 +176,24 @@ export default function Dashboard({ onViewAll, merchantAddress, isMerchant }: Pr
 
   const stats = [
     {
-      label: 'Saldo USDC',
+      label: 'USDC Balance',
       value: balance != null ? `$${formatUSDC(balance)}` : '—',
-      sub: 'Saldo wallet kamu',
+      sub: 'Your wallet balance',
       icon: Wallet,
       gradient: 'var(--gradient-green)',
       glow: 'rgba(16,185,129,0.20)',
     },
     {
-      label: 'Total Transaksi Diterima',
+      label: 'Total Received',
       value: `${received.length}`,
-      sub: allIds.length > received.length ? `+ ${allIds.length - received.length} transaksi keluar` : 'Semua pembayaran masuk',
+      sub: allIds.length > received.length ? `+ ${allIds.length - received.length} outgoing` : 'All incoming payments',
       icon: Activity,
       gradient: 'var(--gradient-blue)',
       glow: 'rgba(99,102,241,0.20)',
     },
     {
-      label: 'Status Akun',
-      value: merchant?.active ? 'Aktif' : (isMerchant ? 'Nonaktif' : 'Belum daftar'),
+      label: 'Account Status',
+      value: merchant?.active ? 'Active' : (isMerchant ? 'Inactive' : 'Not registered'),
       sub: merchant?.businessType ?? '—',
       icon: merchant?.active ? CheckCircle2 : XCircle,
       gradient: merchant?.active ? 'var(--gradient-green)' : 'linear-gradient(135deg,#f43f8f,#ef4444)',
@@ -209,11 +209,11 @@ export default function Dashboard({ onViewAll, merchantAddress, isMerchant }: Pr
           {merchant?.name ?? (isMerchant ? '…' : 'Merchant Dashboard')}
         </h1>
         <p className="text-sm" style={{ color: 'var(--subtle)' }}>
-          {new Date(todayStr).toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
+          {new Date(todayStr).toLocaleDateString('en-US', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
           <span className="mx-2 opacity-30">·</span>
           <span className="inline-flex items-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ background: 'var(--success)' }} />
-            Semua sistem berjalan normal
+            All systems operational
           </span>
         </p>
       </div>
@@ -247,27 +247,27 @@ export default function Dashboard({ onViewAll, merchantAddress, isMerchant }: Pr
         <div className="px-5 py-4 flex items-center justify-between" style={{ borderBottom: '1px solid var(--border)' }}>
           <div className="flex items-center gap-2">
             <TrendingUp className="w-4 h-4" style={{ color: 'var(--love)' }} />
-            <h2 className="text-base font-semibold" style={{ color: 'var(--ink)' }}>Transaksi Terbaru</h2>
+            <h2 className="text-base font-semibold" style={{ color: 'var(--ink)' }}>Recent Transactions</h2>
           </div>
           <button onClick={onViewAll}
             className="flex items-center gap-1 text-xs font-semibold transition-opacity hover:opacity-70"
             style={{ color: 'var(--accent)' }}>
-            Lihat semua <ArrowUpRight className="w-3.5 h-3.5" />
+            View all <ArrowUpRight className="w-3.5 h-3.5" />
           </button>
         </div>
 
         <div className="px-5">
           {idsLoading ? (
             <div className="flex items-center justify-center py-10 gap-2" style={{ color: 'var(--muted)' }}>
-              <Loader2 className="w-4 h-4 animate-spin" /> Memuat transaksi…
+              <Loader2 className="w-4 h-4 animate-spin" /> Loading transactions…
             </div>
           ) : recentIds.length === 0 ? (
             <div className="py-10 text-center">
               <div className="w-12 h-12 rounded-2xl mx-auto mb-3 flex items-center justify-center" style={{ background: 'var(--surface-muted)' }}>
                 <Activity className="w-6 h-6" style={{ color: 'var(--subtle)' }} />
               </div>
-              <p className="text-sm font-medium" style={{ color: 'var(--muted)' }}>Belum ada transaksi</p>
-              <p className="text-xs mt-1" style={{ color: 'var(--subtle)' }}>Bagikan payment link kamu untuk mulai menerima pembayaran</p>
+              <p className="text-sm font-medium" style={{ color: 'var(--muted)' }}>No transactions yet</p>
+              <p className="text-xs mt-1" style={{ color: 'var(--subtle)' }}>Share a payment link to start receiving payments</p>
             </div>
           ) : (
             recentIds.map(id => <RecentPaymentRow key={id} paymentId={id} myAddress={merchantAddress} />)
@@ -276,7 +276,7 @@ export default function Dashboard({ onViewAll, merchantAddress, isMerchant }: Pr
       </div>
 
       <p className="text-xs text-center" style={{ color: 'var(--subtle)' }}>
-        Data tersimpan di smart contract · Arc Testnet · {new Date(todayStr).toLocaleDateString('id-ID')}
+        Data stored on smart contract · Arc Testnet · {new Date(todayStr).toLocaleDateString('en-US')}
       </p>
     </div>
   )

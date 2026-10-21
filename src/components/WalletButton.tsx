@@ -52,7 +52,7 @@ export default function WalletButton() {
         className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium"
         style={{ background: 'var(--surface-strong)', color: 'var(--muted)', border: '1px solid var(--border)' }}
       >
-        <Loader2 className="w-4 h-4 animate-spin" /> Memuat…
+        <Loader2 className="w-4 h-4 animate-spin" /> Loading…
       </button>
     )
   }
@@ -161,8 +161,8 @@ export default function WalletButton() {
             <div className="px-6 pt-6 pb-0">
               <div className="flex items-center justify-between mb-5">
                 <div>
-                  <div className="font-bold text-lg" style={{ color: 'var(--ink)', fontFamily: 'Space Grotesk' }}>Hubungkan Wallet</div>
-                  <div className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>Pilih metode koneksi kamu</div>
+                  <div className="font-bold text-lg" style={{ color: 'var(--ink)', fontFamily: 'Space Grotesk' }}>Connect Wallet</div>
+                  <div className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>Choose your connection method</div>
                 </div>
                 <button onClick={closeModal} className="text-xl leading-none" style={{ color: 'var(--muted)' }}>×</button>
               </div>
@@ -192,7 +192,7 @@ export default function WalletButton() {
                     border: tab === 'external' ? '1px solid var(--border)' : '1px solid transparent',
                   }}
                 >
-                  <Plug className="w-3.5 h-3.5" /> Wallet Eksternal
+                  <Plug className="w-3.5 h-3.5" /> External Wallet
                 </button>
               </div>
             </div>
@@ -208,7 +208,7 @@ export default function WalletButton() {
                     style={{ background: 'var(--love-soft)', color: 'var(--love)', border: '1px solid var(--love)' }}
                   >
                     <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
-                    Tanpa seed phrase. Tersimpan di perangkat kamu.
+                    No seed phrase. Stored securely on your device.
                   </div>
 
                   {circleError && (
@@ -224,14 +224,14 @@ export default function WalletButton() {
                         className="w-full py-3 rounded-2xl text-sm font-semibold transition-all"
                         style={{ background: 'var(--love)', color: '#fff' }}
                       >
-                        Login dengan Passkey
+                        Login with Passkey
                       </button>
                       <button
                         onClick={() => { setMode('register'); setUsername('') }}
                         className="w-full py-3 rounded-2xl text-sm font-semibold transition-all"
                         style={{ background: 'var(--love-soft)', color: 'var(--love)', border: '1px solid var(--love)' }}
                       >
-                        Buat Wallet Baru
+                        Create New Wallet
                       </button>
                     </>
                   )}
@@ -240,7 +240,7 @@ export default function WalletButton() {
                     <>
                       <div>
                         <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: 'var(--subtle)' }}>
-                          Username Passkey
+                          Passkey Username
                         </label>
                         <input
                           autoFocus
@@ -251,13 +251,13 @@ export default function WalletButton() {
                               void register(username).then(() => closeModal())
                             }
                           }}
-                          placeholder="min. 5 karakter (a–z, 0–9, _@:+-)"
+                          placeholder="min. 5 chars (a–z, 0–9, _@:+-)"
                           className="w-full px-3 py-2.5 rounded-xl text-sm outline-none"
                           style={{ background: 'var(--bg)', border: '1px solid var(--border)', color: 'var(--ink)' }}
                         />
                         {username.length > 0 && !isValidUsername(username) && (
                           <p className="text-xs mt-1" style={{ color: 'var(--danger)' }}>
-                            5–50 karakter, hanya huruf/angka/_@:+-
+                            5–50 characters, letters/digits/_@:+- only
                           </p>
                         )}
                       </div>
@@ -267,14 +267,14 @@ export default function WalletButton() {
                         className="w-full py-3 rounded-2xl text-sm font-semibold transition-all disabled:opacity-40"
                         style={{ background: 'var(--love)', color: '#fff' }}
                       >
-                        Buat Wallet
+                        Create Wallet
                       </button>
                       <button
                         onClick={() => setMode('choose')}
                         className="w-full py-2 rounded-2xl text-xs transition-all"
                         style={{ color: 'var(--muted)' }}
                       >
-                        ← Kembali
+                        ← Back
                       </button>
                     </>
                   )}
@@ -289,7 +289,7 @@ export default function WalletButton() {
                     style={{ background: '#f8fafc', color: 'var(--subtle)', border: '1px solid var(--border)' }}
                   >
                     <Plug className="w-3.5 h-3.5 shrink-0" />
-                    MetaMask, Rabby, Coinbase Wallet, WalletConnect, dan lainnya.
+                    MetaMask, Rabby, Coinbase Wallet, WalletConnect, and more.
                   </div>
 
                   {/* ConnectKit handles the full wallet selection UI */}
@@ -302,17 +302,17 @@ export default function WalletButton() {
                         style={{ background: 'var(--gradient-love)', color: '#fff', boxShadow: '0 4px 20px var(--love-glow)' }}
                       >
                         {isConnecting
-                          ? <><Loader2 className="w-4 h-4 animate-spin" /> Menghubungkan…</>
+                          ? <><Loader2 className="w-4 h-4 animate-spin" /> Connecting…</>
                           : isConnected
-                            ? 'Ganti Wallet'
-                            : <><Plug className="w-4 h-4" /> Pilih Wallet</>
+                            ? 'Switch Wallet'
+                            : <><Plug className="w-4 h-4" /> Select Wallet</>
                         }
                       </button>
                     )}
                   </ConnectKitButton.Custom>
 
                   <p className="text-xs text-center" style={{ color: 'var(--subtle)' }}>
-                    Wallet harus terhubung ke <strong>Arc Testnet</strong> (Chain ID 5042002)
+                    Wallet must be connected to <strong>Arc Testnet</strong> (Chain ID 5042002)
                   </p>
                 </div>
               )}

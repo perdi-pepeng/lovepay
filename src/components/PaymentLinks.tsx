@@ -13,7 +13,7 @@ function LinkCard({ linkId, onShowQR }: { linkId: string; onShowQR: (id: string,
   const { deactivate, isPending, isSuccess } = useDeactivatePaymentLink()
   const [copied, setCopied] = useState(false)
 
-  useEffect(() => { if (isSuccess) toast.success('Link dinonaktifkan') }, [isSuccess])
+  useEffect(() => { if (isSuccess) toast.success('Link deactivated') }, [isSuccess])
 
   if (!link) return null
 
@@ -23,7 +23,7 @@ function LinkCard({ linkId, onShowQR }: { linkId: string; onShowQR: (id: string,
   const handleCopy = () => {
     void navigator.clipboard.writeText(url)
     setCopied(true)
-    toast.success('Link disalin!')
+    toast.success('Link copied!')
     setTimeout(() => setCopied(false), 2000)
   }
 
@@ -38,29 +38,29 @@ function LinkCard({ linkId, onShowQR }: { linkId: string; onShowQR: (id: string,
         <div className="flex-1 min-w-0">
           <p className="font-semibold text-sm truncate" style={{ color: 'var(--ink)' }}>{link.title}</p>
           <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>
-            {link.amount > 0n ? `$${formatUSDC(link.amount)} USDC · ` : 'Bebas · '}
-            {link.multiUse ? 'Multi-pakai' : 'Sekali pakai'}
-            {link.paidCount > 0n ? ` · ${link.paidCount.toString()}× terbayar` : ''}
+            {link.amount > 0n ? `$${formatUSDC(link.amount)} USDC · ` : 'Open amount · '}
+            {link.multiUse ? 'Multi-use' : 'Single-use'}
+            {link.paidCount > 0n ? ` · ${link.paidCount.toString()}× paid` : ''}
           </p>
         </div>
         <span className="px-2 py-0.5 rounded-full text-xs font-medium shrink-0" style={{
           background: link.active ? 'rgba(26,128,71,0.1)' : 'rgba(100,100,100,0.1)',
           color: link.active ? 'var(--success)' : 'var(--muted)',
         }}>
-          {link.active ? 'Aktif' : 'Nonaktif'}
+          {link.active ? 'Active' : 'Inactive'}
         </span>
       </div>
       {link.memo ? <p className="text-xs mb-3 truncate" style={{ color: 'var(--subtle)' }}>{link.memo}</p> : <div className="mb-3" />}
       <div className="flex gap-2 flex-wrap">
         <button onClick={handleCopy} className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-medium transition-all" style={{ background: 'var(--surface-muted)', color: 'var(--ink-2)' }}>
           {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-          {copied ? 'Tersalin' : 'Salin Link'}
+          {copied ? 'Copied!' : 'Copy Link'}
         </button>
         <button onClick={() => onShowQR(linkId, link.title, link.amount, link.memo)} className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-medium" style={{ background: 'var(--surface-muted)', color: 'var(--ink-2)' }}>
           <QrCode className="w-3.5 h-3.5" /> QR Code
         </button>
         <a href={url} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-medium" style={{ background: 'var(--surface-muted)', color: 'var(--ink-2)' }}>
-          <ExternalLink className="w-3.5 h-3.5" /> Buka
+          <ExternalLink className="w-3.5 h-3.5" /> Open
         </a>
         {link.active && (
           <button
@@ -69,7 +69,7 @@ function LinkCard({ linkId, onShowQR }: { linkId: string; onShowQR: (id: string,
             className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-medium disabled:opacity-40"
             style={{ background: 'rgba(186,43,76,0.08)', color: 'var(--danger)' }}
           >
-            {isPending ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : 'Nonaktifkan'}
+            {isPending ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : 'Deactivate'}
           </button>
         )}
       </div>
@@ -91,7 +91,7 @@ export default function PaymentLinks({ merchantAddress }: Props) {
 
   useEffect(() => {
     if (isSuccess) {
-      toast.success('Payment link dibuat!')
+      toast.success('Payment link created!')
       startTransition(() => {
         setShowSheet(false)
         setTitle('')
@@ -103,14 +103,14 @@ export default function PaymentLinks({ merchantAddress }: Props) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess])
 
-  useEffect(() => { if (error) toast.error('Gagal membuat link. Coba lagi.') }, [error])
+  useEffect(() => { if (error) toast.error('Failed to create link. Please try again.') }, [error])
 
   const handleCreate = () => {
     if (!title.trim()) return
     let parsedAmount = 0n
     if (amount.trim()) {
       try { parsedAmount = parseAmount(ARC_TESTNET_CHAIN_ID, amount).raw }
-      catch { toast.error('Nominal tidak valid'); return }
+      catch { toast.error('Invalid amount'); return }
     }
     create(title.trim(), parsedAmount, memo.trim(), multiUse)
   }
@@ -120,26 +120,26 @@ export default function PaymentLinks({ merchantAddress }: Props) {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="display text-2xl font-bold" style={{ color: 'var(--ink)' }}>Payment Link</h1>
-          <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>{linkIds.length} link · data live dari blockchain</p>
+          <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>{linkIds.length} links · live data from blockchain</p>
         </div>
         <button
           onClick={() => setShowSheet(true)}
           className="flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm font-semibold text-white"
           style={{ background: 'var(--gradient-love)', boxShadow: '0 4px 14px var(--love-glow)' }}
         >
-          <Plus className="w-4 h-4" /> Buat Link
+          <Plus className="w-4 h-4" /> Create Link
         </button>
       </div>
 
       {isLoading ? (
         <div className="flex items-center justify-center py-12 gap-2" style={{ color: 'var(--muted)' }}>
-          <Loader2 className="w-4 h-4 animate-spin" /> Memuat dari blockchain…
+          <Loader2 className="w-4 h-4 animate-spin" /> Loading from blockchain…
         </div>
       ) : linkIds.length === 0 ? (
         <div className="rounded-2xl p-10 text-center" style={{ background: 'var(--surface-strong)', border: '1px solid var(--border)' }}>
           <Link2 className="w-8 h-8 mx-auto mb-3" style={{ color: 'var(--subtle)' }} />
-          <p className="text-sm font-medium" style={{ color: 'var(--ink)' }}>Belum ada payment link</p>
-          <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>Buat link pertama dan bagikan ke pelanggan.</p>
+          <p className="text-sm font-medium" style={{ color: 'var(--ink)' }}>No payment links yet</p>
+          <p className="text-xs mt-1" style={{ color: 'var(--muted)' }}>Create your first link and share it with customers.</p>
         </div>
       ) : (
         <div className="space-y-3">
@@ -170,18 +170,18 @@ export default function PaymentLinks({ merchantAddress }: Props) {
               {/* Header */}
               <div className="flex items-center justify-between mb-5">
                 <div>
-                  <h2 className="display text-lg font-bold" style={{ color: 'var(--ink)' }}>Buat Payment Link</h2>
-                  <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>Link tersimpan permanen di blockchain</p>
+                  <h2 className="display text-lg font-bold" style={{ color: 'var(--ink)' }}>Create Payment Link</h2>
+                  <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>Link stored permanently on blockchain</p>
                 </div>
                 <button onClick={() => setShowSheet(false)} className="w-8 h-8 rounded-full flex items-center justify-center text-lg leading-none transition-all hover:bg-gray-100" style={{ color: 'var(--muted)' }}>×</button>
               </div>
 
               <div className="space-y-3">
-                <input value={title} onChange={e => setTitle(e.target.value)} placeholder="Judul link *" className="w-full rounded-xl px-4 py-3 text-sm outline-none" style={{ background: 'var(--bg)', color: 'var(--ink)', border: '1px solid var(--border)' }} />
-                <input value={amount} onChange={e => setAmount(e.target.value.replace(/[^0-9.]/g, ''))} placeholder="Nominal USDC (kosongkan = bebas)" className="w-full rounded-xl px-4 py-3 text-sm outline-none" style={{ background: 'var(--bg)', color: 'var(--ink)', border: '1px solid var(--border)' }} />
-                <input value={memo} onChange={e => setMemo(e.target.value)} placeholder="Deskripsi (opsional)" className="w-full rounded-xl px-4 py-3 text-sm outline-none" style={{ background: 'var(--bg)', color: 'var(--ink)', border: '1px solid var(--border)' }} />
+                <input value={title} onChange={e => setTitle(e.target.value)} placeholder="Link title *" className="w-full rounded-xl px-4 py-3 text-sm outline-none" style={{ background: 'var(--bg)', color: 'var(--ink)', border: '1px solid var(--border)' }} />
+                <input value={amount} onChange={e => setAmount(e.target.value.replace(/[^0-9.]/g, ''))} placeholder="USDC amount (leave empty = open)" className="w-full rounded-xl px-4 py-3 text-sm outline-none" style={{ background: 'var(--bg)', color: 'var(--ink)', border: '1px solid var(--border)' }} />
+                <input value={memo} onChange={e => setMemo(e.target.value)} placeholder="Description (optional)" className="w-full rounded-xl px-4 py-3 text-sm outline-none" style={{ background: 'var(--bg)', color: 'var(--ink)', border: '1px solid var(--border)' }} />
                 <div className="flex items-center gap-3 px-4 py-3 rounded-xl" style={{ background: 'var(--bg)', border: '1px solid var(--border)' }}>
-                  <span className="text-sm flex-1" style={{ color: 'var(--ink-2)' }}>Bisa dipakai berkali-kali</span>
+                  <span className="text-sm flex-1" style={{ color: 'var(--ink-2)' }}>Allow multiple payments</span>
                   <button onClick={() => setMultiUse(v => !v)} className="relative w-10 h-6 rounded-full transition-colors" style={{ background: multiUse ? 'var(--love)' : 'var(--border-strong)' }}>
                     <span className="absolute top-1 w-4 h-4 rounded-full bg-white shadow transition-all" style={{ left: multiUse ? '1.25rem' : '0.25rem' }} />
                   </button>
@@ -193,9 +193,9 @@ export default function PaymentLinks({ merchantAddress }: Props) {
                 className="w-full mt-4 py-3.5 rounded-2xl text-sm font-semibold text-white disabled:opacity-40 transition-all"
                 style={{ background: 'var(--gradient-love)', boxShadow: '0 4px 14px var(--love-glow)' }}
               >
-                {isPending ? <span className="flex items-center justify-center gap-2"><Loader2 className="w-4 h-4 animate-spin" /> Konfirmasi…</span>
-                  : isConfirming ? <span className="flex items-center justify-center gap-2"><Loader2 className="w-4 h-4 animate-spin" /> Memproses…</span>
-                  : 'Buat Link'}
+                {isPending ? <span className="flex items-center justify-center gap-2"><Loader2 className="w-4 h-4 animate-spin" /> Confirm…</span>
+                  : isConfirming ? <span className="flex items-center justify-center gap-2"><Loader2 className="w-4 h-4 animate-spin" /> Processing…</span>
+                  : 'Create Link'}
               </button>
             </motion.div>
           </motion.div>
