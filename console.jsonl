@@ -1149,3 +1149,5 @@
 {"level":"error","message":"(previous line repeated 476× more)","timestamp":1792683533625}
 {"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792683533625}
 {"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792683533626}
+{"level":"debug","message":"[vite] connected.","timestamp":1792683579209}
+{"level":"debug","message":"[vite] connected.","timestamp":1792683670026}
