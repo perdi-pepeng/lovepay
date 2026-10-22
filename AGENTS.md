@@ -10,7 +10,9 @@ Payment gateway platform built on Arc Testnet. All data (merchants, payment link
 
 | Contract | Chain | Address | Explorer |
 |---|---|---|---|
-| LovepayRegistry | Arc Testnet (5042002) | 0xf1d2f4b823a2ec8ffa91be154029e8c0e5113b65 | [View](https://explorer.testnet.arc.io/address/0xf1d2f4b823a2ec8ffa91be154029e8c0e5113b65) |
+| LovepayRegistry v3 | Arc Testnet (5042002) | 0x16c966614e32dfa9e56a0c3a44004d589283f8f9 | [View](https://explorer.testnet.arc.io/address/0x16c966614e32dfa9e56a0c3a44004d589283f8f9) |
+| LovepayRegistry v2 (deprecated) | Arc Testnet (5042002) | 0xf2f7052b9d116c283540f88adf2137f0f1d741fc | [View](https://explorer.testnet.arc.io/address/0xf2f7052b9d116c283540f88adf2137f0f1d741fc) |
+| LovepayRegistry v1 (deprecated) | Arc Testnet (5042002) | 0xf1d2f4b823a2ec8ffa91be154029e8c0e5113b65 | [View](https://explorer.testnet.arc.io/address/0xf1d2f4b823a2ec8ffa91be154029e8c0e5113b65) |
 
 **Constructor args:** `_usdc = 0x3600000000000000000000000000000000000000` (Arc Testnet USDC)
 

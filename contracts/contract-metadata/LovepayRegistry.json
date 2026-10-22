@@ -1,13 +1,20 @@
 {
-  "contractAddress": "0xf2f7052b9d116c283540f88adf2137f0f1d741fc",
+  "contractAddress": "0x16c966614e32dfa9e56a0c3a44004d589283f8f9",
   "network": "ARC-TESTNET",
   "deployerWalletId": "3c2464b2-8369-52e2-a782-800bbeca5396",
   "contract_code_path": "/home/user/app/contracts/LovepayRegistry.sol",
   "contract_compiled_code_path": "/home/user/app/contracts/out/LovepayRegistry.sol/LovepayRegistry.json",
   "contract_network_and_links": {
-    "Arc Testnet": "https://explorer.testnet.arc.io/address/0xf2f7052b9d116c283540f88adf2137f0f1d741fc"
+    "Arc Testnet": "https://explorer.testnet.arc.io/address/0x16c966614e32dfa9e56a0c3a44004d589283f8f9"
   },
   "contract_deployments": [
+    {
+      "chain": "Arc Testnet",
+      "address": "0x16c966614e32dfa9e56a0c3a44004d589283f8f9",
+      "explorerUrl": "https://explorer.testnet.arc.io/address/0x16c966614e32dfa9e56a0c3a44004d589283f8f9",
+      "txHash": "0xd7144b9723cdf6650b7cb5fa503df8960f1741605bc797ba4623389c89314a1f",
+      "deployedAt": "2026-10-22T14:53:49.234Z"
+    },
     {
       "chain": "Arc Testnet",
       "address": "0xf2f7052b9d116c283540f88adf2137f0f1d741fc",
@@ -512,6 +519,26 @@
           "name": "active",
           "type": "bool",
           "internalType": "bool"
+        },
+        {
+          "name": "website",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "instagram",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "twitter",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "whatsapp",
+          "type": "string",
+          "internalType": "string"
         }
       ],
       "stateMutability": "view"
@@ -725,6 +752,26 @@
           "name": "businessType",
           "type": "string",
           "internalType": "string"
+        },
+        {
+          "name": "website",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "instagram",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "twitter",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "whatsapp",
+          "type": "string",
+          "internalType": "string"
         }
       ],
       "outputs": [],
@@ -764,6 +811,26 @@
         },
         {
           "name": "businessType",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "website",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "instagram",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "twitter",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "whatsapp",
           "type": "string",
           "internalType": "string"
         }
