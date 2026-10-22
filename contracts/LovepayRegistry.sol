@@ -22,6 +22,10 @@ contract LovepayRegistry {
         string businessType;
         uint256 registeredAt;
         bool active;
+        string website;
+        string instagram;
+        string twitter;
+        string whatsapp;
     }
 
     struct PaymentLink {
@@ -128,7 +132,19 @@ contract LovepayRegistry {
     /// @param name Merchant display name.
     /// @param email Merchant contact email.
     /// @param businessType Merchant business category.
-    function registerMerchant(string calldata name, string calldata email, string calldata businessType) external {
+    /// @param website Optional website URL.
+    /// @param instagram Optional Instagram handle (without @).
+    /// @param twitter Optional Twitter/X handle (without @).
+    /// @param whatsapp Optional WhatsApp number (with country code).
+    function registerMerchant(
+        string calldata name,
+        string calldata email,
+        string calldata businessType,
+        string calldata website,
+        string calldata instagram,
+        string calldata twitter,
+        string calldata whatsapp
+    ) external {
         require(!isMerchant[msg.sender], "LovepayRegistry: already registered");
 
         merchants[msg.sender] = Merchant({
@@ -137,7 +153,11 @@ contract LovepayRegistry {
             email: email,
             businessType: businessType,
             registeredAt: block.timestamp,
-            active: true
+            active: true,
+            website: website,
+            instagram: instagram,
+            twitter: twitter,
+            whatsapp: whatsapp
         });
         isMerchant[msg.sender] = true;
 
@@ -148,13 +168,29 @@ contract LovepayRegistry {
     /// @param name Updated merchant display name.
     /// @param email Updated merchant contact email.
     /// @param businessType Updated merchant business category.
-    function updateMerchant(string calldata name, string calldata email, string calldata businessType) external {
+    /// @param website Updated website URL.
+    /// @param instagram Updated Instagram handle.
+    /// @param twitter Updated Twitter/X handle.
+    /// @param whatsapp Updated WhatsApp number.
+    function updateMerchant(
+        string calldata name,
+        string calldata email,
+        string calldata businessType,
+        string calldata website,
+        string calldata instagram,
+        string calldata twitter,
+        string calldata whatsapp
+    ) external {
         require(isMerchant[msg.sender], "LovepayRegistry: merchant not found");
 
-        Merchant storage merchant = merchants[msg.sender];
-        merchant.name = name;
-        merchant.email = email;
-        merchant.businessType = businessType;
+        Merchant storage m = merchants[msg.sender];
+        m.name = name;
+        m.email = email;
+        m.businessType = businessType;
+        m.website = website;
+        m.instagram = instagram;
+        m.twitter = twitter;
+        m.whatsapp = whatsapp;
 
         emit MerchantUpdated(msg.sender);
     }

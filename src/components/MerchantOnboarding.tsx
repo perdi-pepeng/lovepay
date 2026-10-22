@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Loader2, CheckCircle2 } from 'lucide-react'
+import { Loader2, CheckCircle2, Globe, Instagram, Twitter, Phone } from 'lucide-react'
 import { toast } from 'sonner'
-import { useRegisterMerchant } from '../store'
+import { useRegisterMerchant, type MerchantFormData } from '../store'
 import { buildTxExplorerUrl } from '@/onchain-facts'
 import { ARC_TESTNET_CHAIN_ID } from '../contract'
 
 interface Props { address: string }
 
 export default function MerchantOnboarding({ address }: Props) {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [bizType, setBizType] = useState('')
+  const [form, setForm] = useState<MerchantFormData>({
+    name: '', email: '', businessType: '',
+    website: '', instagram: '', twitter: '', whatsapp: '',
+  })
   const { register, hash, isPending, isConfirming, isSuccess, error } = useRegisterMerchant()
 
   useEffect(() => {
@@ -25,8 +26,16 @@ export default function MerchantOnboarding({ address }: Props) {
     if (error) toast.error('Registration failed. Please try again.')
   }, [error])
 
-  const valid = name.trim().length > 0 && email.trim().length > 0 && bizType.trim().length > 0
+  const set = (k: keyof MerchantFormData) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
+    setForm(f => ({ ...f, [k]: e.target.value }))
+
+  const valid = form.name.trim().length > 0 && form.email.trim().length > 0 && form.businessType.trim().length > 0
   const txUrl = hash ? buildTxExplorerUrl(ARC_TESTNET_CHAIN_ID, hash) : null
+
+  const inputCls = 'w-full rounded-xl px-4 py-3 text-sm outline-none'
+  const inputStyle = { background: 'var(--surface-muted)', color: 'var(--ink)', border: '1px solid var(--border)' }
+  const labelCls = 'block text-xs font-semibold mb-1.5 tracking-wide uppercase'
+  const labelStyle = { color: 'var(--subtle)' }
 
   return (
     <div className="min-h-dvh flex flex-col items-center justify-center px-4 py-12" style={{ background: 'var(--bg-gradient)' }}>
@@ -43,31 +52,21 @@ export default function MerchantOnboarding({ address }: Props) {
         <p className="text-sm mb-6" style={{ color: 'var(--muted)' }}>Your data is stored permanently on the blockchain. Only needs to be done once.</p>
 
         <div className="space-y-3">
+          {/* Required fields */}
           <div>
-            <label className="block text-xs font-semibold mb-1.5 tracking-wide uppercase" style={{ color: 'var(--subtle)' }}>Business Name</label>
-            <input
-              value={name} onChange={e => setName(e.target.value)}
-              placeholder="e.g. Digital Store Pro"
-              className="w-full rounded-xl px-4 py-3 text-sm outline-none"
-              style={{ background: 'var(--surface-muted)', color: 'var(--ink)', border: '1px solid var(--border)' }}
-            />
+            <label className={labelCls} style={labelStyle}>Business Name <span style={{ color: 'var(--love)' }}>*</span></label>
+            <input value={form.name} onChange={set('name')} placeholder="e.g. Digital Store Pro"
+              className={inputCls} style={inputStyle} />
           </div>
           <div>
-            <label className="block text-xs font-semibold mb-1.5 tracking-wide uppercase" style={{ color: 'var(--subtle)' }}>Contact Email</label>
-            <input
-              type="email" value={email} onChange={e => setEmail(e.target.value)}
-              placeholder="merchant@email.com"
-              className="w-full rounded-xl px-4 py-3 text-sm outline-none"
-              style={{ background: 'var(--surface-muted)', color: 'var(--ink)', border: '1px solid var(--border)' }}
-            />
+            <label className={labelCls} style={labelStyle}>Contact Email <span style={{ color: 'var(--love)' }}>*</span></label>
+            <input type="email" value={form.email} onChange={set('email')} placeholder="merchant@email.com"
+              className={inputCls} style={inputStyle} />
           </div>
           <div>
-            <label className="block text-xs font-semibold mb-1.5 tracking-wide uppercase" style={{ color: 'var(--subtle)' }}>Business Type</label>
-            <select
-              value={bizType} onChange={e => setBizType(e.target.value)}
-              className="w-full rounded-xl px-4 py-3 text-sm outline-none"
-              style={{ background: 'var(--surface-muted)', color: bizType ? 'var(--ink)' : 'var(--subtle)', border: '1px solid var(--border)' }}
-            >
+            <label className={labelCls} style={labelStyle}>Business Type <span style={{ color: 'var(--love)' }}>*</span></label>
+            <select value={form.businessType} onChange={set('businessType')}
+              className={inputCls} style={{ ...inputStyle, color: form.businessType ? 'var(--ink)' : 'var(--subtle)' }}>
               <option value="">Select category…</option>
               <option value="retail">Retail / E-commerce</option>
               <option value="services">Services / Consulting</option>
@@ -77,9 +76,38 @@ export default function MerchantOnboarding({ address }: Props) {
               <option value="other">Other</option>
             </select>
           </div>
+
+          {/* Social media — optional */}
+          <div className="pt-2">
+            <p className="text-[11px] font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--subtle)' }}>
+              Social Media <span className="normal-case font-normal tracking-normal ml-1" style={{ color: 'var(--muted)' }}>(optional)</span>
+            </p>
+            <div className="space-y-2.5">
+              <div className="relative">
+                <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'var(--muted)' }} />
+                <input value={form.website} onChange={set('website')} placeholder="https://yourwebsite.com"
+                  className={inputCls} style={{ ...inputStyle, paddingLeft: '2.5rem' }} />
+              </div>
+              <div className="relative">
+                <Instagram className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'var(--muted)' }} />
+                <input value={form.instagram} onChange={set('instagram')} placeholder="Instagram handle (without @)"
+                  className={inputCls} style={{ ...inputStyle, paddingLeft: '2.5rem' }} />
+              </div>
+              <div className="relative">
+                <Twitter className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'var(--muted)' }} />
+                <input value={form.twitter} onChange={set('twitter')} placeholder="X / Twitter handle (without @)"
+                  className={inputCls} style={{ ...inputStyle, paddingLeft: '2.5rem' }} />
+              </div>
+              <div className="relative">
+                <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'var(--muted)' }} />
+                <input value={form.whatsapp} onChange={set('whatsapp')} placeholder="WhatsApp number (+628xx…)"
+                  className={inputCls} style={{ ...inputStyle, paddingLeft: '2.5rem' }} />
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="mt-2 mb-4 px-3 py-2.5 rounded-xl text-xs" style={{ background: 'var(--surface-muted)', color: 'var(--muted)' }}>
+        <div className="mt-4 mb-4 px-3 py-2.5 rounded-xl text-xs" style={{ background: 'var(--surface-muted)', color: 'var(--muted)' }}>
           Wallet: <span className="mono">{address.slice(0, 10)}…{address.slice(-6)}</span>
         </div>
 
@@ -92,9 +120,9 @@ export default function MerchantOnboarding({ address }: Props) {
 
         <button
           disabled={!valid || isPending || isConfirming}
-          onClick={() => register(name.trim(), email.trim(), bizType)}
+          onClick={() => register({ ...form, name: form.name.trim(), email: form.email.trim() })}
           className="w-full py-3.5 rounded-2xl text-sm font-semibold text-white transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:scale-[1.01] active:scale-[0.99]"
-          style={{ background: 'var(--accent)' }}
+          style={{ background: 'var(--gradient-love)' }}
         >
           {isPending ? (
             <span className="flex items-center justify-center gap-2"><Loader2 className="w-4 h-4 animate-spin" /> Confirm in wallet…</span>

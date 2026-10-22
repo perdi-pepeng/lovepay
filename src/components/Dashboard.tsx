@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { TrendingUp, ArrowUpRight, CheckCircle2, XCircle, Loader2, Store, ChevronRight, DollarSign, Activity, Wallet } from 'lucide-react'
+import { TrendingUp, ArrowUpRight, CheckCircle2, XCircle, Loader2, Store, ChevronRight, DollarSign, Activity, Wallet, Globe, Instagram, Twitter, Phone } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { toast } from 'sonner'
 import { useQueryClient } from '@tanstack/react-query'
@@ -54,6 +54,10 @@ function MerchantSetupBanner({ onDone }: { onDone: () => void }) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [bizType, setBizType] = useState('')
+  const [website, setWebsite] = useState('')
+  const [instagram, setInstagram] = useState('')
+  const [twitter, setTwitter] = useState('')
+  const [whatsapp, setWhatsapp] = useState('')
   const { register, isPending, isConfirming, isSuccess, error } = useRegisterMerchant()
   const queryClient = useQueryClient()
 
@@ -77,6 +81,8 @@ function MerchantSetupBanner({ onDone }: { onDone: () => void }) {
     border: '1px solid var(--border)',
     color: 'var(--ink)',
   }
+  const inputCls = 'w-full rounded-xl px-3 py-2.5 text-sm outline-none'
+  const labelCls = 'block text-xs font-semibold mb-1.5 uppercase tracking-wide'
 
   return (
     <AnimatePresence>
@@ -106,46 +112,88 @@ function MerchantSetupBanner({ onDone }: { onDone: () => void }) {
           </button>
 
           <div className="px-5 pb-5 pt-1 space-y-3">
+            {/* Required fields */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: 'var(--subtle)' }}>Business Name</label>
+                <label className={labelCls} style={{ color: 'var(--subtle)' }}>
+                  Business Name <span style={{ color: 'var(--love)' }}>*</span>
+                </label>
                 <input
                   value={name} onChange={e => setName(e.target.value)}
                   placeholder="My Digital Store"
-                  className="w-full rounded-xl px-3 py-2.5 text-sm outline-none focus:ring-1"
-                  style={{ ...inputStyle, '--tw-ring-color': 'var(--love)' } as React.CSSProperties}
+                  className={inputCls}
+                  style={inputStyle}
                 />
               </div>
               <div>
-                <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: 'var(--subtle)' }}>Contact Email</label>
+                <label className={labelCls} style={{ color: 'var(--subtle)' }}>
+                  Contact Email <span style={{ color: 'var(--love)' }}>*</span>
+                </label>
                 <input
                   type="email" value={email} onChange={e => setEmail(e.target.value)}
                   placeholder="merchant@email.com"
-                  className="w-full rounded-xl px-3 py-2.5 text-sm outline-none"
+                  className={inputCls}
                   style={inputStyle}
                 />
               </div>
             </div>
             <div>
-              <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: 'var(--subtle)' }}>Business Type</label>
+              <label className={labelCls} style={{ color: 'var(--subtle)' }}>
+                Business Type <span style={{ color: 'var(--love)' }}>*</span>
+              </label>
               <select
                 value={bizType} onChange={e => setBizType(e.target.value)}
-                className="w-full rounded-xl px-3 py-2.5 text-sm outline-none"
+                className={inputCls}
                 style={{ ...inputStyle, color: bizType ? 'var(--ink)' : 'var(--subtle)' }}
               >
                 <option value="">Select category…</option>
                 <option value="retail">Retail / E-commerce</option>
                 <option value="services">Services / Consulting</option>
-                <option value="food">Food & Beverage</option>
+                <option value="food">Food &amp; Beverage</option>
                 <option value="digital">Digital Products</option>
                 <option value="education">Education</option>
                 <option value="other">Other</option>
               </select>
             </div>
+
+            {/* Social media — optional */}
+            <div className="pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest mb-2.5" style={{ color: 'var(--subtle)' }}>
+                Social Media <span className="normal-case font-normal tracking-normal ml-1" style={{ color: 'var(--muted)' }}>(optional)</span>
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <div className="relative">
+                  <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none" style={{ color: 'var(--muted)' }} />
+                  <input value={website} onChange={e => setWebsite(e.target.value)}
+                    placeholder="https://yourwebsite.com"
+                    className={inputCls} style={{ ...inputStyle, paddingLeft: '2.25rem' }} />
+                </div>
+                <div className="relative">
+                  <Instagram className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none" style={{ color: 'var(--muted)' }} />
+                  <input value={instagram} onChange={e => setInstagram(e.target.value)}
+                    placeholder="Instagram (without @)"
+                    className={inputCls} style={{ ...inputStyle, paddingLeft: '2.25rem' }} />
+                </div>
+                <div className="relative">
+                  <Twitter className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none" style={{ color: 'var(--muted)' }} />
+                  <input value={twitter} onChange={e => setTwitter(e.target.value)}
+                    placeholder="X / Twitter (without @)"
+                    className={inputCls} style={{ ...inputStyle, paddingLeft: '2.25rem' }} />
+                </div>
+                <div className="relative">
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none" style={{ color: 'var(--muted)' }} />
+                  <input value={whatsapp} onChange={e => setWhatsapp(e.target.value)}
+                    placeholder="WhatsApp (+628xx…)"
+                    className={inputCls} style={{ ...inputStyle, paddingLeft: '2.25rem' }} />
+                </div>
+              </div>
+            </div>
+
             <button
               disabled={!valid || busy}
-              onClick={() => register(name.trim(), email.trim(), bizType)}
-              className="w-full py-3 rounded-2xl text-sm font-bold text-white transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-love"
+              onClick={() => register({ name: name.trim(), email: email.trim(), businessType: bizType, website, instagram, twitter, whatsapp })}
+              className="w-full py-3 rounded-2xl text-sm font-bold text-white transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+              style={{ background: 'var(--gradient-love)' }}
             >
               {isPending ? (
                 <span className="flex items-center justify-center gap-2"><Loader2 className="w-4 h-4 animate-spin" />Confirm in wallet…</span>

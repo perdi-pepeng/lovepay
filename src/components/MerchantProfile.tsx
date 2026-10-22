@@ -1,13 +1,10 @@
 import { useState, useEffect, startTransition } from 'react'
 import { motion } from 'framer-motion'
-import { Edit2, Save, X, CheckCircle2, XCircle, Copy, Check, Loader2, UserCircle } from 'lucide-react'
+import { Edit2, Save, X, CheckCircle2, XCircle, Copy, Check, Loader2, UserCircle, Globe, Instagram, Twitter, Phone, ExternalLink } from 'lucide-react'
 import { toast } from 'sonner'
-import { useMerchant, useCircleWrite } from '../store'
-import { LOVEPAY_CONTRACT, ARC_TESTNET_CHAIN_ID } from '../contract'
+import { useMerchant, useUpdateMerchant, type MerchantFormData } from '../store'
+import { ARC_TESTNET_CHAIN_ID } from '../contract'
 import { buildAddressExplorerUrl } from '@/onchain-facts'
-import { type Abi } from 'viem'
-
-const CONTRACT_ABI = LOVEPAY_CONTRACT.abi as Abi
 
 const BIZ_LABELS: Record<string, string> = {
   retail: 'Retail / E-commerce',
@@ -22,20 +19,29 @@ interface Props { merchantAddress: string }
 
 export default function MerchantProfile({ merchantAddress }: Props) {
   const { merchant, isLoading, refetch } = useMerchant(merchantAddress)
-  const { write, isPending, isConfirming, isSuccess, error } = useCircleWrite()
+  const { update, isPending, isConfirming, isSuccess, error } = useUpdateMerchant()
 
   const [editing, setEditing] = useState(false)
-  const [name, setName] = useState(() => merchant?.name ?? '')
-  const [email, setEmail] = useState(() => merchant?.email ?? '')
-  const [bizType, setBizType] = useState(() => merchant?.businessType ?? '')
+  const [form, setForm] = useState<MerchantFormData>({
+    name: '', email: '', businessType: '',
+    website: '', instagram: '', twitter: '', whatsapp: '',
+  })
   const [copied, setCopied] = useState(false)
 
-  const merchantName = merchant?.name ?? ''
-  const merchantEmail = merchant?.email ?? ''
-  const merchantBizType = merchant?.businessType ?? ''
-  if (!editing && merchantName && name !== merchantName) setName(merchantName)
-  if (!editing && merchantEmail && email !== merchantEmail) setEmail(merchantEmail)
-  if (!editing && merchantBizType && bizType !== merchantBizType) setBizType(merchantBizType)
+  // Sync form when merchant loads or editing stops
+  useEffect(() => {
+    if (merchant && !editing) {
+      setForm({
+        name: merchant.name,
+        email: merchant.email,
+        businessType: merchant.businessType,
+        website: merchant.website ?? '',
+        instagram: merchant.instagram ?? '',
+        twitter: merchant.twitter ?? '',
+        whatsapp: merchant.whatsapp ?? '',
+      })
+    }
+  }, [merchant, editing])
 
   useEffect(() => {
     if (isSuccess) {
@@ -50,13 +56,20 @@ export default function MerchantProfile({ merchantAddress }: Props) {
     if (error) toast.error('Failed to save. Please try again.')
   }, [error])
 
+  const set = (k: keyof MerchantFormData) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
+    setForm(f => ({ ...f, [k]: e.target.value }))
+
   const handleSave = () => {
-    if (!name.trim() || !email.trim() || !bizType) return
-    void write({
-      address: LOVEPAY_CONTRACT.address,
-      abi: CONTRACT_ABI,
-      functionName: 'updateMerchant',
-      args: [name.trim(), email.trim(), bizType],
+    if (!form.name.trim() || !form.email.trim() || !form.businessType) return
+    update({ ...form, name: form.name.trim(), email: form.email.trim() })
+  }
+
+  const handleCancel = () => {
+    setEditing(false)
+    if (merchant) setForm({
+      name: merchant.name, email: merchant.email, businessType: merchant.businessType,
+      website: merchant.website ?? '', instagram: merchant.instagram ?? '',
+      twitter: merchant.twitter ?? '', whatsapp: merchant.whatsapp ?? '',
     })
   }
 
@@ -74,6 +87,12 @@ export default function MerchantProfile({ merchantAddress }: Props) {
 
   const explorerUrl = buildAddressExplorerUrl(ARC_TESTNET_CHAIN_ID, merchantAddress)
 
+  const inputCls = 'w-full px-3 py-2.5 rounded-xl text-sm outline-none'
+  const inputStyle = { background: 'var(--bg)', border: '1px solid var(--border)', color: 'var(--ink)' }
+  const inputWithIconStyle = { ...inputStyle, paddingLeft: '2.5rem' }
+  const labelCls = 'block text-xs font-semibold mb-1.5 uppercase tracking-wide'
+  const labelStyle = { color: 'var(--subtle)' }
+
   if (isLoading) {
     return (
       <div className="flex items-center justify-center py-24 gap-2" style={{ color: 'var(--muted)' }}>
@@ -90,6 +109,8 @@ export default function MerchantProfile({ merchantAddress }: Props) {
       </div>
     )
   }
+
+  const hasSocial = merchant.website || merchant.instagram || merchant.twitter || merchant.whatsapp
 
   return (
     <motion.div
@@ -132,33 +153,18 @@ export default function MerchantProfile({ merchantAddress }: Props) {
       <div className="rounded-2xl overflow-hidden" style={{ background: 'var(--surface-strong)', border: '1px solid var(--border)' }}>
         {editing ? (
           <div className="p-5 space-y-4">
+            {/* Required fields */}
             <div>
-              <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: 'var(--subtle)' }}>Business Name</label>
-              <input
-                value={name}
-                onChange={e => setName(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl text-sm outline-none"
-                style={{ background: 'var(--bg)', border: '1px solid var(--border)', color: 'var(--ink)' }}
-              />
+              <label className={labelCls} style={labelStyle}>Business Name</label>
+              <input value={form.name} onChange={set('name')} className={inputCls} style={inputStyle} />
             </div>
             <div>
-              <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: 'var(--subtle)' }}>Contact Email</label>
-              <input
-                type="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl text-sm outline-none"
-                style={{ background: 'var(--bg)', border: '1px solid var(--border)', color: 'var(--ink)' }}
-              />
+              <label className={labelCls} style={labelStyle}>Contact Email</label>
+              <input type="email" value={form.email} onChange={set('email')} className={inputCls} style={inputStyle} />
             </div>
             <div>
-              <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: 'var(--subtle)' }}>Business Type</label>
-              <select
-                value={bizType}
-                onChange={e => setBizType(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl text-sm outline-none"
-                style={{ background: 'var(--bg)', border: '1px solid var(--border)', color: 'var(--ink)' }}
-              >
+              <label className={labelCls} style={labelStyle}>Business Type</label>
+              <select value={form.businessType} onChange={set('businessType')} className={inputCls} style={inputStyle}>
                 <option value="">Select category…</option>
                 <option value="retail">Retail / E-commerce</option>
                 <option value="services">Services / Consulting</option>
@@ -168,19 +174,47 @@ export default function MerchantProfile({ merchantAddress }: Props) {
                 <option value="other">Other</option>
               </select>
             </div>
+
+            {/* Social media */}
+            <div className="pt-1">
+              <p className="text-[11px] font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--subtle)' }}>Social Media</p>
+              <div className="space-y-2.5">
+                <div className="relative">
+                  <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'var(--muted)' }} />
+                  <input value={form.website} onChange={set('website')} placeholder="https://yourwebsite.com"
+                    className={inputCls} style={inputWithIconStyle} />
+                </div>
+                <div className="relative">
+                  <Instagram className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'var(--muted)' }} />
+                  <input value={form.instagram} onChange={set('instagram')} placeholder="Instagram handle (without @)"
+                    className={inputCls} style={inputWithIconStyle} />
+                </div>
+                <div className="relative">
+                  <Twitter className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'var(--muted)' }} />
+                  <input value={form.twitter} onChange={set('twitter')} placeholder="X / Twitter handle (without @)"
+                    className={inputCls} style={inputWithIconStyle} />
+                </div>
+                <div className="relative">
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'var(--muted)' }} />
+                  <input value={form.whatsapp} onChange={set('whatsapp')} placeholder="WhatsApp number (+628xx…)"
+                    className={inputCls} style={inputWithIconStyle} />
+                </div>
+              </div>
+            </div>
+
             <div className="flex gap-2 pt-1">
               <button
                 onClick={handleSave}
-                disabled={!name.trim() || !email.trim() || !bizType || isPending || isConfirming}
+                disabled={!form.name.trim() || !form.email.trim() || !form.businessType || isPending || isConfirming}
                 className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-semibold text-white transition-all disabled:opacity-40"
-                style={{ background: 'var(--love)' }}
+                style={{ background: 'var(--gradient-love)' }}
               >
                 {(isPending || isConfirming)
                   ? <><Loader2 className="w-3.5 h-3.5 animate-spin" /> Saving…</>
-                  : <><Save className="w-3.5 h-3.5" /> Save</>}
+                  : <><Save className="w-3.5 h-3.5" /> Save Changes</>}
               </button>
               <button
-                onClick={() => { setEditing(false); setName(merchant.name); setEmail(merchant.email); setBizType(merchant.businessType) }}
+                onClick={handleCancel}
                 className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all"
                 style={{ background: 'var(--surface-muted)', color: 'var(--muted)' }}
               >
@@ -209,6 +243,43 @@ export default function MerchantProfile({ merchantAddress }: Props) {
         )}
       </div>
 
+      {/* Social media display (view mode) */}
+      {!editing && hasSocial && (
+        <div className="rounded-2xl overflow-hidden" style={{ background: 'var(--surface-strong)', border: '1px solid var(--border)' }}>
+          <p className="text-[11px] font-semibold uppercase tracking-widest px-5 pt-4 pb-2" style={{ color: 'var(--subtle)' }}>Social Media</p>
+          <div>
+            {[
+              { key: 'website',   label: 'Website',   icon: Globe,      href: merchant.website ? (merchant.website.startsWith('http') ? merchant.website : `https://${merchant.website}`) : null, display: merchant.website },
+              { key: 'instagram', label: 'Instagram', icon: Instagram,  href: merchant.instagram ? `https://instagram.com/${merchant.instagram.replace('@','')}` : null, display: merchant.instagram ? `@${merchant.instagram.replace('@','')}` : '' },
+              { key: 'twitter',   label: 'X / Twitter', icon: Twitter,  href: merchant.twitter ? `https://x.com/${merchant.twitter.replace('@','')}` : null, display: merchant.twitter ? `@${merchant.twitter.replace('@','')}` : '' },
+              { key: 'whatsapp',  label: 'WhatsApp',  icon: Phone,      href: merchant.whatsapp ? `https://wa.me/${merchant.whatsapp.replace(/[^0-9]/g,'')}` : null, display: merchant.whatsapp },
+            ].filter(r => r.display).map((row, i, arr) => {
+              const Icon = row.icon
+              return (
+                <div
+                  key={row.key}
+                  className="flex items-center justify-between px-5 py-3.5"
+                  style={{ borderBottom: i < arr.length - 1 ? '1px solid var(--border)' : 'none' }}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Icon className="w-4 h-4 shrink-0" style={{ color: 'var(--muted)' }} />
+                    <span className="text-xs font-semibold uppercase tracking-wide w-24 shrink-0" style={{ color: 'var(--subtle)' }}>{row.label}</span>
+                  </div>
+                  {row.href
+                    ? <a href={row.href} target="_blank" rel="noreferrer"
+                        className="flex items-center gap-1 text-sm font-medium text-right"
+                        style={{ color: 'var(--love)' }}>
+                        {row.display} <ExternalLink className="w-3 h-3" />
+                      </a>
+                    : <span className="text-sm font-medium text-right" style={{ color: 'var(--ink)' }}>{row.display}</span>
+                  }
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      )}
+
       {/* Wallet address card */}
       <div className="rounded-2xl p-5" style={{ background: 'var(--surface-strong)', border: '1px solid var(--border)' }}>
         <p className="text-xs font-semibold uppercase tracking-wide mb-3" style={{ color: 'var(--subtle)' }}>Wallet Address</p>
@@ -236,7 +307,6 @@ export default function MerchantProfile({ merchantAddress }: Props) {
         </div>
       </div>
 
-      {/* Blockchain info */}
       <p className="text-xs text-center pb-4" style={{ color: 'var(--subtle)' }}>
         Data stored on smart contract · Arc Testnet · Registered {registeredDate}
       </p>

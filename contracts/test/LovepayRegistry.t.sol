@@ -97,7 +97,7 @@ contract LovepayRegistryTest is Test {
     // ── helper: register merchant ─────────────────────────────────────────────
     function _registerMerchant(address m) internal {
         vm.prank(m);
-        registry.registerMerchant("Acme", "acme@test.com", "retail");
+        registry.registerMerchant("Acme", "acme@test.com", "retail", "", "", "", "");
     }
 
     // ── helper: seed payer with USDC and max-approve registry ─────────────────
@@ -120,7 +120,7 @@ contract LovepayRegistryTest is Test {
         vm.prank(merchant);
         vm.expectEmit(true, false, false, true, address(registry));
         emit LovepayRegistry.MerchantRegistered(merchant, "Acme", block.timestamp);
-        registry.registerMerchant("Acme", "acme@test.com", "retail");
+        registry.registerMerchant("Acme", "acme@test.com", "retail", "https://acme.com", "acme_ig", "acme_x", "+1234567890");
 
         // isMerchant flag set
         assertTrue(registry.isMerchant(merchant));
@@ -132,7 +132,11 @@ contract LovepayRegistryTest is Test {
             string memory email,
             string memory businessType,
             ,
-            bool active
+            bool active,
+            string memory website,
+            string memory instagram,
+            string memory twitter,
+            string memory whatsapp
         ) = registry.merchants(merchant);
 
         assertEq(wallet, merchant);
@@ -140,6 +144,10 @@ contract LovepayRegistryTest is Test {
         assertEq(email, "acme@test.com");
         assertEq(businessType, "retail");
         assertTrue(active);
+        assertEq(website, "https://acme.com");
+        assertEq(instagram, "acme_ig");
+        assertEq(twitter, "acme_x");
+        assertEq(whatsapp, "+1234567890");
     }
 
     function test_RegisterMerchant_RevertDuplicate() public {
@@ -147,7 +155,7 @@ contract LovepayRegistryTest is Test {
 
         vm.prank(merchant);
         vm.expectRevert(bytes("LovepayRegistry: already registered"));
-        registry.registerMerchant("Acme2", "x@test.com", "tech");
+        registry.registerMerchant("Acme2", "x@test.com", "tech", "", "", "", "");
     }
 
     // ══════════════════════════════════════════════════════════════════════════
@@ -160,19 +168,20 @@ contract LovepayRegistryTest is Test {
         vm.prank(merchant);
         vm.expectEmit(true, false, false, false, address(registry));
         emit LovepayRegistry.MerchantUpdated(merchant);
-        registry.updateMerchant("NewName", "new@test.com", "ecommerce");
+        registry.updateMerchant("NewName", "new@test.com", "ecommerce", "https://new.com", "new_ig", "new_x", "+9999");
 
-        (, string memory name, string memory email, string memory biz, , ) =
+        (, string memory name, string memory email, string memory biz, , , string memory website, , , ) =
             registry.merchants(merchant);
         assertEq(name, "NewName");
         assertEq(email, "new@test.com");
         assertEq(biz, "ecommerce");
+        assertEq(website, "https://new.com");
     }
 
     function test_UpdateMerchant_RevertNotRegistered() public {
         vm.prank(alice);
         vm.expectRevert(bytes("LovepayRegistry: merchant not found"));
-        registry.updateMerchant("X", "x@test.com", "none");
+        registry.updateMerchant("X", "x@test.com", "none", "", "", "", "");
     }
 
     // ══════════════════════════════════════════════════════════════════════════
@@ -187,7 +196,7 @@ contract LovepayRegistryTest is Test {
         emit LovepayRegistry.MerchantDeactivated(merchant);
         registry.deactivateMerchant();
 
-        (, , , , , bool active) = registry.merchants(merchant);
+        (, , , , , bool active, , , , ) = registry.merchants(merchant);
         assertFalse(active);
     }
 
@@ -745,7 +754,7 @@ contract LovepayRegistryInvariantTest is Test {
 
         // Register the merchant for the handler
         vm.prank(merchant);
-        registry.registerMerchant("InvMerchant", "inv@test.com", "retail");
+        registry.registerMerchant("InvMerchant", "inv@test.com", "retail", "", "", "", "");
 
         handler = new PayHandler(registry, usdc, merchant, payer);
 

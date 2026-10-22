@@ -25,6 +25,10 @@ export interface ChainMerchant {
   businessType: string
   registeredAt: bigint
   active: boolean
+  website: string
+  instagram: string
+  twitter: string
+  whatsapp: string
 }
 
 export interface ChainPaymentLink {
@@ -79,10 +83,10 @@ export function useMerchant(address?: string) {
     chainId: ARC_TESTNET_CHAIN_ID,
     query: { enabled: !!address },
   })
-  // ABI returns 6 separate outputs decoded as an array: [wallet, name, email, businessType, registeredAt, active]
-  const raw = data as [string, string, string, string, bigint, boolean] | undefined
+  // ABI: [wallet, name, email, businessType, registeredAt, active, website, instagram, twitter, whatsapp]
+  const raw = data as [string, string, string, string, bigint, boolean, string, string, string, string] | undefined
   const merchant: ChainMerchant | undefined = raw && raw[4] > 0n
-    ? { wallet: raw[0], name: raw[1], email: raw[2], businessType: raw[3], registeredAt: raw[4], active: raw[5] }
+    ? { wallet: raw[0], name: raw[1], email: raw[2], businessType: raw[3], registeredAt: raw[4], active: raw[5], website: raw[6] ?? '', instagram: raw[7] ?? '', twitter: raw[8] ?? '', whatsapp: raw[9] ?? '' }
     : undefined
   return { merchant, isLoading, refetch }
 }
@@ -98,18 +102,42 @@ export function useIsMerchant(address?: string) {
   return { isMerchant: data as boolean | undefined, isLoading, refetch }
 }
 
+export interface MerchantFormData {
+  name: string
+  email: string
+  businessType: string
+  website: string
+  instagram: string
+  twitter: string
+  whatsapp: string
+}
+
 export function useRegisterMerchant() {
   const { write, hash, isPending, isConfirming, isSuccess, error } = useCircleWrite()
 
-  const register = (name: string, email: string, businessType: string) => {
+  const register = (d: MerchantFormData) => {
     void write({
       address: LOVEPAY_CONTRACT.address,
       abi: CONTRACT_ABI,
       functionName: 'registerMerchant',
-      args: [name, email, businessType],
+      args: [d.name, d.email, d.businessType, d.website, d.instagram, d.twitter, d.whatsapp],
     })
   }
   return { register, hash, isPending, isConfirming, isSuccess, error }
+}
+
+export function useUpdateMerchant() {
+  const { write, hash, isPending, isConfirming, isSuccess, error } = useCircleWrite()
+
+  const update = (d: MerchantFormData) => {
+    void write({
+      address: LOVEPAY_CONTRACT.address,
+      abi: CONTRACT_ABI,
+      functionName: 'updateMerchant',
+      args: [d.name, d.email, d.businessType, d.website, d.instagram, d.twitter, d.whatsapp],
+    })
+  }
+  return { update, hash, isPending, isConfirming, isSuccess, error }
 }
 
 // ─── Payment link hooks ───────────────────────────────────────────────────────
