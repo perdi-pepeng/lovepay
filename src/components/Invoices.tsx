@@ -178,7 +178,7 @@ export default function Invoices({ merchantAddress }: Props) {
   const [customerName, setCustomerName] = useState('')
   const [customerEmail, setCustomerEmail] = useState('')
   const [dueDate, setDueDate] = useState('')
-  const [tax, setTax] = useState(11)
+  const [tax, setTax] = useState(0)
   const [discount, setDiscount] = useState(0)
   const [notes, setNotes] = useState('')
   const [items, setItems] = useState<LocalItem[]>([{ id: '1', description: '', qty: '1', price: '' }])

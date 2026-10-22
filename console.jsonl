@@ -1140,3 +1140,12 @@
 {"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1792680865116}
 {"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792680865116}
 {"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792680865116}
+{"level":"error","message":"Warning: Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render.%s \n    at MerchantProfile (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/MerchantProfile.tsx?t=1792680862176:40:43)\n    at div\n    at main\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792680862176:55:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx?t=1792679759823:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792682811700}
+{"level":"debug","message":"[vite] connected.","timestamp":1792683297370}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792683533612}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792683533613}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792683533623}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792683533623}
+{"level":"error","message":"(previous line repeated 476× more)","timestamp":1792683533625}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792683533625}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792683533626}
