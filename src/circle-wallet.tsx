@@ -12,7 +12,7 @@ import {
   startTransition,
   type ReactNode,
 } from 'react'
-import { useWriteContract, useWaitForTransactionReceipt, useAccount } from 'wagmi'
+import { useWriteContract, useWaitForTransactionReceipt, useAccount, useSwitchChain } from 'wagmi'
 import { createPublicClient, encodeFunctionData, type Abi, type Address } from 'viem'
 import { arcTestnet } from 'viem/chains'
 import { createBundlerClient, toWebAuthnAccount } from 'viem/account-abstraction'
@@ -251,7 +251,7 @@ interface UniversalWriteResult {
 
 export function useUniversalWrite(): UniversalWriteResult {
   const { wallet } = useCircleWallet()
-  const { isConnected: wagmiConnected } = useAccount()
+  const { isConnected: wagmiConnected, chainId: wagmiChainId } = useAccount()
   const isCircle = wallet.status === 'connected'
 
   // Circle path state
@@ -274,6 +274,8 @@ export function useUniversalWrite(): UniversalWriteResult {
     reset: wagmiReset,
   } = useWriteContract()
 
+  const { switchChainAsync } = useSwitchChain()
+
   const {
     isLoading: wagmiConfirming,
     isSuccess: wagmiSuccess,
@@ -284,15 +286,23 @@ export function useUniversalWrite(): UniversalWriteResult {
     if (isCircle) {
       void circleWrite({ ...params, paymaster: true })
     } else if (wagmiConnected) {
-      writeContract({
+      // Auto-switch to Arc Testnet if MetaMask is on a different chain
+      const doWrite = () => writeContract({
         address: params.address,
         abi: params.abi,
         functionName: params.functionName,
         args: params.args as never[],
         chainId: arcTestnet.id,
       })
+      if (wagmiChainId !== arcTestnet.id) {
+        void switchChainAsync({ chainId: arcTestnet.id })
+          .then(doWrite)
+          .catch(() => doWrite()) // if switch fails, try anyway
+      } else {
+        doWrite()
+      }
     }
-  }, [isCircle, wagmiConnected, circleWrite, writeContract])
+  }, [isCircle, wagmiConnected, wagmiChainId, circleWrite, writeContract, switchChainAsync])
 
   const reset = useCallback(() => {
     if (isCircle) circleReset()
