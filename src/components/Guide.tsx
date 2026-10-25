@@ -119,7 +119,7 @@ export default function Guide() {
               icon: UserCircle,
               title: 'Merchant Profile',
               color: 'var(--accent-hover)',
-              desc: 'Your business data stored on the blockchain: name, email, business type, wallet address. Can be updated at any time — changes are saved onchain.',
+              desc: 'Your business data stored on the blockchain: name, email, business type, social media links (website, Instagram, X/Twitter, WhatsApp), and wallet address. Can be updated at any time — changes are saved onchain.',
             },
           ].map(({ icon: Icon, title, color, desc }) => (
             <div key={title} className="flex gap-4 p-4 rounded-2xl"
@@ -177,7 +177,7 @@ export default function Guide() {
           />
           <Accordion
             q="How do customers pay?"
-            a="Customers open the link you shared, connect their wallet (MetaMask, Rabby, or any other), approve USDC spending once, then confirm the payment. USDC goes directly into your wallet with no intermediaries."
+            a="Customers open the link you shared, connect their wallet (Circle Passkey Wallet, MetaMask, Rabby, or any other), approve USDC spending once, then confirm the payment. USDC goes directly into your wallet with no intermediaries."
           />
           <Accordion
             q="What is the difference between a Payment Link and an Invoice?"
