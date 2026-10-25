@@ -1,6 +1,7 @@
 import { QrCode, Link2, FileText, History, UserCircle, ArrowRight, Shield, Zap, Globe, ChevronDown, ChevronUp } from 'lucide-react'
 import { useState } from 'react'
-import { LOVEPAY_CONTRACT, ARC_TESTNET_CHAIN_ID } from '../contract'
+import { getLovepayContract, ARC_MAINNET_CHAIN_ID } from '../contract'
+import { useArcChainId } from '../store'
 import { buildAddressExplorerUrl } from '@/onchain-facts'
 
 interface AccordionProps { q: string; a: string }
@@ -28,7 +29,11 @@ function Accordion({ q, a }: AccordionProps) {
 }
 
 export default function Guide() {
-  const explorerUrl = buildAddressExplorerUrl(ARC_TESTNET_CHAIN_ID, LOVEPAY_CONTRACT.address)
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
+  const isMainnet = chainId === ARC_MAINNET_CHAIN_ID
+  const chainLabel = isMainnet ? 'Arc Mainnet' : 'Arc Testnet'
+  const explorerUrl = buildAddressExplorerUrl(chainId, contract.address)
 
   return (
     <div className="space-y-8 max-w-2xl">
@@ -140,7 +145,7 @@ export default function Guide() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {[
             { icon: Shield, title: 'Tamper-Proof', desc: 'All data is stored in an immutable smart contract — no one can alter or delete transaction history.' },
-            { icon: Zap,    title: 'Instant & Low Cost', desc: 'Transactions confirm in seconds on Arc Testnet. Gas fees are stable because Arc uses USDC as gas.' },
+            { icon: Zap,    title: 'Instant & Low Cost', desc: `Transactions confirm in seconds on ${chainLabel}. Gas fees are stable because Arc uses USDC as gas.` },
             { icon: Globe,  title: 'No Bank Required', desc: 'Accept payments from anyone worldwide without a bank account, no complex KYC, no international transfer fees.' },
           ].map(({ icon: Icon, title, desc }) => (
             <div key={title} className="p-4 rounded-2xl text-center"
@@ -168,7 +173,7 @@ export default function Guide() {
           />
           <Accordion
             q="Is my data safe?"
-            a="Merchant data, payment links, invoices, and transactions are stored in an immutable smart contract on the Arc Testnet blockchain. There is no central server that can be hacked or manipulated. Only your wallet can change your business data."
+            a={`Merchant data, payment links, invoices, and transactions are stored in an immutable smart contract on the ${chainLabel} blockchain. There is no central server that can be hacked or manipulated. Only your wallet can change your business data.`}
           />
           <Accordion
             q="How do customers pay?"
@@ -184,7 +189,7 @@ export default function Guide() {
           />
           <Accordion
             q="Is this testnet or mainnet?"
-            a="Lovepay currently runs on Arc Testnet — all USDC is testnet tokens with no real value. This is for demonstration and development. For production with real funds, deploy to Arc Mainnet."
+            a={isMainnet ? 'Lovepay is running on Arc Mainnet — transactions use real USDC. All payments are final and irreversible.' : 'Lovepay is currently running on Arc Testnet — all USDC is testnet tokens with no real value. This is for demonstration and development.'}
           />
         </div>
       </div>
@@ -198,9 +203,9 @@ export default function Guide() {
         <div className="space-y-2 text-xs">
           {[
             ['Smart Contract', 'LovepayRegistry.sol'],
-            ['Network', 'Arc Testnet (Chain ID: 5042002)'],
+            ['Network', `${chainLabel} (Chain ID: ${chainId})`],
             ['Currency', 'USDC (6 decimals)'],
-            ['Contract Address', `${LOVEPAY_CONTRACT.address.slice(0, 18)}…${LOVEPAY_CONTRACT.address.slice(-6)}`],
+            ['Contract Address', `${contract.address.slice(0, 18)}…${contract.address.slice(-6)}`],
           ].map(([k, v]) => (
             <div key={k} className="flex justify-between">
               <span style={{ color: 'var(--muted)' }}>{k}</span>

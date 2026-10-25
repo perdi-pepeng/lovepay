@@ -2,18 +2,22 @@ import { X, Shield, Zap, ExternalLink, Copy, Check, QrCode } from 'lucide-react'
 import LovepayLogo from './LovepayLogo'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
-import { LOVEPAY_CONTRACT, ARC_TESTNET_CHAIN_ID } from '../contract'
+import { getLovepayContract, ARC_MAINNET_CHAIN_ID } from '../contract'
+import { useArcChainId } from '../store'
 import { buildAddressExplorerUrl, requireChain } from '@/onchain-facts'
 
 interface Props { open: boolean; onClose: () => void }
 
 export default function AboutModal({ open, onClose }: Props) {
   const [copied, setCopied] = useState(false)
-  const chain = requireChain(ARC_TESTNET_CHAIN_ID)
-  const explorerUrl = buildAddressExplorerUrl(ARC_TESTNET_CHAIN_ID, LOVEPAY_CONTRACT.address)
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
+  const chain = requireChain(chainId)
+  const explorerUrl = buildAddressExplorerUrl(chainId, contract.address)
+  const isMainnet = chainId === ARC_MAINNET_CHAIN_ID
 
   const copyAddress = () => {
-    void navigator.clipboard.writeText(LOVEPAY_CONTRACT.address).then(() => {
+    void navigator.clipboard.writeText(contract.address).then(() => {
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     })
@@ -37,10 +41,7 @@ export default function AboutModal({ open, onClose }: Props) {
             transition={{ type: 'spring', damping: 30, stiffness: 400 }}
             onClick={e => e.stopPropagation()}
           >
-            {/* Gradient header bar */}
             <div className="h-1" style={{ background: 'var(--gradient-love)' }} />
-
-            {/* Header */}
             <div className="flex items-start justify-between px-6 pt-6 pb-4">
               <div className="flex items-center gap-3">
                 <LovepayLogo size={48} className="shrink-0" />
@@ -56,20 +57,17 @@ export default function AboutModal({ open, onClose }: Props) {
               </button>
             </div>
 
-            {/* Body */}
             <div className="px-6 pb-6 space-y-4">
-              {/* Tagline */}
               <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-2)' }}>
                 Blockchain-based USDC payment platform. Accept payments from anywhere,
                 no banks, no intermediaries — all transactions stored permanently on smart contract.
               </p>
 
-              {/* Key stats */}
               <div className="grid grid-cols-3 gap-2">
                 {[
-                  { icon: Shield, label: 'Immutable', sub: 'Permanent contract' },
-                  { icon: Zap,    label: 'Sub-second', sub: 'Arc Testnet' },
-                  { icon: QrCode, label: 'USDC Only', sub: 'Stablecoin' },
+                  { icon: Shield, label: 'Immutable',   sub: 'Permanent contract' },
+                  { icon: Zap,    label: 'Sub-second',  sub: isMainnet ? 'Arc Mainnet' : 'Arc Testnet' },
+                  { icon: QrCode, label: 'USDC Only',   sub: 'Stablecoin' },
                 ].map(({ icon: Icon, label, sub }) => (
                   <div key={label} className="rounded-2xl p-3 text-center"
                     style={{ background: 'var(--surface-muted)', border: '1px solid var(--border)' }}>
@@ -80,7 +78,6 @@ export default function AboutModal({ open, onClose }: Props) {
                 ))}
               </div>
 
-              {/* Contract info */}
               <div className="rounded-2xl p-4 space-y-3"
                 style={{ background: 'var(--surface-muted)', border: '1px solid var(--border)' }}>
                 <p className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: 'var(--subtle)' }}>
@@ -93,7 +90,7 @@ export default function AboutModal({ open, onClose }: Props) {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-xs" style={{ color: 'var(--muted)' }}>Chain ID</span>
-                    <span className="text-xs font-mono font-semibold" style={{ color: 'var(--ink)' }}>{ARC_TESTNET_CHAIN_ID}</span>
+                    <span className="text-xs font-mono font-semibold" style={{ color: 'var(--ink)' }}>{chainId}</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-xs" style={{ color: 'var(--muted)' }}>Currency</span>
@@ -103,7 +100,7 @@ export default function AboutModal({ open, onClose }: Props) {
                     <span className="text-xs shrink-0" style={{ color: 'var(--muted)' }}>Contract</span>
                     <div className="flex items-center gap-1.5 min-w-0">
                       <span className="text-xs font-mono truncate" style={{ color: 'var(--ink)' }}>
-                        {LOVEPAY_CONTRACT.address.slice(0, 10)}…{LOVEPAY_CONTRACT.address.slice(-6)}
+                        {contract.address.slice(0, 10)}…{contract.address.slice(-6)}
                       </span>
                       <button onClick={copyAddress} className="shrink-0 w-5 h-5 flex items-center justify-center rounded"
                         style={{ color: copied ? 'var(--success)' : 'var(--subtle)' }}>
@@ -114,7 +111,6 @@ export default function AboutModal({ open, onClose }: Props) {
                 </div>
               </div>
 
-              {/* Explorer link */}
               <a href={explorerUrl} target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3 rounded-2xl text-sm font-semibold transition-all"
                 style={{ background: 'var(--surface-muted)', color: 'var(--ink-2)', border: '1px solid var(--border)' }}>
@@ -123,7 +119,7 @@ export default function AboutModal({ open, onClose }: Props) {
               </a>
 
               <p className="text-center text-[10px]" style={{ color: 'var(--subtle)' }}>
-                Lovepay v1.0 · Built on Arc Testnet · Powered by Circle USDC
+                Lovepay v1.0 · Built on {isMainnet ? 'Arc Mainnet' : 'Arc Testnet'} · Powered by Circle USDC
               </p>
             </div>
           </motion.div>

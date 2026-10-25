@@ -1,8 +1,10 @@
-import { Amount, usdcDecimalsFor } from '@/onchain-money'
-import { ARC_TESTNET_CHAIN_ID } from '../contract'
+import { Amount } from '@/onchain-money'
+
+// USDC has 6 decimals on all Arc networks
+const USDC_DECIMALS = 6
 
 export function formatUSDC(raw: bigint): string {
-  return Amount.fromRaw(raw, usdcDecimalsFor(ARC_TESTNET_CHAIN_ID)).toFixed(2)
+  return Amount.fromRaw(raw, USDC_DECIMALS).toFixed(2)
 }
 
 const STATUS_LABELS: Record<number, string> = { 0: 'Draft', 1: 'Sent', 2: 'Paid', 3: 'Cancelled' }

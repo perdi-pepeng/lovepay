@@ -13,8 +13,9 @@ export const ARC_MAINNET_CHAIN_ID = 5042
 export const ARC_USDC = '0x3600000000000000000000000000000000000000' as const
 
 const TESTNET_ADDRESS = '0x16c966614e32dfa9e56a0c3a44004d589283f8f9' as const
-// Set VITE_MAINNET_CONTRACT in .env after deploying to mainnet
-const MAINNET_ADDRESS = (import.meta.env.VITE_MAINNET_CONTRACT ?? '') as string
+const MAINNET_ADDRESS = (
+  import.meta.env.VITE_MAINNET_CONTRACT ?? '0xD133FE191eDB4f7fd8bE0bcFEeAc0948875A7de9'
+) as string
 
 export function getLovepayContract(chainId: number) {
   const address =

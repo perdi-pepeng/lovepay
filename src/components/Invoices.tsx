@@ -3,7 +3,7 @@ import { Plus, FileText, X, Trash2, Loader2, User, Mail, Calendar, Receipt, Chev
 import { motion, AnimatePresence } from 'framer-motion'
 import { toast } from 'sonner'
 import { encodeAbiParameters, parseAbiParameters } from 'viem'
-import { useMerchantInvoiceIds, useInvoice, useCreateInvoice, useUpdateInvoiceStatus, type CreateInvoiceParams } from '../store'
+import { useMerchantInvoiceIds, useInvoice, useCreateInvoice, useUpdateInvoiceStatus, useArcChainId, type CreateInvoiceParams } from '../store'
 import { formatUSDC } from './format-utils'
 
 const STATUS_LABELS: Record<number, string> = { 0: 'Draft', 1: 'Sent', 2: 'Paid', 3: 'Overdue' }
@@ -172,6 +172,8 @@ const inputStyle = { background: 'var(--surface-muted)', color: 'var(--ink)', bo
 interface Props { merchantAddress: string }
 
 export default function Invoices({ merchantAddress }: Props) {
+  const chainId = useArcChainId()
+  const chainLabel = chainId === 5042 ? 'Arc Mainnet' : 'Arc Testnet'
   const { invoiceIds, isLoading, refetch } = useMerchantInvoiceIds(merchantAddress)
   const { create, isPending, isConfirming, isSuccess, error } = useCreateInvoice()
   const [showSheet, setShowSheet] = useState(false)
@@ -483,7 +485,7 @@ export default function Invoices({ merchantAddress }: Props) {
                     : <><ChevronRight className="w-4 h-4" /> Create Invoice</>}
                 </button>
                 <p className="text-center text-[11px] mt-2.5" style={{ color: 'var(--subtle)' }}>
-                  Invoice stored permanently on Arc Testnet
+                  Invoice stored permanently on {chainLabel}
                 </p>
               </div>
             </motion.div>

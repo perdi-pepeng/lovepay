@@ -2,8 +2,7 @@ import { useState, useEffect, startTransition } from 'react'
 import { motion } from 'framer-motion'
 import { Edit2, Save, X, CheckCircle2, XCircle, Copy, Check, Loader2, UserCircle, Globe, Instagram, Twitter, Phone, ExternalLink } from 'lucide-react'
 import { toast } from 'sonner'
-import { useMerchant, useUpdateMerchant, type MerchantFormData } from '../store'
-import { ARC_TESTNET_CHAIN_ID } from '../contract'
+import { useMerchant, useUpdateMerchant, useArcChainId, type MerchantFormData } from '../store'
 import { buildAddressExplorerUrl } from '@/onchain-facts'
 
 const BIZ_LABELS: Record<string, string> = {
@@ -18,6 +17,8 @@ const BIZ_LABELS: Record<string, string> = {
 interface Props { merchantAddress: string }
 
 export default function MerchantProfile({ merchantAddress }: Props) {
+  const chainId = useArcChainId()
+  const chainLabel = chainId === 5042 ? 'Arc Mainnet' : 'Arc Testnet'
   const { merchant, isLoading, refetch } = useMerchant(merchantAddress)
   const { update, isPending, isConfirming, isSuccess, error } = useUpdateMerchant()
 
@@ -85,7 +86,7 @@ export default function MerchantProfile({ merchantAddress }: Props) {
       })
     : '—'
 
-  const explorerUrl = buildAddressExplorerUrl(ARC_TESTNET_CHAIN_ID, merchantAddress)
+  const explorerUrl = buildAddressExplorerUrl(chainId, merchantAddress)
 
   const inputCls = 'w-full px-3 py-2.5 rounded-xl text-sm outline-none'
   const inputStyle = { background: 'var(--bg)', border: '1px solid var(--border)', color: 'var(--ink)' }
@@ -122,7 +123,7 @@ export default function MerchantProfile({ merchantAddress }: Props) {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="display text-2xl font-bold" style={{ color: 'var(--ink)' }}>Merchant Profile</h1>
-          <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>Data stored permanently on Arc Testnet blockchain</p>
+          <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>Data stored permanently on {chainLabel} blockchain</p>
         </div>
         {!editing && (
           <button
@@ -308,7 +309,7 @@ export default function MerchantProfile({ merchantAddress }: Props) {
       </div>
 
       <p className="text-xs text-center pb-4" style={{ color: 'var(--subtle)' }}>
-        Data stored on smart contract · Arc Testnet · Registered {registeredDate}
+        Data stored on smart contract · {chainLabel} · Registered {registeredDate}
       </p>
     </motion.div>
   )

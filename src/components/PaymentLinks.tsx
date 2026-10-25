@@ -2,11 +2,10 @@ import { useState, useEffect, startTransition } from 'react'
 import { Plus, Link2, Copy, Check, QrCode, Loader2, ExternalLink } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { toast } from 'sonner'
-import { useMerchantLinkIds, usePaymentLink, useCreatePaymentLink, useDeactivatePaymentLink } from '../store'
+import { useMerchantLinkIds, usePaymentLink, useCreatePaymentLink, useDeactivatePaymentLink, useArcChainId } from '../store'
 import { formatUSDC } from './format-utils'
 import QRModal from './QRModal'
 import { parseAmount, formatUsdc } from '@/onchain-money'
-import { ARC_TESTNET_CHAIN_ID } from '../contract'
 
 function LinkCard({ linkId, onShowQR }: { linkId: string; onShowQR: (id: string, title: string, amount: bigint, memo: string) => void }) {
   const { link } = usePaymentLink(linkId)
@@ -80,6 +79,7 @@ function LinkCard({ linkId, onShowQR }: { linkId: string; onShowQR: (id: string,
 interface Props { merchantAddress: string }
 
 export default function PaymentLinks({ merchantAddress }: Props) {
+  const chainId = useArcChainId()
   const { linkIds, isLoading, refetch } = useMerchantLinkIds(merchantAddress)
   const { create, isPending, isConfirming, isSuccess, error } = useCreatePaymentLink()
   const [showSheet, setShowSheet] = useState(false)
@@ -109,7 +109,7 @@ export default function PaymentLinks({ merchantAddress }: Props) {
     if (!title.trim()) return
     let parsedAmount = 0n
     if (amount.trim()) {
-      try { parsedAmount = parseAmount(ARC_TESTNET_CHAIN_ID, amount).raw }
+      try { parsedAmount = parseAmount(chainId, amount).raw }
       catch { toast.error('Invalid amount'); return }
     }
     create(title.trim(), parsedAmount, memo.trim(), multiUse)

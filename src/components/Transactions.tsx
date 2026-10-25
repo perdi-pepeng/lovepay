@@ -1,20 +1,20 @@
 import { useState, useEffect } from 'react'
 import { Search, Download, ArrowUpDown, Loader2, ArrowDownLeft, ArrowUpRight as ArrowUpRightIcon } from 'lucide-react'
-import { useAllMyPaymentIds, usePayment } from '../store'
+import { useAllMyPaymentIds, usePayment, useArcChainId } from '../store'
+import { getLovepayContract } from '../contract'
 import { formatUSDC, StatusBadge } from './format-utils'
 import { buildTxExplorerUrl } from '@/onchain-facts'
-import { ARC_TESTNET_CHAIN_ID, LOVEPAY_CONTRACT } from '../contract'
 import { usePublicClient } from 'wagmi'
 
 /** Fetch tx hash from blockNumber stored in PaymentRecord — single getBlock call, no scanning. */
-function useTxHashFromBlock(blockNumber: bigint | undefined): string | null {
+function useTxHashFromBlock(blockNumber: bigint | undefined, chainId: number): string | null {
   const [txHash, setTxHash] = useState<string | null>(null)
-  const client = usePublicClient({ chainId: ARC_TESTNET_CHAIN_ID })
+  const client = usePublicClient({ chainId })
 
   useEffect(() => {
     if (!blockNumber || blockNumber === 0n || !client) return
     let cancelled = false
-    const contractAddr = LOVEPAY_CONTRACT.address.toLowerCase()
+    const contractAddr = getLovepayContract(chainId).address.toLowerCase()
 
     client.getBlock({ blockNumber, includeTransactions: true })
       .then(block => {
@@ -29,18 +29,19 @@ function useTxHashFromBlock(blockNumber: bigint | undefined): string | null {
       .catch(() => { /* silently ignore */ })
 
     return () => { cancelled = true }
-  }, [blockNumber, client])
+  }, [blockNumber, client, chainId])
 
   return txHash
 }
 
-function PaymentRow({ paymentId, myAddress, directionFilter }: {
+function PaymentRow({ paymentId, myAddress, directionFilter, chainId }: {
   paymentId: string
   myAddress: string
   directionFilter: 'all' | 'in' | 'out'
+  chainId: number
 }) {
   const { payment, isLoading } = usePayment(paymentId)
-  const txHash = useTxHashFromBlock(payment?.blockNumber)
+  const txHash = useTxHashFromBlock(payment?.blockNumber, chainId)
 
   if (isLoading || !payment) return (
     <tr style={{ borderBottom: '1px solid var(--border)' }}>
@@ -59,7 +60,7 @@ function PaymentRow({ paymentId, myAddress, directionFilter }: {
 
   const counterparty = isIncoming ? payment.payer : payment.merchant
   const date = new Date(Number(payment.createdAt) * 1000)
-  const txUrl = txHash ? buildTxExplorerUrl(ARC_TESTNET_CHAIN_ID, txHash) : null
+  const txUrl = txHash ? buildTxExplorerUrl(chainId, txHash) : null
 
   return (
     <tr className="text-sm" style={{ borderBottom: '1px solid var(--border)' }}>
@@ -128,6 +129,7 @@ function PaymentRow({ paymentId, myAddress, directionFilter }: {
 interface Props { merchantAddress: string }
 
 export default function Transactions({ merchantAddress }: Props) {
+  const chainId = useArcChainId()
   const { allIds, received, isLoading } = useAllMyPaymentIds(merchantAddress)
   const [search, setSearch] = useState('')
   const [sortAsc, setSortAsc] = useState(false)
@@ -226,7 +228,7 @@ export default function Transactions({ merchantAddress }: Props) {
               </thead>
               <tbody>
                 {filtered.map(id => (
-                  <PaymentRow key={id} paymentId={id} myAddress={merchantAddress} directionFilter={filter} />
+                  <PaymentRow key={id} paymentId={id} myAddress={merchantAddress} directionFilter={filter} chainId={chainId} />
                 ))}
               </tbody>
             </table>

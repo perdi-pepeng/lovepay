@@ -3,19 +3,19 @@ import { TrendingUp, ArrowUpRight, CheckCircle2, XCircle, Loader2, Store, Chevro
 import { motion, AnimatePresence } from 'framer-motion'
 import { toast } from 'sonner'
 import { useQueryClient } from '@tanstack/react-query'
-import { useMerchant, useAllMyPaymentIds, usePayment, useUsdcBalance, useRegisterMerchant } from '../store'
+import { useMerchant, useAllMyPaymentIds, usePayment, useUsdcBalance, useRegisterMerchant, useArcChainId } from '../store'
 import { buildTxExplorerUrl } from '@/onchain-facts'
-import { ARC_TESTNET_CHAIN_ID } from '../contract'
 import { formatUSDC, StatusBadge } from './format-utils'
 
 const ZERO_BYTES32 = '0x0000000000000000000000000000000000000000000000000000000000000000'
 
 function RecentPaymentRow({ paymentId, myAddress }: { paymentId: string; myAddress: string }) {
+  const chainId = useArcChainId()
   const { payment } = usePayment(paymentId)
   if (!payment) return null
   const isIncoming = payment.merchant.toLowerCase() === myAddress.toLowerCase()
   const hasTxRef = payment.txRef && payment.txRef !== ZERO_BYTES32
-  const txUrl = hasTxRef ? buildTxExplorerUrl(ARC_TESTNET_CHAIN_ID, payment.txRef) : null
+  const txUrl = hasTxRef ? buildTxExplorerUrl(chainId, payment.txRef) : null
   const counterparty = isIncoming ? payment.payer : payment.merchant
   return (
     <div className="flex items-center gap-3 py-3.5" style={{ borderBottom: '1px solid var(--border)' }}>
@@ -214,6 +214,8 @@ function MerchantSetupBanner({ onDone }: { onDone: () => void }) {
 interface Props { onViewAll: () => void; merchantAddress: string; isMerchant: boolean }
 
 export default function Dashboard({ onViewAll, merchantAddress, isMerchant }: Props) {
+  const chainId = useArcChainId()
+  const chainLabel = chainId === 5042 ? 'Arc Mainnet' : 'Arc Testnet'
   const { merchant, refetch } = useMerchant(merchantAddress)
   const { allIds, received, isLoading: idsLoading } = useAllMyPaymentIds(merchantAddress)
   const { balance } = useUsdcBalance(merchantAddress)
@@ -324,7 +326,7 @@ export default function Dashboard({ onViewAll, merchantAddress, isMerchant }: Pr
       </div>
 
       <p className="text-xs text-center" style={{ color: 'var(--subtle)' }}>
-        Data stored on smart contract · Arc Testnet · {new Date(todayStr).toLocaleDateString('en-US')}
+        Data stored on smart contract · {chainLabel} · {new Date(todayStr).toLocaleDateString('en-US')}
       </p>
     </div>
   )

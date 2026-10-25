@@ -312,7 +312,7 @@ export default function WalletButton() {
                   </ConnectKitButton.Custom>
 
                   <p className="text-xs text-center" style={{ color: 'var(--subtle)' }}>
-                    Wallet must be connected to <strong>Arc Testnet</strong> (Chain ID 5042002)
+                    Wallet must be connected to <strong>Arc Testnet or Arc Mainnet</strong>
                   </p>
                 </div>
               )}
