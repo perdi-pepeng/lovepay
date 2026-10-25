@@ -131,7 +131,7 @@ export function CircleWalletProvider({ children }: { children: ReactNode }) {
       await connectWithCredential(cred)
     } catch (e) {
       setWallet({ status: 'disconnected' })
-      setError(e instanceof Error ? e.message : 'Registrasi gagal')
+      setError(e instanceof Error ? e.message : 'Registration failed')
     }
   }, [connectWithCredential])
 
@@ -146,7 +146,7 @@ export function CircleWalletProvider({ children }: { children: ReactNode }) {
       await connectWithCredential(cred)
     } catch (e) {
       setWallet({ status: 'disconnected' })
-      setError(e instanceof Error ? e.message : 'Login gagal')
+      setError(e instanceof Error ? e.message : 'Login failed')
     }
   }, [connectWithCredential])
 
@@ -187,7 +187,7 @@ export function useCircleWrite() {
     paymaster?: true
   }) => {
     if (wallet.status !== 'connected') {
-      setError(new Error('Wallet tidak terhubung'))
+      setError(new Error('Wallet not connected'))
       return
     }
     setError(null)
