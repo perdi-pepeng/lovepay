@@ -14,7 +14,7 @@ import {
 } from 'react'
 import { useWriteContract, useWaitForTransactionReceipt, useAccount, useSwitchChain } from 'wagmi'
 import { createPublicClient, encodeFunctionData, type Abi, type Address } from 'viem'
-import { arcTestnet } from 'viem/chains'
+import { arc, arcTestnet } from 'viem/chains'
 import { createBundlerClient, toWebAuthnAccount } from 'viem/account-abstraction'
 import {
   WebAuthnMode,
@@ -286,18 +286,21 @@ export function useUniversalWrite(): UniversalWriteResult {
     if (isCircle) {
       void circleWrite({ ...params, paymaster: true })
     } else if (wagmiConnected) {
-      // Auto-switch to Arc Testnet if MetaMask is on a different chain
+      // Determine target Arc chain — mainnet if wallet is on mainnet, else testnet
+      const targetChainId = wagmiChainId === arc.id ? arc.id : arcTestnet.id
       const doWrite = () => writeContract({
         address: params.address,
         abi: params.abi,
         functionName: params.functionName,
         args: params.args as never[],
-        chainId: arcTestnet.id,
+        chainId: targetChainId,
       })
-      if (wagmiChainId !== arcTestnet.id) {
+      const isOnArc = wagmiChainId === arcTestnet.id || wagmiChainId === arc.id
+      if (!isOnArc) {
+        // Switch to testnet by default when on wrong chain
         void switchChainAsync({ chainId: arcTestnet.id })
           .then(doWrite)
-          .catch(() => doWrite()) // if switch fails, try anyway
+          .catch(() => doWrite())
       } else {
         doWrite()
       }

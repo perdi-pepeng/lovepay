@@ -5,12 +5,22 @@ import { ConnectKitButton } from 'connectkit'
 import { erc20Abi } from 'viem'
 import { motion, AnimatePresence } from 'framer-motion'
 import { toast } from 'sonner'
-import { requireChain, buildTxExplorerUrl } from '@/onchain-facts'
-import { Amount, usdcDecimalsFor, parseAmount } from '@/onchain-money'
-import { useApproveUsdc, usePay, USDC_FACT } from '../store'
-import { LOVEPAY_CONTRACT, ARC_TESTNET_CHAIN_ID } from '../contract'
+import { arc, arcTestnet } from 'viem/chains'
+import { useApproveUsdc, usePay, useArcChainId, getExplorerTxUrl, ARC_MAINNET_CHAIN_ID } from '../store'
+import { getLovepayContract, ARC_USDC } from '../contract'
 
 const ZERO_BYTES32 = '0x0000000000000000000000000000000000000000000000000000000000000000' as const
+const USDC_DECIMALS = 6
+
+function parseUsdc(val: string): bigint {
+  const num = parseFloat(val)
+  if (isNaN(num) || num <= 0) return 0n
+  return BigInt(Math.round(num * 10 ** USDC_DECIMALS))
+}
+
+function formatUsdc(raw: bigint): string {
+  return (Number(raw) / 10 ** USDC_DECIMALS).toFixed(2)
+}
 
 function parseOnchainError(error: unknown): string {
   const msg = (error as { message?: string })?.message?.toLowerCase() ?? ''
@@ -34,61 +44,62 @@ interface CheckoutProps {
 }
 
 export default function Checkout({ linkId, amount: prefillAmount, memo, merchant: merchantProp, invoiceId, onBack, onSuccess }: CheckoutProps) {
-  const { address, isConnected, chainId } = useAccount()
+  const { address, isConnected, chainId: walletChainId } = useAccount()
   const { switchChain } = useSwitchChain()
   const [amount, setAmount] = useState(prefillAmount || '')
   const [step, setStep] = useState<'form' | 'approve' | 'pay' | 'done'>('form')
   const [successHash, setSuccessHash] = useState('')
 
-  const chain = requireChain(ARC_TESTNET_CHAIN_ID)
-  const usdcAddress = USDC_FACT?.address as `0x${string}` | undefined
+  const arcChainId = useArcChainId()
+  const contract = getLovepayContract(arcChainId)
+  const onMainnet = arcChainId === ARC_MAINNET_CHAIN_ID
+  const chainName = onMainnet ? 'Arc Mainnet' : 'Arc Testnet'
+  const expectedChainId = onMainnet ? arc.id : arcTestnet.id
 
   // USDC balance
   const { data: rawBalance } = useReadContract({
-    address: usdcAddress,
+    address: ARC_USDC,
     abi: erc20Abi,
     functionName: 'balanceOf',
     args: address ? [address] : undefined,
-    chainId: ARC_TESTNET_CHAIN_ID,
-    query: { enabled: !!address && !!USDC_FACT },
+    chainId: arcChainId,
+    query: { enabled: !!address },
   })
 
   // USDC allowance for registry
   const { data: rawAllowance, refetch: refetchAllowance } = useReadContract({
-    address: usdcAddress,
+    address: ARC_USDC,
     abi: erc20Abi,
     functionName: 'allowance',
-    args: address ? [address, LOVEPAY_CONTRACT.address] : undefined,
-    chainId: ARC_TESTNET_CHAIN_ID,
-    query: { enabled: !!address && !!USDC_FACT },
+    args: address ? [address, contract.address] : undefined,
+    chainId: arcChainId,
+    query: { enabled: !!address },
   })
 
   // Read merchant from payment link if linkId provided
   const { data: linkData } = useReadContract({
-    ...LOVEPAY_CONTRACT,
+    address: contract.address,
+    abi: contract.abi,
     functionName: 'paymentLinks',
     args: linkId && linkId !== ZERO_BYTES32 ? [linkId as `0x${string}`] : undefined,
-    chainId: ARC_TESTNET_CHAIN_ID,
+    chainId: arcChainId,
     query: { enabled: !!linkId && linkId.length > 20 },
   })
 
   type LinkTuple = readonly [string, string, string, bigint, string, boolean, bigint, boolean, bigint]
   const linkTuple = linkData as LinkTuple | undefined
-  // Invoice checkout: merchant comes from URL param; link checkout: merchant from link data
   const merchantAddress = (merchantProp || linkTuple?.[1] || null) as `0x${string}` | null
 
-  const formattedBalance = rawBalance != null
-    ? Amount.fromRaw(rawBalance, usdcDecimalsFor(ARC_TESTNET_CHAIN_ID)).toFixed(2)
-    : null
+  const formattedBalance = rawBalance != null ? formatUsdc(rawBalance) : null
 
   const { approve, isPending: isApprovePending, isSuccess: isApproveSuccess, isConfirming: isApproveConfirming } = useApproveUsdc()
   const { pay, hash: payHash, isPending: isPayPending, isConfirming: isPayConfirming, isSuccess: isPaySuccess, error: payError } = usePay()
 
-  const wrongChain = isConnected && chainId !== ARC_TESTNET_CHAIN_ID
+  const wrongChain = isConnected && walletChainId !== expectedChainId
 
-  const parsedAmount = amount ? (() => { try { return parseAmount(ARC_TESTNET_CHAIN_ID, amount) } catch { return null } })() : null
-  const hasAmount = !!parsedAmount && Number(amount) > 0
-  const hasAllowance = rawAllowance != null && parsedAmount != null && (rawAllowance) >= parsedAmount.raw
+  const parsedRaw = amount ? parseUsdc(amount) : 0n
+  const hasAmount = parsedRaw > 0n
+  const hasAllowance = rawAllowance != null && hasAmount && (rawAllowance) >= parsedRaw
   const needsApprove = hasAmount && !hasAllowance
 
   useEffect(() => {
@@ -114,15 +125,15 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
   }, [payError])
 
   const handleAction = () => {
-    if (wrongChain) { switchChain({ chainId: ARC_TESTNET_CHAIN_ID }); return }
+    if (wrongChain) { switchChain({ chainId: expectedChainId }); return }
     if (!hasAmount || !merchantAddress || !address) return
     if (needsApprove) {
-      approve(parsedAmount.raw)
+      approve(parsedRaw)
       setStep('approve')
     } else {
       pay(
         merchantAddress,
-        amount,
+        parsedRaw,
         (linkId && linkId.length > 20 && !invoiceId ? linkId : ZERO_BYTES32) as `0x${string}`,
         (invoiceId && invoiceId.length > 20 ? invoiceId : ZERO_BYTES32) as `0x${string}`,
         memo,
@@ -131,7 +142,7 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
     }
   }
 
-  const txUrl = successHash ? buildTxExplorerUrl(ARC_TESTNET_CHAIN_ID, successHash) : null
+  const txUrl = successHash ? getExplorerTxUrl(arcChainId, successHash) : null
   const isPending = isApprovePending || isPayPending
   const isConfirming = isApproveConfirming || isPayConfirming
 
@@ -195,7 +206,7 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
                     {prefillAmount ? (
                       <div className="rounded-2xl px-4 py-3" style={{ background: 'var(--surface-muted)' }}>
                         <div className="display text-3xl font-bold tabular-nums" style={{ color: 'var(--ink)' }}>{Number(prefillAmount).toLocaleString('en-US')}</div>
-                        <div className="text-xs mt-1" style={{ color: 'var(--subtle)' }}>USDC · Arc Testnet</div>
+                        <div className="text-xs mt-1" style={{ color: 'var(--subtle)' }}>USDC · {chainName}</div>
                       </div>
                     ) : (
                       <div className="rounded-2xl px-4 py-3" style={{ background: 'var(--surface-muted)' }}>
@@ -236,8 +247,8 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
                       <div className="flex justify-center"><ConnectKitButton /></div>
                     </div>
                   ) : wrongChain ? (
-                    <button onClick={() => switchChain({ chainId: ARC_TESTNET_CHAIN_ID })} className="w-full py-3.5 rounded-2xl text-sm font-semibold text-white" style={{ background: '#b45309' }}>
-                      Switch to Arc Testnet
+                    <button onClick={() => switchChain({ chainId: expectedChainId })} className="w-full py-3.5 rounded-2xl text-sm font-semibold text-white" style={{ background: '#b45309' }}>
+                      Switch to {chainName}
                     </button>
                   ) : (
                     <button disabled={!hasAmount || !merchantAddress || isPending || isConfirming}
@@ -255,7 +266,7 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
 
               <div className="flex items-center gap-2 mt-4 justify-center">
                 <Shield className="w-3.5 h-3.5" style={{ color: 'var(--subtle)' }} />
-                <span className="text-xs" style={{ color: 'var(--subtle)' }}>Stored on smart contract · {chain.name}</span>
+                <span className="text-xs" style={{ color: 'var(--subtle)' }}>Stored on smart contract · {chainName}</span>
               </div>
             </motion.div>
           )}

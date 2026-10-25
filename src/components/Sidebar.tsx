@@ -1,5 +1,7 @@
 import { LayoutDashboard, Link2, FileText, History, UserCircle, Zap, BookOpen } from 'lucide-react'
+import { useAccount } from 'wagmi'
 import LovepayLogo from './LovepayLogo'
+import { ARC_MAINNET_CHAIN_ID } from '../store'
 
 export type View = 'dashboard' | 'links' | 'invoices' | 'transactions' | 'checkout' | 'profile' | 'guide'
 
@@ -19,6 +21,13 @@ const NAV = [
 ]
 
 export default function Sidebar({ view, onView, onAbout, notifCount }: SidebarProps) {
+  const { chainId } = useAccount()
+  const onMainnet = chainId === ARC_MAINNET_CHAIN_ID
+  const chainLabel = onMainnet ? 'Arc Mainnet · Live' : 'Arc Testnet · Live'
+  const chainColor = onMainnet ? 'var(--love)' : 'var(--success)'
+  const chainBg    = onMainnet ? 'rgba(244,63,143,0.07)' : 'rgba(52,211,153,0.07)'
+  const chainBorder = onMainnet ? 'rgba(244,63,143,0.18)' : 'rgba(52,211,153,0.15)'
+
   return (
     <>
       {/* ── Desktop Sidebar ───────────────────────────────── */}
@@ -43,11 +52,11 @@ export default function Sidebar({ view, onView, onAbout, notifCount }: SidebarPr
             </div>
           </div>
 
-          {/* Live badge */}
-          <div className="mt-4 flex items-center gap-2 px-3 py-2 rounded-xl" style={{ background: 'rgba(52,211,153,0.07)', border: '1px solid rgba(52,211,153,0.15)' }}>
-            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--success)' }} />
-            <span className="text-xs font-medium" style={{ color: 'var(--success)' }}>Arc Testnet · Live</span>
-            <Zap className="w-3 h-3 ml-auto" style={{ color: 'var(--success)' }} />
+          {/* Live badge — updates when wallet switches chain */}
+          <div className="mt-4 flex items-center gap-2 px-3 py-2 rounded-xl" style={{ background: chainBg, border: `1px solid ${chainBorder}` }}>
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: chainColor }} />
+            <span className="text-xs font-medium" style={{ color: chainColor }}>{chainLabel}</span>
+            <Zap className="w-3 h-3 ml-auto" style={{ color: chainColor }} />
           </div>
         </button>
 

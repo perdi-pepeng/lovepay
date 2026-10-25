@@ -1,20 +1,29 @@
 /**
- * Live contract hooks — all data comes from / goes to LovepayRegistry on Arc Testnet.
+ * Live contract hooks — all data comes from / goes to LovepayRegistry on Arc.
+ * Supports both Arc Testnet (5042002) and Arc Mainnet (5042).
  * No mock data. Every hook reads onchain state via wagmi useReadContract.
  */
-import { useReadContract, usePublicClient } from 'wagmi'
+import { useReadContract, usePublicClient, useAccount } from 'wagmi'
 import { erc20Abi, type Abi } from 'viem'
 import { useEffect, useState } from 'react'
-import { LOVEPAY_CONTRACT, ARC_TESTNET_CHAIN_ID } from './contract'
-import { getUsdc } from '@/onchain-facts'
-import { parseAmount } from '@/onchain-money'
+import {
+  getLovepayContract,
+  ARC_USDC,
+  ARC_TESTNET_CHAIN_ID,
+  ARC_MAINNET_CHAIN_ID,
+  isSupportedChain,
+} from './contract'
 import { useUniversalWrite } from './circle-wallet'
 export { useUniversalWrite as useCircleWrite }
 const useCircleWrite = useUniversalWrite
 
-const CONTRACT_ABI = LOVEPAY_CONTRACT.abi as Abi
-
-export const USDC_FACT = getUsdc(ARC_TESTNET_CHAIN_ID)
+// ─── Active chain helper ──────────────────────────────────────────────────────
+// Returns the Arc chain the connected wallet is on, defaulting to testnet.
+export function useArcChainId(): number {
+  const { chainId } = useAccount()
+  if (chainId === ARC_MAINNET_CHAIN_ID) return ARC_MAINNET_CHAIN_ID
+  return ARC_TESTNET_CHAIN_ID
+}
 
 // ─── Types matching contract storage ──────────────────────────────────────────
 
@@ -32,7 +41,7 @@ export interface ChainMerchant {
 }
 
 export interface ChainPaymentLink {
-  id: string          // bytes32 hex
+  id: string
   merchant: string
   title: string
   amount: bigint      // 0 = open
@@ -44,12 +53,12 @@ export interface ChainPaymentLink {
 }
 
 export interface ChainInvoice {
-  id: string          // bytes32 hex
+  id: string
   merchant: string
   invoiceNumber: string
   customerName: string
   customerEmail: string
-  items: string       // hex-encoded bytes
+  items: string
   taxBps: bigint
   discountBps: bigint
   dueDate: bigint
@@ -60,7 +69,7 @@ export interface ChainInvoice {
 }
 
 export interface ChainPayment {
-  id: string          // bytes32 hex
+  id: string
   payer: string
   merchant: string
   amount: bigint
@@ -70,20 +79,22 @@ export interface ChainPayment {
   status: number      // 0=pending 1=success 2=failed 3=refunded
   createdAt: bigint
   txRef: string
-  blockNumber: bigint // block number saat pay() dikonfirmasi
+  blockNumber: bigint
 }
 
 // ─── Merchant hooks ───────────────────────────────────────────────────────────
 
 export function useMerchant(address?: string) {
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
   const { data, isLoading, refetch } = useReadContract({
-    ...LOVEPAY_CONTRACT,
+    address: contract.address,
+    abi: contract.abi,
     functionName: 'merchants',
     args: address ? [address as `0x${string}`] : undefined,
-    chainId: ARC_TESTNET_CHAIN_ID,
+    chainId,
     query: { enabled: !!address },
   })
-  // ABI: [wallet, name, email, businessType, registeredAt, active, website, instagram, twitter, whatsapp]
   const raw = data as [string, string, string, string, bigint, boolean, string, string, string, string] | undefined
   const merchant: ChainMerchant | undefined = raw && raw[4] > 0n
     ? { wallet: raw[0], name: raw[1], email: raw[2], businessType: raw[3], registeredAt: raw[4], active: raw[5], website: raw[6] ?? '', instagram: raw[7] ?? '', twitter: raw[8] ?? '', whatsapp: raw[9] ?? '' }
@@ -92,11 +103,14 @@ export function useMerchant(address?: string) {
 }
 
 export function useIsMerchant(address?: string) {
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
   const { data, isLoading, refetch } = useReadContract({
-    ...LOVEPAY_CONTRACT,
+    address: contract.address,
+    abi: contract.abi,
     functionName: 'isMerchant',
     args: address ? [address as `0x${string}`] : undefined,
-    chainId: ARC_TESTNET_CHAIN_ID,
+    chainId,
     query: { enabled: !!address },
   })
   return { isMerchant: data as boolean | undefined, isLoading, refetch }
@@ -113,12 +127,14 @@ export interface MerchantFormData {
 }
 
 export function useRegisterMerchant() {
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
   const { write, hash, isPending, isConfirming, isSuccess, error } = useCircleWrite()
 
   const register = (d: MerchantFormData) => {
     void write({
-      address: LOVEPAY_CONTRACT.address,
-      abi: CONTRACT_ABI,
+      address: contract.address,
+      abi: contract.abi as Abi,
       functionName: 'registerMerchant',
       args: [d.name, d.email, d.businessType, d.website, d.instagram, d.twitter, d.whatsapp],
     })
@@ -127,12 +143,14 @@ export function useRegisterMerchant() {
 }
 
 export function useUpdateMerchant() {
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
   const { write, hash, isPending, isConfirming, isSuccess, error } = useCircleWrite()
 
   const update = (d: MerchantFormData) => {
     void write({
-      address: LOVEPAY_CONTRACT.address,
-      abi: CONTRACT_ABI,
+      address: contract.address,
+      abi: contract.abi as Abi,
       functionName: 'updateMerchant',
       args: [d.name, d.email, d.businessType, d.website, d.instagram, d.twitter, d.whatsapp],
     })
@@ -143,25 +161,30 @@ export function useUpdateMerchant() {
 // ─── Payment link hooks ───────────────────────────────────────────────────────
 
 export function useMerchantLinkIds(address?: string) {
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
   const { data, isLoading, refetch } = useReadContract({
-    ...LOVEPAY_CONTRACT,
+    address: contract.address,
+    abi: contract.abi,
     functionName: 'getMerchantLinkIds',
     args: address ? [address as `0x${string}`] : undefined,
-    chainId: ARC_TESTNET_CHAIN_ID,
+    chainId,
     query: { enabled: !!address },
   })
   return { linkIds: (data as `0x${string}`[] | undefined) ?? [], isLoading, refetch }
 }
 
 export function usePaymentLink(linkId?: string) {
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
   const { data, isLoading } = useReadContract({
-    ...LOVEPAY_CONTRACT,
+    address: contract.address,
+    abi: contract.abi,
     functionName: 'paymentLinks',
     args: linkId ? [linkId as `0x${string}`] : undefined,
-    chainId: ARC_TESTNET_CHAIN_ID,
+    chainId,
     query: { enabled: !!linkId && linkId !== '0x0000000000000000000000000000000000000000000000000000000000000000' },
   })
-  // ABI: [id, merchant, title, amount, memo, multiUse, paidCount, active, createdAt]
   const raw = data as [`0x${string}`, string, string, bigint, string, boolean, bigint, boolean, bigint] | undefined
   const link: ChainPaymentLink | undefined = raw && raw[8] > 0n
     ? { id: raw[0], merchant: raw[1], title: raw[2], amount: raw[3], memo: raw[4], multiUse: raw[5], paidCount: raw[6], active: raw[7], createdAt: raw[8] }
@@ -170,12 +193,14 @@ export function usePaymentLink(linkId?: string) {
 }
 
 export function useCreatePaymentLink() {
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
   const { write, hash, isPending, isConfirming, isSuccess, error, reset } = useCircleWrite()
 
   const create = (title: string, amount: bigint, memo: string, multiUse: boolean) => {
     void write({
-      address: LOVEPAY_CONTRACT.address,
-      abi: CONTRACT_ABI,
+      address: contract.address,
+      abi: contract.abi as Abi,
       functionName: 'createPaymentLink',
       args: [title, amount, memo, multiUse],
     })
@@ -184,12 +209,14 @@ export function useCreatePaymentLink() {
 }
 
 export function useDeactivatePaymentLink() {
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
   const { write, hash, isPending, isConfirming, isSuccess } = useCircleWrite()
 
   const deactivate = (linkId: `0x${string}`) => {
     void write({
-      address: LOVEPAY_CONTRACT.address,
-      abi: CONTRACT_ABI,
+      address: contract.address,
+      abi: contract.abi as Abi,
       functionName: 'deactivatePaymentLink',
       args: [linkId],
     })
@@ -200,25 +227,30 @@ export function useDeactivatePaymentLink() {
 // ─── Invoice hooks ────────────────────────────────────────────────────────────
 
 export function useMerchantInvoiceIds(address?: string) {
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
   const { data, isLoading, refetch } = useReadContract({
-    ...LOVEPAY_CONTRACT,
+    address: contract.address,
+    abi: contract.abi,
     functionName: 'getMerchantInvoiceIds',
     args: address ? [address as `0x${string}`] : undefined,
-    chainId: ARC_TESTNET_CHAIN_ID,
+    chainId,
     query: { enabled: !!address },
   })
   return { invoiceIds: (data as `0x${string}`[] | undefined) ?? [], isLoading, refetch }
 }
 
 export function useInvoice(invoiceId?: string) {
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
   const { data, isLoading } = useReadContract({
-    ...LOVEPAY_CONTRACT,
+    address: contract.address,
+    abi: contract.abi,
     functionName: 'invoices',
     args: invoiceId ? [invoiceId as `0x${string}`] : undefined,
-    chainId: ARC_TESTNET_CHAIN_ID,
+    chainId,
     query: { enabled: !!invoiceId },
   })
-  // ABI: [id, merchant, invoiceNumber, customerName, customerEmail, items, taxBps, discountBps, dueDate, status, total, createdAt, notes]
   const raw = data as [`0x${string}`, string, string, string, string, string, bigint, bigint, bigint, number, bigint, bigint, string] | undefined
   const invoice: ChainInvoice | undefined = raw && raw[11] > 0n
     ? { id: raw[0], merchant: raw[1], invoiceNumber: raw[2], customerName: raw[3], customerEmail: raw[4], items: raw[5], taxBps: raw[6], discountBps: raw[7], dueDate: raw[8], status: Number(raw[9]), total: raw[10], createdAt: raw[11], notes: raw[12] }
@@ -239,12 +271,14 @@ export interface CreateInvoiceParams {
 }
 
 export function useCreateInvoice() {
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
   const { write, hash, isPending, isConfirming, isSuccess, error, reset } = useCircleWrite()
 
   const create = (p: CreateInvoiceParams) => {
     void write({
-      address: LOVEPAY_CONTRACT.address,
-      abi: CONTRACT_ABI,
+      address: contract.address,
+      abi: contract.abi as Abi,
       functionName: 'createInvoice',
       args: [p],
     })
@@ -253,12 +287,14 @@ export function useCreateInvoice() {
 }
 
 export function useUpdateInvoiceStatus() {
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
   const { write, hash, isPending, isConfirming, isSuccess } = useCircleWrite()
 
   const update = (invoiceId: `0x${string}`, status: number) => {
     void write({
-      address: LOVEPAY_CONTRACT.address,
-      abi: CONTRACT_ABI,
+      address: contract.address,
+      abi: contract.abi as Abi,
       functionName: 'updateInvoiceStatus',
       args: [invoiceId, status],
     })
@@ -269,25 +305,30 @@ export function useUpdateInvoiceStatus() {
 // ─── Payment / transaction hooks ─────────────────────────────────────────────
 
 export function useMerchantPaymentIds(address?: string) {
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
   const { data, isLoading, refetch } = useReadContract({
-    ...LOVEPAY_CONTRACT,
+    address: contract.address,
+    abi: contract.abi,
     functionName: 'getMerchantPaymentIds',
     args: address ? [address as `0x${string}`] : undefined,
-    chainId: ARC_TESTNET_CHAIN_ID,
+    chainId,
     query: { enabled: !!address, refetchInterval: 10_000 },
   })
   return { paymentIds: (data as `0x${string}`[] | undefined) ?? [], isLoading, refetch }
 }
 
 export function usePayment(paymentId?: string) {
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
   const { data, isLoading } = useReadContract({
-    ...LOVEPAY_CONTRACT,
+    address: contract.address,
+    abi: contract.abi,
     functionName: 'payments',
     args: paymentId ? [paymentId as `0x${string}`] : undefined,
-    chainId: ARC_TESTNET_CHAIN_ID,
+    chainId,
     query: { enabled: !!paymentId },
   })
-  // ABI: [id, payer, merchant, amount, linkId, invoiceId, memo, status, createdAt, txRef, blockNumber]
   const raw = data as [`0x${string}`, string, string, bigint, `0x${string}`, `0x${string}`, string, number, bigint, string, bigint] | undefined
   const payment: ChainPayment | undefined = raw && raw[8] > 0n
     ? { id: raw[0], payer: raw[1], merchant: raw[2], amount: raw[3], linkId: raw[4], invoiceId: raw[5], memo: raw[6], status: Number(raw[7]), createdAt: raw[8], txRef: raw[9], blockNumber: raw[10] }
@@ -296,17 +337,19 @@ export function usePayment(paymentId?: string) {
 }
 
 export function usePayerPaymentIds(address?: string) {
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
   const { data, isLoading, refetch } = useReadContract({
-    ...LOVEPAY_CONTRACT,
+    address: contract.address,
+    abi: contract.abi,
     functionName: 'getPayerPaymentIds',
     args: address ? [address as `0x${string}`] : undefined,
-    chainId: ARC_TESTNET_CHAIN_ID,
+    chainId,
     query: { enabled: !!address, refetchInterval: 10_000 },
   })
   return { paymentIds: (data as `0x${string}`[] | undefined) ?? [], isLoading, refetch }
 }
 
-/** Semua payment yang melibatkan address ini — sebagai penerima (merchant) DAN sebagai pengirim (payer), tanpa duplikat. */
 export function useAllMyPaymentIds(address?: string) {
   const { paymentIds: received, isLoading: l1, refetch: r1 } = useMerchantPaymentIds(address)
   const { paymentIds: sent,     isLoading: l2, refetch: r2 } = usePayerPaymentIds(address)
@@ -317,10 +360,13 @@ export function useAllMyPaymentIds(address?: string) {
 }
 
 export function useAllPaymentCount() {
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
   const { data } = useReadContract({
-    ...LOVEPAY_CONTRACT,
+    address: contract.address,
+    abi: contract.abi,
     functionName: 'getAllPaymentCount',
-    chainId: ARC_TESTNET_CHAIN_ID,
+    chainId,
   })
   return (data as bigint | undefined) ?? 0n
 }
@@ -328,13 +374,14 @@ export function useAllPaymentCount() {
 // ─── USDC balance helper ──────────────────────────────────────────────────────
 
 export function useUsdcBalance(address?: string) {
+  const chainId = useArcChainId()
   const { data, isLoading, refetch } = useReadContract({
-    address: USDC_FACT?.address as `0x${string}`,
+    address: ARC_USDC,
     abi: erc20Abi,
     functionName: 'balanceOf',
     args: address ? [address as `0x${string}`] : undefined,
-    chainId: ARC_TESTNET_CHAIN_ID,
-    query: { enabled: !!address && !!USDC_FACT },
+    chainId,
+    query: { enabled: !!address },
   })
   return { balance: data, isLoading, refetch }
 }
@@ -342,15 +389,16 @@ export function useUsdcBalance(address?: string) {
 // ─── USDC approval helper ─────────────────────────────────────────────────────
 
 export function useApproveUsdc() {
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
   const { write, hash, isPending, isConfirming, isSuccess } = useCircleWrite()
 
   const approve = (amount: bigint) => {
-    if (!USDC_FACT) return
     void write({
-      address: USDC_FACT.address as `0x${string}`,
+      address: ARC_USDC,
       abi: erc20Abi,
       functionName: 'approve',
-      args: [LOVEPAY_CONTRACT.address, amount],
+      args: [contract.address, amount],
     })
   }
   return { approve, hash, isPending, isConfirming, isSuccess }
@@ -359,37 +407,35 @@ export function useApproveUsdc() {
 // ─── Pay helper ──────────────────────────────────────────────────────────────
 
 export function usePay() {
+  const chainId = useArcChainId()
+  const contract = getLovepayContract(chainId)
   const { write, hash, isPending, isConfirming, isSuccess, error } = useCircleWrite()
 
   const pay = (
     merchant: `0x${string}`,
-    amountStr: string,
+    amountRaw: bigint,
     linkId: `0x${string}`,
     invoiceId: `0x${string}`,
     memo: string,
   ) => {
-    const parsed = parseAmount(ARC_TESTNET_CHAIN_ID, amountStr)
     void write({
-      address: LOVEPAY_CONTRACT.address,
-      abi: CONTRACT_ABI,
+      address: contract.address,
+      abi: contract.abi as Abi,
       functionName: 'pay',
-      args: [merchant, parsed.raw, linkId, invoiceId, memo],
+      args: [merchant, amountRaw, linkId, invoiceId, memo],
     })
   }
   return { pay, hash, isPending, isConfirming, isSuccess, error }
 }
 
-// ─── usePaymentTxHashes ────────────────────────────────────────────────────────
-// Fetch tx hash for a set of payments using blockNumber stored in each PaymentRecord.
-// For each unique block, call getBlock({blockNumber, includeTransactions: true}) and
-// find the tx that called the LovepayRegistry contract. No scan, no getLogs.
-// Cross-device, cross-browser, permanent onchain.
+// ─── TX hash from block ───────────────────────────────────────────────────────
 
 export function usePaymentTxHashes(
   payments: Array<{ id: string; blockNumber: bigint }> | undefined
 ): Map<string, string> {
   const [txMap, setTxMap] = useState<Map<string, string>>(new Map())
-  const client = usePublicClient({ chainId: ARC_TESTNET_CHAIN_ID })
+  const chainId = useArcChainId()
+  const client = usePublicClient({ chainId })
 
   useEffect(() => {
     if (!payments || payments.length === 0 || !client) return
@@ -397,7 +443,6 @@ export function usePaymentTxHashes(
 
     const fetchTxHashes = async () => {
       try {
-        // Group payments by blockNumber to minimise RPC calls
         const blockMap = new Map<bigint, string[]>()
         for (const p of payments) {
           if (!p.blockNumber || p.blockNumber === 0n) continue
@@ -406,7 +451,8 @@ export function usePaymentTxHashes(
           blockMap.set(p.blockNumber, ids)
         }
 
-        const contractAddr = LOVEPAY_CONTRACT.address.toLowerCase()
+        const contract = getLovepayContract(chainId)
+        const contractAddr = contract.address.toLowerCase()
         const map = new Map<string, string>()
 
         await Promise.all(
@@ -415,14 +461,12 @@ export function usePaymentTxHashes(
               const block = await client.getBlock({ blockNumber, includeTransactions: true })
               for (const tx of block.transactions) {
                 if (typeof tx === 'object' && tx.to?.toLowerCase() === contractAddr) {
-                  // Match this tx to a paymentId via index — first tx to contract in block
-                  // maps to first paymentId from this block (ordering matches contract execution)
                   const id = paymentIds.shift()
                   if (id) map.set(id, tx.hash)
                 }
               }
             } catch {
-              // skip block if RPC fails for this specific block
+              // skip block on RPC error
             }
           })
         )
@@ -435,7 +479,25 @@ export function usePaymentTxHashes(
 
     void fetchTxHashes()
     return () => { cancelled = true }
-  }, [payments, client])
+  }, [payments, client, chainId])
 
   return txMap
 }
+
+// ─── Chain explorer URL helper ────────────────────────────────────────────────
+
+export function getExplorerTxUrl(chainId: number, txHash: string): string {
+  const base = chainId === ARC_MAINNET_CHAIN_ID
+    ? 'https://explorer.arc.io'
+    : 'https://explorer.testnet.arc.io'
+  return `${base}/tx/${txHash}`
+}
+
+export function getExplorerAddressUrl(chainId: number, address: string): string {
+  const base = chainId === ARC_MAINNET_CHAIN_ID
+    ? 'https://explorer.arc.io'
+    : 'https://explorer.testnet.arc.io'
+  return `${base}/address/${address}`
+}
+
+export { isSupportedChain, ARC_TESTNET_CHAIN_ID, ARC_MAINNET_CHAIN_ID }

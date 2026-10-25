@@ -1,29 +1,27 @@
 /**
- * wagmi configuration
+ * wagmi configuration — Arc Testnet + Arc Mainnet + Ethereum Mainnet (for ENS)
  * Built with Arc Studio — https://studio.arc.io
  */
 
 import { http, createConfig } from 'wagmi'
 import { mainnet } from 'wagmi/chains'
-import { arcTestnet } from 'viem/chains'
+import { arc, arcTestnet } from 'viem/chains'
 import { injected, coinbaseWallet } from 'wagmi/connectors'
-import { requireChain } from './onchain-facts'
-import { registerChain as traceRegisterChain } from './tracing'
 
-const arcChainFacts = requireChain(arcTestnet.id)
-const arcRpcUrl = arcChainFacts.rpcUrls[0]
-
-// Pre-register chain RPC URLs so trace events show correct chain names immediately
-traceRegisterChain(arcTestnet.id, arcRpcUrl)
+// Arc Testnet RPC
+const ARC_TESTNET_RPC = 'https://rpc.testnet.arc.io'
+// Arc Mainnet RPC
+const ARC_MAINNET_RPC = 'https://rpc.mainnet.arc.io'
 
 export const config = createConfig({
-  chains: [arcTestnet, mainnet],
+  chains: [arcTestnet, arc, mainnet],
   connectors: [
     injected({ shimDisconnect: true }),          // MetaMask, Rabby, any injected wallet
     coinbaseWallet({ appName: 'Lovepay' }),       // Coinbase Wallet
   ],
   transports: {
-    [arcTestnet.id]: http(arcRpcUrl),            // explicit RPC — never rely on viem/chains default
-    [mainnet.id]: http(),
+    [arcTestnet.id]: http(ARC_TESTNET_RPC),      // explicit RPC — never rely on viem/chains default
+    [arc.id]:        http(ARC_MAINNET_RPC),      // Arc Mainnet
+    [mainnet.id]:    http(),                     // Ethereum (ENS only)
   },
 })
