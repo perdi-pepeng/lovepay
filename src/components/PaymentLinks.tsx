@@ -219,15 +219,19 @@ export default function PaymentLinks({ merchantAddress, onGoToDashboard }: Props
         )}
       </AnimatePresence>
 
-      {qrTarget && (
-        <QRModal
-          linkId={qrTarget.id}
-          title={qrTarget.title}
-          amount={qrTarget.amount > 0n ? formatUSDC(qrTarget.amount) : ''}
-          memo={qrTarget.memo}
-          onClose={() => setQrTarget(null)}
-        />
-      )}
+      {qrTarget && (() => {
+        const amountDisplay = qrTarget.amount > 0n ? formatUsdc(qrTarget.amount) : ''
+        const qrUrl = `${window.location.origin}?checkout=${qrTarget.id}&amount=${amountDisplay}&memo=${encodeURIComponent(qrTarget.memo)}&chain=${chainId}`
+        return (
+          <QRModal
+            url={qrUrl}
+            title={qrTarget.title}
+            amount={amountDisplay}
+            memo={qrTarget.memo}
+            onClose={() => setQrTarget(null)}
+          />
+        )
+      })()}
     </div>
   )
 }
