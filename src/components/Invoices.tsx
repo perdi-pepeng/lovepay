@@ -3,7 +3,7 @@ import { Plus, FileText, X, Trash2, Loader2, User, Mail, Calendar, Receipt, Chev
 import { motion, AnimatePresence } from 'framer-motion'
 import { toast } from 'sonner'
 import { encodeAbiParameters, parseAbiParameters } from 'viem'
-import { useMerchantInvoiceIds, useInvoice, useCreateInvoice, useUpdateInvoiceStatus, useArcChainId, type CreateInvoiceParams } from '../store'
+import { useMerchantInvoiceIds, useInvoice, useCreateInvoice, useUpdateInvoiceStatus, useArcChainId, useIsMerchant, type CreateInvoiceParams } from '../store'
 import { formatUSDC } from './format-utils'
 import QRModal from './QRModal'
 
@@ -193,11 +193,12 @@ function calcTotal(items: LocalItem[], taxBps: number, discountBps: number) {
 const inputCls = "w-full rounded-xl px-4 py-3 text-sm outline-none transition-all"
 const inputStyle = { background: 'var(--surface-muted)', color: 'var(--ink)', border: '1px solid var(--border)' }
 
-interface Props { merchantAddress: string }
+interface Props { merchantAddress: string; onGoToDashboard: () => void }
 
-export default function Invoices({ merchantAddress }: Props) {
+export default function Invoices({ merchantAddress, onGoToDashboard }: Props) {
   const chainId = useArcChainId()
   const chainLabel = chainId === 5042 ? 'Arc Mainnet' : 'Arc Testnet'
+  const { isMerchant } = useIsMerchant(merchantAddress)
   const { invoiceIds, isLoading, refetch } = useMerchantInvoiceIds(merchantAddress)
   const { create, isPending, isConfirming, isSuccess, error } = useCreateInvoice()
   const [showSheet, setShowSheet] = useState(false)
@@ -270,13 +271,28 @@ export default function Invoices({ merchantAddress }: Props) {
           <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>{invoiceIds.length} invoices · stored onchain</p>
         </div>
         <button
-          onClick={() => setShowSheet(true)}
+          onClick={() => isMerchant ? setShowSheet(true) : onGoToDashboard()}
           className="flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm font-semibold text-white"
           style={{ background: 'var(--gradient-love)', boxShadow: '0 4px 16px var(--love-glow)' }}
         >
           <Plus className="w-4 h-4" /> New Invoice
         </button>
       </div>
+
+      {isMerchant === false && (
+        <div className="rounded-2xl p-4 flex items-start gap-3" style={{ background: 'rgba(232,62,140,0.06)', border: '1px solid rgba(232,62,140,0.2)' }}>
+          <div className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 mt-0.5" style={{ background: 'rgba(232,62,140,0.12)' }}>
+            <Receipt className="w-4 h-4" style={{ color: 'var(--love)' }} />
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-semibold" style={{ color: 'var(--ink)' }}>Register your business first</p>
+            <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>You need to register as a merchant before creating invoices.</p>
+            <button onClick={onGoToDashboard} className="mt-2 text-xs font-semibold px-3 py-1.5 rounded-lg text-white" style={{ background: 'var(--love)' }}>
+              Go to Dashboard → Register
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* List */}
       {isLoading ? (

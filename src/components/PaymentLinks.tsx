@@ -2,7 +2,7 @@ import { useState, useEffect, startTransition } from 'react'
 import { Plus, Link2, Copy, Check, QrCode, Loader2, ExternalLink } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { toast } from 'sonner'
-import { useMerchantLinkIds, usePaymentLink, useCreatePaymentLink, useDeactivatePaymentLink, useArcChainId } from '../store'
+import { useMerchantLinkIds, usePaymentLink, useCreatePaymentLink, useDeactivatePaymentLink, useArcChainId, useIsMerchant } from '../store'
 import { formatUSDC } from './format-utils'
 import QRModal from './QRModal'
 import { parseAmount, formatUsdc } from '@/onchain-money'
@@ -77,10 +77,11 @@ function LinkCard({ linkId, onShowQR }: { linkId: string; onShowQR: (id: string,
   )
 }
 
-interface Props { merchantAddress: string }
+interface Props { merchantAddress: string; onGoToDashboard: () => void }
 
-export default function PaymentLinks({ merchantAddress }: Props) {
+export default function PaymentLinks({ merchantAddress, onGoToDashboard }: Props) {
   const chainId = useArcChainId()
+  const { isMerchant } = useIsMerchant(merchantAddress)
   const { linkIds, isLoading, refetch } = useMerchantLinkIds(merchantAddress)
   const { create, isPending, isConfirming, isSuccess, error } = useCreatePaymentLink()
   const [showSheet, setShowSheet] = useState(false)
@@ -124,13 +125,28 @@ export default function PaymentLinks({ merchantAddress }: Props) {
           <p className="text-sm mt-0.5" style={{ color: 'var(--muted)' }}>{linkIds.length} links · live data from blockchain</p>
         </div>
         <button
-          onClick={() => setShowSheet(true)}
+          onClick={() => isMerchant ? setShowSheet(true) : onGoToDashboard()}
           className="flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm font-semibold text-white"
           style={{ background: 'var(--gradient-love)', boxShadow: '0 4px 14px var(--love-glow)' }}
         >
           <Plus className="w-4 h-4" /> Create Link
         </button>
       </div>
+
+      {isMerchant === false && (
+        <div className="rounded-2xl p-4 flex items-start gap-3" style={{ background: 'rgba(232,62,140,0.06)', border: '1px solid rgba(232,62,140,0.2)' }}>
+          <div className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 mt-0.5" style={{ background: 'rgba(232,62,140,0.12)' }}>
+            <Link2 className="w-4 h-4" style={{ color: 'var(--love)' }} />
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-semibold" style={{ color: 'var(--ink)' }}>Register your business first</p>
+            <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>You need to register as a merchant before creating payment links.</p>
+            <button onClick={onGoToDashboard} className="mt-2 text-xs font-semibold px-3 py-1.5 rounded-lg text-white" style={{ background: 'var(--love)' }}>
+              Go to Dashboard → Register
+            </button>
+          </div>
+        </div>
+      )}
 
       {isLoading ? (
         <div className="flex items-center justify-center py-12 gap-2" style={{ color: 'var(--muted)' }}>
