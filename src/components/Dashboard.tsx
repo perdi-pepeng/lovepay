@@ -1,52 +1,10 @@
 import { useState, useEffect } from 'react'
-import { TrendingUp, ArrowUpRight, CheckCircle2, XCircle, Loader2, Store, ChevronRight, DollarSign, Activity, Wallet, Globe, Instagram, Twitter, Phone } from 'lucide-react'
+import { CheckCircle2, XCircle, Loader2, Store, ChevronRight, Activity, Wallet, Globe, Instagram, Twitter, Phone } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { toast } from 'sonner'
 import { useQueryClient } from '@tanstack/react-query'
-import { useMerchant, useAllMyPaymentIds, usePayment, useUsdcBalance, useRegisterMerchant, useArcChainId } from '../store'
-import { buildTxExplorerUrl } from '@/onchain-facts'
-import { formatUSDC, StatusBadge } from './format-utils'
-
-const ZERO_BYTES32 = '0x0000000000000000000000000000000000000000000000000000000000000000'
-
-function RecentPaymentRow({ paymentId, myAddress }: { paymentId: string; myAddress: string }) {
-  const chainId = useArcChainId()
-  const { payment } = usePayment(paymentId)
-  if (!payment) return null
-  const isIncoming = payment.merchant.toLowerCase() === myAddress.toLowerCase()
-  const hasTxRef = payment.txRef && payment.txRef !== ZERO_BYTES32
-  const txUrl = hasTxRef ? buildTxExplorerUrl(chainId, payment.txRef) : null
-  const counterparty = isIncoming ? payment.payer : payment.merchant
-  return (
-    <div className="flex items-center gap-3 py-3.5" style={{ borderBottom: '1px solid var(--border)' }}>
-      <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
-        style={{ background: isIncoming ? 'rgba(16,185,129,0.12)' : 'rgba(239,68,68,0.12)' }}>
-        <DollarSign className="w-4 h-4" style={{ color: isIncoming ? 'var(--success)' : 'var(--danger)' }} />
-      </div>
-      <div className="flex-1 min-w-0">
-        <p className="text-sm font-medium truncate mono" style={{ color: 'var(--ink)' }}>
-          {counterparty.slice(0, 6)}…{counterparty.slice(-4)}
-        </p>
-        <p className="text-xs truncate" style={{ color: 'var(--muted)' }}>
-          {isIncoming ? 'Incoming' : 'Outgoing'} · {payment.memo || 'Direct payment'}
-        </p>
-      </div>
-      <div className="text-right shrink-0">
-        <p className="text-sm font-bold tabular-nums" style={{ color: isIncoming ? 'var(--success)' : 'var(--danger)' }}>
-          {isIncoming ? '+' : '-'}${formatUSDC(payment.amount)}
-        </p>
-        <StatusBadge status={payment.status} />
-      </div>
-      {txUrl && (
-        <a href={txUrl} target="_blank" rel="noreferrer"
-          className="w-7 h-7 rounded-lg flex items-center justify-center transition-colors hover:bg-white/10"
-          style={{ color: 'var(--subtle)' }}>
-          <ArrowUpRight className="w-3.5 h-3.5" />
-        </a>
-      )}
-    </div>
-  )
-}
+import { useMerchant, useAllMyPaymentIds, useUsdcBalance, useRegisterMerchant, useArcChainId } from '../store'
+import { formatUSDC } from './format-utils'
 
 // ─── Merchant Setup Banner ────────────────────────────────────────────────────
 function MerchantSetupBanner({ onDone }: { onDone: () => void }) {
@@ -211,18 +169,15 @@ function MerchantSetupBanner({ onDone }: { onDone: () => void }) {
 }
 
 // ─── Main Dashboard ───────────────────────────────────────────────────────────
-interface Props { onViewAll: () => void; merchantAddress: string; isMerchant: boolean }
+interface Props { merchantAddress: string; isMerchant: boolean }
 
-export default function Dashboard({ onViewAll, merchantAddress, isMerchant }: Props) {
+export default function Dashboard({ merchantAddress, isMerchant }: Props) {
   const chainId = useArcChainId()
   const chainLabel = chainId === 5042 ? 'Arc Mainnet' : 'Arc Testnet'
   const { merchant, refetch } = useMerchant(merchantAddress)
-  const { allIds, received, isLoading: idsLoading } = useAllMyPaymentIds(merchantAddress)
+  const { allIds, received } = useAllMyPaymentIds(merchantAddress)
   const { balance } = useUsdcBalance(merchantAddress)
   const [todayStr] = useState(() => new Date().toDateString())
-
-  // 5 transaksi terbaru dari semua yang melibatkan merchant ini
-  const recentIds = [...allIds].reverse().slice(0, 5)
 
   const stats = [
     {
@@ -288,41 +243,6 @@ export default function Dashboard({ onViewAll, merchantAddress, isMerchant }: Pr
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Recent payments */}
-      <div className="rounded-2xl overflow-hidden" style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)' }}>
-        {/* Card header with gradient top strip */}
-        <div className="h-0.5" style={{ background: 'var(--gradient-love)' }} />
-        <div className="px-5 py-4 flex items-center justify-between" style={{ borderBottom: '1px solid var(--border)' }}>
-          <div className="flex items-center gap-2">
-            <TrendingUp className="w-4 h-4" style={{ color: 'var(--love)' }} />
-            <h2 className="text-base font-semibold" style={{ color: 'var(--ink)' }}>Recent Transactions</h2>
-          </div>
-          <button onClick={onViewAll}
-            className="flex items-center gap-1 text-xs font-semibold transition-opacity hover:opacity-70"
-            style={{ color: 'var(--accent)' }}>
-            View all <ArrowUpRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-
-        <div className="px-5">
-          {idsLoading ? (
-            <div className="flex items-center justify-center py-10 gap-2" style={{ color: 'var(--muted)' }}>
-              <Loader2 className="w-4 h-4 animate-spin" /> Loading transactions…
-            </div>
-          ) : recentIds.length === 0 ? (
-            <div className="py-10 text-center">
-              <div className="w-12 h-12 rounded-2xl mx-auto mb-3 flex items-center justify-center" style={{ background: 'var(--surface-muted)' }}>
-                <Activity className="w-6 h-6" style={{ color: 'var(--subtle)' }} />
-              </div>
-              <p className="text-sm font-medium" style={{ color: 'var(--muted)' }}>No transactions yet</p>
-              <p className="text-xs mt-1" style={{ color: 'var(--subtle)' }}>Share a payment link to start receiving payments</p>
-            </div>
-          ) : (
-            recentIds.map(id => <RecentPaymentRow key={id} paymentId={id} myAddress={merchantAddress} />)
-          )}
-        </div>
       </div>
 
       <p className="text-xs text-center" style={{ color: 'var(--subtle)' }}>

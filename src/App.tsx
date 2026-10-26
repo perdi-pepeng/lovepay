@@ -125,7 +125,7 @@ export default function App() {
 
       <main className="lg:pl-64 pb-24 lg:pb-8 pt-14">
         <div className="max-w-3xl mx-auto px-4 py-6">
-          {view === 'dashboard'    && <Dashboard onViewAll={() => setView('transactions')} merchantAddress={address} isMerchant={isMerchant ?? false} />}
+          {view === 'dashboard'    && <Dashboard merchantAddress={address} isMerchant={isMerchant ?? false} />}
           {view === 'links'        && <PaymentLinks merchantAddress={address} onGoToDashboard={() => setView('dashboard')} />}
           {view === 'invoices'     && <Invoices merchantAddress={address} onGoToDashboard={() => setView('dashboard')} />}
           {view === 'transactions' && <Transactions merchantAddress={address} />}
