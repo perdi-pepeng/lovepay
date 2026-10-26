@@ -530,3 +530,9 @@
 {"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792980201351}
 {"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792980201351}
 {"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792980201351}
+{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792980943193}
+{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792983218131}
+{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792983218140}
+{"level":"log","message":"[ChromeTransport] chromePort disconnected","timestamp":1792983614744}
+{"level":"log","message":"[ChromeTransport] chromePort disconnected","timestamp":1792983614747}
+{"level":"debug","message":"[vite] connected.","timestamp":1792983661309}
