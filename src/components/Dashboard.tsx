@@ -5,6 +5,7 @@ import { toast } from 'sonner'
 import { useQueryClient } from '@tanstack/react-query'
 import { useMerchant, useAllMyPaymentIds, useUsdcBalance, useRegisterMerchant, useArcChainId } from '../store'
 import { formatUSDC } from './format-utils'
+import AboutSection from './AboutSection'
 
 // ─── Merchant Setup Banner ────────────────────────────────────────────────────
 function MerchantSetupBanner({ onDone }: { onDone: () => void }) {
@@ -248,6 +249,8 @@ export default function Dashboard({ merchantAddress, isMerchant }: Props) {
       <p className="text-xs text-center" style={{ color: 'var(--subtle)' }}>
         Data stored on smart contract · {chainLabel} · {new Date(todayStr).toLocaleDateString('en-US')}
       </p>
+
+      <AboutSection />
     </div>
   )
 }
