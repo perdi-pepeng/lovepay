@@ -1,10 +1,11 @@
 import { useState, useEffect, startTransition } from 'react'
-import { Plus, FileText, X, Trash2, Loader2, User, Mail, Calendar, Receipt, ChevronRight, Share2, Copy, Check } from 'lucide-react'
+import { Plus, FileText, X, Trash2, Loader2, User, Mail, Calendar, Receipt, ChevronRight, Share2, Copy, Check, QrCode } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { toast } from 'sonner'
 import { encodeAbiParameters, parseAbiParameters } from 'viem'
 import { useMerchantInvoiceIds, useInvoice, useCreateInvoice, useUpdateInvoiceStatus, useArcChainId, type CreateInvoiceParams } from '../store'
 import { formatUSDC } from './format-utils'
+import QRModal from './QRModal'
 
 const STATUS_LABELS: Record<number, string> = { 0: 'Draft', 1: 'Sent', 2: 'Paid', 3: 'Overdue' }
 const STATUS_COLORS: Record<number, string> = { 0: 'var(--muted)', 1: 'var(--accent-hover)', 2: 'var(--success)', 3: 'var(--danger)' }
@@ -14,6 +15,7 @@ function InvoiceRow({ invoiceId }: { invoiceId: string }) {
   const { update, isPending } = useUpdateInvoiceStatus()
   const [copied, setCopied] = useState(false)
   const [expanded, setExpanded] = useState(false)
+  const [showQR, setShowQR] = useState(false)
 
   if (!invoice) return (
     <div className="flex items-center gap-3 p-4 rounded-2xl animate-pulse" style={{ background: 'var(--surface)' }}>
@@ -119,6 +121,14 @@ function InvoiceRow({ invoiceId }: { invoiceId: string }) {
                 {copied ? 'Copied!' : 'Copy Link'}
               </button>
 
+              <button
+                onClick={() => setShowQR(true)}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold"
+                style={{ background: 'var(--surface-muted)', color: 'var(--ink)' }}
+              >
+                <QrCode className="w-3.5 h-3.5" /> QR Code
+              </button>
+
               {/* Tandai Lunas */}
               {status === 1 && (
                 <button
@@ -150,6 +160,19 @@ function InvoiceRow({ invoiceId }: { invoiceId: string }) {
               </div>
             </div>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* QR Modal */}
+      <AnimatePresence>
+        {showQR && (
+          <QRModal
+            url={checkoutUrl}
+            title={invoice.invoiceNumber}
+            amount={(Number(invoice.total) / 1e6).toFixed(2)}
+            memo={invoice.invoiceNumber}
+            onClose={() => setShowQR(false)}
+          />
         )}
       </AnimatePresence>
     </div>

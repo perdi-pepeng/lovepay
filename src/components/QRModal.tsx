@@ -5,19 +5,29 @@ import QRCode from 'qrcode'
 import { toast } from 'sonner'
 
 interface QRModalProps {
-  linkId: string
+  /** Either pass a pre-built URL (for invoices / arbitrary links) */
+  url?: string
+  /** Or pass legacy Payment Link fields — url takes precedence */
+  linkId?: string
   title: string
-  amount: string
-  memo: string
+  amount?: string
+  memo?: string
   onClose: () => void
 }
 
-export default function QRModal({ linkId, title, amount, memo, onClose }: QRModalProps) {
+export default function QRModal({ url: urlProp, linkId, title, amount, memo, onClose }: QRModalProps) {
   const [dataUrl, setDataUrl] = useState<string>('')
-  const url = `${window.location.origin}?checkout=${linkId}&amount=${amount}&memo=${encodeURIComponent(memo)}`
+
+  const url = urlProp ?? (
+    linkId
+      ? `${window.location.origin}?checkout=${linkId}&amount=${amount ?? ''}&memo=${encodeURIComponent(memo ?? '')}`
+      : ''
+  )
+
   const filename = `lovepay-qr-${title.replace(/\s+/g, '-').toLowerCase()}.png`
 
   useEffect(() => {
+    if (!url) return
     void QRCode.toDataURL(url, {
       width: 280,
       margin: 2,
@@ -26,18 +36,14 @@ export default function QRModal({ linkId, title, amount, memo, onClose }: QRModa
     }).then(du => { setDataUrl(du) })
   }, [url])
 
-  // Strategy: open data URL in new tab — bypasses iframe sandbox download restriction.
-  // User sees the image full-screen and can right-click → Save / long-press → Save on mobile.
   const handleDownload = () => {
     if (!dataUrl) return
-    // Try native download first (works in full browser window)
     const a = document.createElement('a')
     a.href = dataUrl
     a.download = filename
     document.body.appendChild(a)
     a.click()
     document.body.removeChild(a)
-    // Also open in new tab as reliable fallback (works inside sandboxed iframe too)
     const tab = window.open('', '_blank')
     if (tab) {
       tab.document.write(`
@@ -47,17 +53,17 @@ export default function QRModal({ linkId, title, amount, memo, onClose }: QRModa
         p{margin-top:16px;font-size:14px;opacity:.7}
         a{color:#e83e8c;font-weight:600;text-decoration:none}</style></head>
         <body><img src="${dataUrl}" width="280" height="280"/>
-        <p>Klik kanan gambar → <strong>Simpan gambar sebagai…</strong> untuk mengunduh</p>
-        <p><a href="${url}" target="_blank">🔗 Buka Payment Link</a></p>
+        <p>Right-click the image → <strong>Save image as…</strong> to download</p>
+        <p><a href="${url}" target="_blank">🔗 Open Payment Link</a></p>
         </body></html>`)
       tab.document.close()
     }
-    toast.success('QR dibuka di tab baru — klik kanan → Simpan gambar')
+    toast.success('QR opened in new tab — right-click → Save image')
   }
 
   const handleCopyLink = () => {
     void navigator.clipboard.writeText(url)
-    toast.success('Link disalin!')
+    toast.success('Link copied!')
   }
 
   return (
@@ -86,7 +92,7 @@ export default function QRModal({ linkId, title, amount, memo, onClose }: QRModa
             </button>
           </div>
 
-          {/* QR as <img> — right-click saveable, no canvas taint issues */}
+          {/* QR image — right-click saveable */}
           <div className="p-3 rounded-2xl mb-4" style={{ background: '#ffffff', border: '1px solid var(--border)' }}>
             {dataUrl
               ? <img src={dataUrl} alt="QR Payment" width={220} height={220} className="rounded-lg block" />
@@ -98,13 +104,13 @@ export default function QRModal({ linkId, title, amount, memo, onClose }: QRModa
             <div className="text-sm font-semibold" style={{ color: 'var(--ink)' }}>{title}</div>
             {amount
               ? <div className="display text-2xl font-bold tabular-nums mt-1" style={{ color: 'var(--love)' }}>${amount} <span className="text-base font-semibold">USDC</span></div>
-              : <div className="text-sm mt-1" style={{ color: 'var(--muted)' }}>Jumlah bebas</div>
+              : <div className="text-sm mt-1" style={{ color: 'var(--muted)' }}>Open amount</div>
             }
             {memo && <div className="text-xs mt-1" style={{ color: 'var(--subtle)' }}>{memo}</div>}
           </div>
 
           <p className="text-xs text-center mb-5" style={{ color: 'var(--subtle)' }}>
-            Scan QR dengan kamera HP atau bagikan link ke pelanggan
+            Scan QR with your phone camera or share the link with your customer
           </p>
 
           <div className="flex gap-2 w-full">
@@ -113,7 +119,7 @@ export default function QRModal({ linkId, title, amount, memo, onClose }: QRModa
               className="flex-1 py-3 rounded-xl text-sm font-medium flex items-center justify-center gap-1.5 transition-all hover:opacity-80"
               style={{ background: 'var(--surface-muted)', color: 'var(--ink-2)', border: '1px solid var(--border)' }}
             >
-              <Copy className="w-3.5 h-3.5" /> Salin Link
+              <Copy className="w-3.5 h-3.5" /> Copy Link
             </button>
             <button
               onClick={handleDownload}
@@ -123,13 +129,13 @@ export default function QRModal({ linkId, title, amount, memo, onClose }: QRModa
             >
               <Download className="w-3.5 h-3.5" />
               <ExternalLink className="w-3 h-3 opacity-60" />
-              Unduh QR
+              Download QR
             </button>
           </div>
 
           {dataUrl && (
             <p className="text-xs text-center mt-3" style={{ color: 'var(--subtle)' }}>
-              Atau klik kanan gambar QR di atas → <strong>Simpan gambar</strong>
+              Or right-click the QR image above → <strong>Save image</strong>
             </p>
           )}
         </div>
