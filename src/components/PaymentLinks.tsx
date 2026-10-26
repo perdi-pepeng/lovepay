@@ -10,6 +10,7 @@ import { parseAmount, formatUsdc } from '@/onchain-money'
 function LinkCard({ linkId, onShowQR }: { linkId: string; onShowQR: (id: string, title: string, amount: bigint, memo: string) => void }) {
   const { link } = usePaymentLink(linkId)
   const { deactivate, isPending, isSuccess } = useDeactivatePaymentLink()
+  const chainId = useArcChainId()
   const [copied, setCopied] = useState(false)
 
   useEffect(() => { if (isSuccess) toast.success('Link deactivated') }, [isSuccess])
@@ -18,7 +19,7 @@ function LinkCard({ linkId, onShowQR }: { linkId: string; onShowQR: (id: string,
 
   // link.amount is raw onchain (6 decimals) — convert to display USDC string for URL
   const amountDisplay = link.amount ? formatUsdc(link.amount) : ''
-  const url = `${window.location.origin}?checkout=${linkId}&amount=${amountDisplay}&memo=${encodeURIComponent(link.memo)}`
+  const url = `${window.location.origin}?checkout=${linkId}&amount=${amountDisplay}&memo=${encodeURIComponent(link.memo)}&chain=${chainId}`
   const handleCopy = () => {
     void navigator.clipboard.writeText(url)
     setCopied(true)

@@ -536,3 +536,22 @@
 {"level":"log","message":"[ChromeTransport] chromePort disconnected","timestamp":1792983614744}
 {"level":"log","message":"[ChromeTransport] chromePort disconnected","timestamp":1792983614747}
 {"level":"debug","message":"[vite] connected.","timestamp":1792983661309}
+{"level":"debug","message":"[vite] connected.","timestamp":1792985496682}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792985521753}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985521753}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985527171}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985527172}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985527175}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985527175}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985533583}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985533583}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985533584}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985533584}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985537450}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985537450}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985537451}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985537451}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792985546047}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985546047}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792985546050}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985546050}

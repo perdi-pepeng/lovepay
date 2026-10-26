@@ -50,7 +50,18 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
   const [step, setStep] = useState<'form' | 'approve' | 'pay' | 'done'>('form')
   const [successHash, setSuccessHash] = useState('')
 
-  const arcChainId = useArcChainId()
+  // Read chain from URL param — merchant embedded their chain when sharing the link
+  const urlChainId = (() => {
+    const params = new URLSearchParams(window.location.search)
+    const c = params.get('chain')
+    if (c === String(arc.id)) return arc.id
+    if (c === String(arcTestnet.id)) return arcTestnet.id
+    return null
+  })()
+
+  const walletArcChainId = useArcChainId()
+  // URL chain takes priority — ensures customer pays on same chain as merchant
+  const arcChainId = urlChainId ?? walletArcChainId
   const contract = getLovepayContract(arcChainId)
   const onMainnet = arcChainId === ARC_MAINNET_CHAIN_ID
   const chainName = onMainnet ? 'Arc Mainnet' : 'Arc Testnet'

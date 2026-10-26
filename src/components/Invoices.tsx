@@ -10,7 +10,7 @@ import QRModal from './QRModal'
 const STATUS_LABELS: Record<number, string> = { 0: 'Draft', 1: 'Sent', 2: 'Paid', 3: 'Overdue' }
 const STATUS_COLORS: Record<number, string> = { 0: 'var(--muted)', 1: 'var(--accent-hover)', 2: 'var(--success)', 3: 'var(--danger)' }
 
-function InvoiceRow({ invoiceId }: { invoiceId: string }) {
+function InvoiceRow({ invoiceId, chainId }: { invoiceId: string; chainId: number }) {
   const { invoice } = useInvoice(invoiceId)
   const { update, isPending } = useUpdateInvoiceStatus()
   const [copied, setCopied] = useState(false)
@@ -38,6 +38,7 @@ function InvoiceRow({ invoiceId }: { invoiceId: string }) {
       merchant: invoice.merchant,
       amount: (Number(invoice.total) / 1e6).toFixed(6),
       memo: encodeURIComponent(invoice.invoiceNumber),
+      chain: String(chainId),
     })
     return `${base}?${params.toString()}`
   })()
@@ -292,7 +293,7 @@ export default function Invoices({ merchantAddress }: Props) {
         </div>
       ) : (
         <div className="space-y-2">
-          {[...invoiceIds].reverse().map(id => <InvoiceRow key={id} invoiceId={id} />)}
+          {[...invoiceIds].reverse().map(id => <InvoiceRow key={id} invoiceId={id} chainId={chainId} />)}
         </div>
       )}
 
