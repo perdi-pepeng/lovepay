@@ -6,7 +6,7 @@
  */
 
 import { useState } from 'react'
-import { Loader2, Wallet, LogOut, ChevronDown, ShieldCheck, Plug, Network } from 'lucide-react'
+import { Loader2, Wallet, LogOut, ChevronDown, ShieldCheck, Plug, Network, Copy, Check } from 'lucide-react'
 import { useDisconnect, useAccount, useSwitchChain } from 'wagmi'
 import { ConnectKitButton } from 'connectkit'
 import { arc, arcTestnet } from 'viem/chains'
@@ -33,6 +33,14 @@ export default function WalletButton() {
   const [tab, setTab] = useState<Tab>('passkey')
   const [username, setUsername] = useState('')
   const [mode, setMode] = useState<'choose' | 'register'>('choose')
+  const [copied, setCopied] = useState(false)
+
+  function copyAddr(addr: string) {
+    void navigator.clipboard.writeText(addr).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    })
+  }
 
   function openModal() {
     setMode('choose')
@@ -86,7 +94,16 @@ export default function WalletButton() {
             >
               <div className="px-3 py-2">
                 <div className="text-xs font-semibold mb-0.5" style={{ color: 'var(--subtle)' }}>Circle Passkey Wallet</div>
-                <div className="text-xs font-mono break-all mb-1" style={{ color: 'var(--muted)' }}>{wallet.address}</div>
+                <div className="flex items-center gap-1 mb-1">
+                  <div className="text-xs font-mono break-all flex-1" style={{ color: 'var(--muted)' }}>{wallet.address}</div>
+                  <button
+                    onClick={() => copyAddr(wallet.address)}
+                    className="shrink-0 p-1 rounded-lg transition-all hover:bg-gray-100"
+                    title="Copy address"
+                  >
+                    {copied ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5" style={{ color: 'var(--muted)' }} />}
+                  </button>
+                </div>
                 <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold"
                   style={{ background: 'var(--love-soft)', color: 'var(--love)' }}>
                   <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
@@ -138,7 +155,16 @@ export default function WalletButton() {
             >
               <div className="px-3 py-2">
                 <div className="text-xs font-semibold mb-0.5" style={{ color: 'var(--subtle)' }}>External Wallet</div>
-                <div className="text-xs font-mono break-all mb-1" style={{ color: 'var(--muted)' }}>{wagmiAddress}</div>
+                <div className="flex items-center gap-1 mb-1">
+                  <div className="text-xs font-mono break-all flex-1" style={{ color: 'var(--muted)' }}>{wagmiAddress}</div>
+                  <button
+                    onClick={() => copyAddr(wagmiAddress)}
+                    className="shrink-0 p-1 rounded-lg transition-all hover:bg-gray-100"
+                    title="Copy address"
+                  >
+                    {copied ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5" style={{ color: 'var(--muted)' }} />}
+                  </button>
+                </div>
                 {isOnArc ? (
                   <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold"
                     style={{
