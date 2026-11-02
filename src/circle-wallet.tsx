@@ -15,6 +15,7 @@ import {
 import { useWriteContract, useWaitForTransactionReceipt, useAccount, useSwitchChain } from 'wagmi'
 import { createPublicClient, encodeFunctionData, type Abi, type Address } from 'viem'
 import { arc, arcTestnet } from 'viem/chains'
+import { qmsTestnet } from './config'
 import { createBundlerClient, toWebAuthnAccount } from 'viem/account-abstraction'
 import {
   WebAuthnMode,
@@ -286,8 +287,11 @@ export function useUniversalWrite(): UniversalWriteResult {
     if (isCircle) {
       void circleWrite({ ...params, paymaster: true })
     } else if (wagmiConnected) {
-      // Determine target Arc chain — mainnet if wallet is on mainnet, else testnet
-      const targetChainId = wagmiChainId === arc.id ? arc.id : arcTestnet.id
+      // Determine target chain — stay on current supported chain, else default to testnet
+      const targetChainId =
+        wagmiChainId === arc.id        ? arc.id :
+        wagmiChainId === qmsTestnet.id ? qmsTestnet.id :
+        arcTestnet.id
       const doWrite = () => writeContract({
         address: params.address,
         abi: params.abi,
@@ -295,8 +299,8 @@ export function useUniversalWrite(): UniversalWriteResult {
         args: params.args as never[],
         chainId: targetChainId,
       })
-      const isOnArc = wagmiChainId === arcTestnet.id || wagmiChainId === arc.id
-      if (!isOnArc) {
+      const isOnSupported = wagmiChainId === arcTestnet.id || wagmiChainId === arc.id || wagmiChainId === qmsTestnet.id
+      if (!isOnSupported) {
         // Switch to testnet by default when on wrong chain
         void switchChainAsync({ chainId: arcTestnet.id })
           .then(doWrite)

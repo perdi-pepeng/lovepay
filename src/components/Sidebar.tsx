@@ -1,7 +1,7 @@
 import { LayoutDashboard, Link2, FileText, History, UserCircle, Zap, BookOpen } from 'lucide-react'
 import { useAccount } from 'wagmi'
 import LovepayLogo from './LovepayLogo'
-import { ARC_MAINNET_CHAIN_ID } from '../store'
+import { ARC_MAINNET_CHAIN_ID, QMS_TESTNET_CHAIN_ID } from '../store'
 
 export type View = 'dashboard' | 'links' | 'invoices' | 'transactions' | 'checkout' | 'profile' | 'guide'
 
@@ -23,10 +23,11 @@ const NAV = [
 export default function Sidebar({ view, onView, onAbout, notifCount }: SidebarProps) {
   const { chainId } = useAccount()
   const onMainnet = chainId === ARC_MAINNET_CHAIN_ID
-  const chainLabel = onMainnet ? 'Arc Mainnet · Live' : 'Arc Testnet · Live'
-  const chainColor = onMainnet ? 'var(--love)' : 'var(--success)'
-  const chainBg    = onMainnet ? 'rgba(244,63,143,0.07)' : 'rgba(52,211,153,0.07)'
-  const chainBorder = onMainnet ? 'rgba(244,63,143,0.18)' : 'rgba(52,211,153,0.15)'
+  const onQms     = chainId === QMS_TESTNET_CHAIN_ID
+  const chainLabel = onMainnet ? 'Arc Mainnet · Live' : onQms ? 'QMS Testnet · Live' : 'Arc Testnet · Live'
+  const chainColor = onMainnet ? 'var(--love)' : onQms ? '#16a34a' : 'var(--success)'
+  const chainBg    = onMainnet ? 'rgba(244,63,143,0.07)' : onQms ? 'rgba(22,163,74,0.07)' : 'rgba(52,211,153,0.07)'
+  const chainBorder = onMainnet ? 'rgba(244,63,143,0.18)' : onQms ? 'rgba(22,163,74,0.18)' : 'rgba(52,211,153,0.15)'
 
   return (
     <>

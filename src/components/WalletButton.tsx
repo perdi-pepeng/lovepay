@@ -11,6 +11,7 @@ import { useDisconnect, useAccount, useSwitchChain } from 'wagmi'
 import { ConnectKitButton } from 'connectkit'
 import { arc, arcTestnet } from 'viem/chains'
 import { useCircleWallet } from '../circle-wallet'
+import { qmsTestnet } from '../config'
 
 function shortAddr(addr: string) {
   return addr.slice(0, 6) + '…' + addr.slice(-4)
@@ -54,9 +55,10 @@ export default function WalletButton() {
     setMode('choose')
   }
 
-  const isOnArcTestnet = wagmiChainId === arcTestnet.id
-  const isOnArcMainnet = wagmiChainId === arc.id
-  const isOnArc = isOnArcTestnet || isOnArcMainnet
+  const isOnArcTestnet  = wagmiChainId === arcTestnet.id
+  const isOnArcMainnet  = wagmiChainId === arc.id
+  const isOnQmsTestnet  = wagmiChainId === qmsTestnet.id
+  const isOnArc = isOnArcTestnet || isOnArcMainnet || isOnQmsTestnet
 
   // ── Connected state ────────────────────────────────────────────────────────
 
@@ -168,11 +170,11 @@ export default function WalletButton() {
                 {isOnArc ? (
                   <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold"
                     style={{
-                      background: isOnArcMainnet ? 'var(--love-soft)' : 'var(--surface-muted)',
-                      color: isOnArcMainnet ? 'var(--love)' : 'var(--ink-2)',
+                      background: isOnArcMainnet ? 'var(--love-soft)' : isOnQmsTestnet ? '#f0fdf4' : 'var(--surface-muted)',
+                      color: isOnArcMainnet ? 'var(--love)' : isOnQmsTestnet ? '#16a34a' : 'var(--ink-2)',
                     }}>
                     <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
-                    {isOnArcMainnet ? 'Arc Mainnet' : 'Arc Testnet'}
+                    {isOnArcMainnet ? 'Arc Mainnet' : isOnQmsTestnet ? 'QMS Testnet' : 'Arc Testnet'}
                   </div>
                 ) : (
                   <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold"
@@ -216,6 +218,20 @@ export default function WalletButton() {
                   Arc Mainnet
                   {isOnArcMainnet && <span className="ml-auto text-xs" style={{ color: 'var(--love)' }}>Active</span>}
                   {isSwitching && <Loader2 className="ml-auto w-3 h-3 animate-spin" />}
+                </button>
+                <button
+                  onClick={() => { void switchChainAsync({ chainId: qmsTestnet.id }); setShowMenu(false) }}
+                  disabled={isSwitching || isOnQmsTestnet}
+                  className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-sm text-left transition-all disabled:opacity-40"
+                  style={{
+                    background: isOnQmsTestnet ? '#f0fdf4' : 'transparent',
+                    color: isOnQmsTestnet ? '#16a34a' : 'var(--ink)',
+                    fontWeight: isOnQmsTestnet ? 600 : 400,
+                  }}
+                >
+                  <Network className="w-3.5 h-3.5" style={{ color: isOnQmsTestnet ? '#16a34a' : 'var(--muted)' }} />
+                  QMS Testnet
+                  {isOnQmsTestnet && <span className="ml-auto text-xs" style={{ color: '#16a34a' }}>Active</span>}
                 </button>
               </div>
 
@@ -423,7 +439,7 @@ export default function WalletButton() {
                     <p className="text-[10px] font-semibold uppercase tracking-widest text-center" style={{ color: 'var(--subtle)' }}>
                       After connecting, switch network:
                     </p>
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-3 gap-2">
                       <button
                         onClick={() => void switchChainAsync({ chainId: arcTestnet.id })}
                         disabled={isSwitching}
@@ -439,6 +455,14 @@ export default function WalletButton() {
                         style={{ background: 'var(--love-soft)', color: 'var(--love)', border: '1px solid var(--love)' }}
                       >
                         Arc Mainnet
+                      </button>
+                      <button
+                        onClick={() => void switchChainAsync({ chainId: qmsTestnet.id })}
+                        disabled={isSwitching}
+                        className="py-2 rounded-xl text-xs font-semibold transition-all disabled:opacity-40"
+                        style={{ background: '#f0fdf4', color: '#16a34a', border: '1px solid #86efac' }}
+                      >
+                        QMS Testnet
                       </button>
                     </div>
                   </div>

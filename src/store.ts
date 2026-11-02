@@ -8,9 +8,11 @@ import { erc20Abi, type Abi } from 'viem'
 import { useEffect, useState } from 'react'
 import {
   getLovepayContract,
-  ARC_USDC,
   ARC_TESTNET_CHAIN_ID,
   ARC_MAINNET_CHAIN_ID,
+  QMS_TESTNET_CHAIN_ID,
+  getUsdcAddress,
+  getExplorerBase,
   isSupportedChain,
 } from './contract'
 import { useUniversalWrite } from './circle-wallet'
@@ -22,6 +24,7 @@ const useCircleWrite = useUniversalWrite
 export function useArcChainId(): number {
   const { chainId } = useAccount()
   if (chainId === ARC_MAINNET_CHAIN_ID) return ARC_MAINNET_CHAIN_ID
+  if (chainId === QMS_TESTNET_CHAIN_ID)  return QMS_TESTNET_CHAIN_ID
   return ARC_TESTNET_CHAIN_ID
 }
 
@@ -375,8 +378,9 @@ export function useAllPaymentCount() {
 
 export function useUsdcBalance(address?: string) {
   const chainId = useArcChainId()
+  const usdcAddress = getUsdcAddress(chainId)
   const { data, isLoading, refetch } = useReadContract({
-    address: ARC_USDC,
+    address: usdcAddress,
     abi: erc20Abi,
     functionName: 'balanceOf',
     args: address ? [address as `0x${string}`] : undefined,
@@ -393,9 +397,10 @@ export function useApproveUsdc() {
   const contract = getLovepayContract(chainId)
   const { write, hash, isPending, isConfirming, isSuccess } = useCircleWrite()
 
+  const usdcAddr = getUsdcAddress(chainId)
   const approve = (amount: bigint) => {
     void write({
-      address: ARC_USDC,
+      address: usdcAddr,
       abi: erc20Abi,
       functionName: 'approve',
       args: [contract.address, amount],
@@ -487,17 +492,11 @@ export function usePaymentTxHashes(
 // ─── Chain explorer URL helper ────────────────────────────────────────────────
 
 export function getExplorerTxUrl(chainId: number, txHash: string): string {
-  const base = chainId === ARC_MAINNET_CHAIN_ID
-    ? 'https://explorer.arc.io'
-    : 'https://explorer.testnet.arc.io'
-  return `${base}/tx/${txHash}`
+  return `${getExplorerBase(chainId)}/tx/${txHash}`
 }
 
 export function getExplorerAddressUrl(chainId: number, address: string): string {
-  const base = chainId === ARC_MAINNET_CHAIN_ID
-    ? 'https://explorer.arc.io'
-    : 'https://explorer.testnet.arc.io'
-  return `${base}/address/${address}`
+  return `${getExplorerBase(chainId)}/address/${address}`
 }
 
-export { isSupportedChain, ARC_TESTNET_CHAIN_ID, ARC_MAINNET_CHAIN_ID }
+export { isSupportedChain, ARC_TESTNET_CHAIN_ID, ARC_MAINNET_CHAIN_ID, QMS_TESTNET_CHAIN_ID }
