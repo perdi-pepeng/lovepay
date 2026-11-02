@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Edit2, Save, X, CheckCircle2, XCircle, Copy, Check, Loader2, UserCircle, Globe, Instagram, Twitter, Phone, ExternalLink } from 'lucide-react'
 import { toast } from 'sonner'
 import { useMerchant, useUpdateMerchant, useArcChainId, getExplorerAddressUrl, type MerchantFormData } from '../store'
+import { getChainLabel } from '../contract'
 
 const BIZ_LABELS: Record<string, string> = {
   retail: 'Retail / E-commerce',
@@ -17,7 +18,7 @@ interface Props { merchantAddress: string }
 
 export default function MerchantProfile({ merchantAddress }: Props) {
   const chainId = useArcChainId()
-  const chainLabel = chainId === 5042 ? 'Arc Mainnet' : chainId === 19480 ? 'QMS Testnet' : 'Arc Testnet'
+  const chainLabel = getChainLabel(chainId)
   const { merchant, isLoading, refetch } = useMerchant(merchantAddress)
   const { update, isPending, isConfirming, isSuccess, error } = useUpdateMerchant()
 

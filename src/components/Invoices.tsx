@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { toast } from 'sonner'
 import { encodeAbiParameters, parseAbiParameters } from 'viem'
 import { useMerchantInvoiceIds, useInvoice, useCreateInvoice, useUpdateInvoiceStatus, useArcChainId, useIsMerchant, type CreateInvoiceParams } from '../store'
+import { getChainLabel } from '../contract'
 import { formatUSDC } from './format-utils'
 import QRModal from './QRModal'
 
@@ -197,7 +198,7 @@ interface Props { merchantAddress: string; onGoToDashboard: () => void }
 
 export default function Invoices({ merchantAddress, onGoToDashboard }: Props) {
   const chainId = useArcChainId()
-  const chainLabel = chainId === 5042 ? 'Arc Mainnet' : chainId === 19480 ? 'QMS Testnet' : 'Arc Testnet'
+  const chainLabel = getChainLabel(chainId)
   const { isMerchant } = useIsMerchant(merchantAddress)
   const { invoiceIds, isLoading, refetch } = useMerchantInvoiceIds(merchantAddress)
   const { create, isPending, isConfirming, isSuccess, error } = useCreateInvoice()

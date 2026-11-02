@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { toast } from 'sonner'
 import { useQueryClient } from '@tanstack/react-query'
 import { useMerchant, useAllMyPaymentIds, useUsdcBalance, useRegisterMerchant, useArcChainId } from '../store'
+import { getChainLabel } from '../contract'
 import { formatUSDC } from './format-utils'
 import AboutSection from './AboutSection'
 
@@ -174,7 +175,7 @@ interface Props { merchantAddress: string; isMerchant: boolean }
 
 export default function Dashboard({ merchantAddress, isMerchant }: Props) {
   const chainId = useArcChainId()
-  const chainLabel = chainId === 5042 ? 'Arc Mainnet' : chainId === 19480 ? 'QMS Testnet' : 'Arc Testnet'
+  const chainLabel = getChainLabel(chainId)
   const { merchant, refetch } = useMerchant(merchantAddress)
   const { allIds, received } = useAllMyPaymentIds(merchantAddress)
   const { balance } = useUsdcBalance(merchantAddress)
