@@ -2,8 +2,7 @@ import { useState, useEffect, startTransition } from 'react'
 import { motion } from 'framer-motion'
 import { Edit2, Save, X, CheckCircle2, XCircle, Copy, Check, Loader2, UserCircle, Globe, Instagram, Twitter, Phone, ExternalLink } from 'lucide-react'
 import { toast } from 'sonner'
-import { useMerchant, useUpdateMerchant, useArcChainId, type MerchantFormData } from '../store'
-import { buildAddressExplorerUrl } from '@/onchain-facts'
+import { useMerchant, useUpdateMerchant, useArcChainId, getExplorerAddressUrl, type MerchantFormData } from '../store'
 
 const BIZ_LABELS: Record<string, string> = {
   retail: 'Retail / E-commerce',
@@ -86,7 +85,7 @@ export default function MerchantProfile({ merchantAddress }: Props) {
       })
     : '—'
 
-  const explorerUrl = buildAddressExplorerUrl(chainId, merchantAddress)
+  const explorerUrl = getExplorerAddressUrl(chainId, merchantAddress)
 
   const inputCls = 'w-full px-3 py-2.5 rounded-xl text-sm outline-none'
   const inputStyle = { background: 'var(--bg)', border: '1px solid var(--border)', color: 'var(--ink)' }

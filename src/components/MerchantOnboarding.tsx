@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { Loader2, CheckCircle2, Globe, Instagram, Twitter, Phone } from 'lucide-react'
 import { toast } from 'sonner'
 import { useRegisterMerchant, useArcChainId, type MerchantFormData } from '../store'
-import { buildTxExplorerUrl } from '@/onchain-facts'
+import { getExplorerTxUrl } from '../store'
 
 interface Props { address: string }
 
@@ -30,7 +30,7 @@ export default function MerchantOnboarding({ address }: Props) {
     setForm(f => ({ ...f, [k]: e.target.value }))
 
   const valid = form.name.trim().length > 0 && form.email.trim().length > 0 && form.businessType.trim().length > 0
-  const txUrl = hash ? buildTxExplorerUrl(chainId, hash) : null
+  const txUrl = hash ? getExplorerTxUrl(chainId, hash) : null
 
   const inputCls = 'w-full rounded-xl px-4 py-3 text-sm outline-none'
   const inputStyle = { background: 'var(--surface-muted)', color: 'var(--ink)', border: '1px solid var(--border)' }

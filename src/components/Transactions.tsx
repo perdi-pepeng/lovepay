@@ -3,7 +3,7 @@ import { Search, Download, ArrowUpDown, Loader2, ArrowDownLeft, ArrowUpRight as 
 import { useAllMyPaymentIds, usePayment, useArcChainId } from '../store'
 import { getLovepayContract } from '../contract'
 import { formatUSDC, StatusBadge } from './format-utils'
-import { buildTxExplorerUrl } from '@/onchain-facts'
+import { getExplorerTxUrl } from '../store'
 import { usePublicClient } from 'wagmi'
 
 /** Fetch tx hash from blockNumber stored in PaymentRecord — single getBlock call, no scanning. */
@@ -60,7 +60,7 @@ function PaymentRow({ paymentId, myAddress, directionFilter, chainId }: {
 
   const counterparty = isIncoming ? payment.payer : payment.merchant
   const date = new Date(Number(payment.createdAt) * 1000)
-  const txUrl = txHash ? buildTxExplorerUrl(chainId, txHash) : null
+  const txUrl = txHash ? getExplorerTxUrl(chainId, txHash) : null
 
   return (
     <tr className="text-sm" style={{ borderBottom: '1px solid var(--border)' }}>
