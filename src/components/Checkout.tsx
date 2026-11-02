@@ -6,8 +6,9 @@ import { erc20Abi } from 'viem'
 import { motion, AnimatePresence } from 'framer-motion'
 import { toast } from 'sonner'
 import { arc, arcTestnet } from 'viem/chains'
-import { useApproveUsdc, usePay, useArcChainId, getExplorerTxUrl, ARC_MAINNET_CHAIN_ID } from '../store'
-import { getLovepayContract, ARC_USDC } from '../contract'
+import { useApproveUsdc, usePay, useArcChainId, getExplorerTxUrl, ARC_MAINNET_CHAIN_ID, QMS_TESTNET_CHAIN_ID } from '../store'
+import { getLovepayContract, getUsdcAddress } from '../contract'
+import { qmsTestnet } from '../config'
 
 const ZERO_BYTES32 = '0x0000000000000000000000000000000000000000000000000000000000000000' as const
 const USDC_DECIMALS = 6
@@ -54,8 +55,9 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
   const urlChainId = (() => {
     const params = new URLSearchParams(window.location.search)
     const c = params.get('chain')
-    if (c === String(arc.id)) return arc.id
+    if (c === String(arc.id))        return arc.id
     if (c === String(arcTestnet.id)) return arcTestnet.id
+    if (c === String(qmsTestnet.id)) return qmsTestnet.id
     return null
   })()
 
@@ -64,12 +66,14 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
   const arcChainId = urlChainId ?? walletArcChainId
   const contract = getLovepayContract(arcChainId)
   const onMainnet = arcChainId === ARC_MAINNET_CHAIN_ID
-  const chainName = onMainnet ? 'Arc Mainnet' : 'Arc Testnet'
-  const expectedChainId = onMainnet ? arc.id : arcTestnet.id
+  const onQms     = arcChainId === QMS_TESTNET_CHAIN_ID
+  const chainName = onMainnet ? 'Arc Mainnet' : onQms ? 'QMS Testnet' : 'Arc Testnet'
+  const expectedChainId = onMainnet ? arc.id : onQms ? qmsTestnet.id : arcTestnet.id
+  const usdcAddress = getUsdcAddress(arcChainId)
 
   // USDC balance
   const { data: rawBalance } = useReadContract({
-    address: ARC_USDC,
+    address: usdcAddress,
     abi: erc20Abi,
     functionName: 'balanceOf',
     args: address ? [address] : undefined,
@@ -79,7 +83,7 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
 
   // USDC allowance for registry
   const { data: rawAllowance, refetch: refetchAllowance } = useReadContract({
-    address: ARC_USDC,
+    address: usdcAddress,
     abi: erc20Abi,
     functionName: 'allowance',
     args: address ? [address, contract.address] : undefined,

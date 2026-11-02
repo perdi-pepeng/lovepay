@@ -18,7 +18,7 @@ interface Props { merchantAddress: string }
 
 export default function MerchantProfile({ merchantAddress }: Props) {
   const chainId = useArcChainId()
-  const chainLabel = chainId === 5042 ? 'Arc Mainnet' : 'Arc Testnet'
+  const chainLabel = chainId === 5042 ? 'Arc Mainnet' : chainId === 19480 ? 'QMS Testnet' : 'Arc Testnet'
   const { merchant, isLoading, refetch } = useMerchant(merchantAddress)
   const { update, isPending, isConfirming, isSuccess, error } = useUpdateMerchant()
 

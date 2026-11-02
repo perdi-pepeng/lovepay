@@ -197,7 +197,7 @@ interface Props { merchantAddress: string; onGoToDashboard: () => void }
 
 export default function Invoices({ merchantAddress, onGoToDashboard }: Props) {
   const chainId = useArcChainId()
-  const chainLabel = chainId === 5042 ? 'Arc Mainnet' : 'Arc Testnet'
+  const chainLabel = chainId === 5042 ? 'Arc Mainnet' : chainId === 19480 ? 'QMS Testnet' : 'Arc Testnet'
   const { isMerchant } = useIsMerchant(merchantAddress)
   const { invoiceIds, isLoading, refetch } = useMerchantInvoiceIds(merchantAddress)
   const { create, isPending, isConfirming, isSuccess, error } = useCreateInvoice()

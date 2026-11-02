@@ -1,8 +1,7 @@
 import { QrCode, Link2, FileText, History, UserCircle, ArrowRight, Shield, Zap, Globe, ChevronDown, ChevronUp } from 'lucide-react'
 import { useState } from 'react'
 import { getLovepayContract, ARC_MAINNET_CHAIN_ID } from '../contract'
-import { useArcChainId } from '../store'
-import { buildAddressExplorerUrl } from '@/onchain-facts'
+import { useArcChainId, getExplorerAddressUrl } from '../store'
 
 interface AccordionProps { q: string; a: string }
 function Accordion({ q, a }: AccordionProps) {
@@ -32,8 +31,9 @@ export default function Guide() {
   const chainId = useArcChainId()
   const contract = getLovepayContract(chainId)
   const isMainnet = chainId === ARC_MAINNET_CHAIN_ID
-  const chainLabel = isMainnet ? 'Arc Mainnet' : 'Arc Testnet'
-  const explorerUrl = buildAddressExplorerUrl(chainId, contract.address)
+  const { QMS_TESTNET_CHAIN_ID: QMS_ID } = { QMS_TESTNET_CHAIN_ID: 19480 }
+  const chainLabel = isMainnet ? 'Arc Mainnet' : chainId === QMS_ID ? 'QMS Testnet' : 'Arc Testnet'
+  const explorerUrl = getExplorerAddressUrl(chainId, contract.address)
 
   return (
     <div className="space-y-8 max-w-2xl">
@@ -189,7 +189,7 @@ export default function Guide() {
           />
           <Accordion
             q="Is this testnet or mainnet?"
-            a={isMainnet ? 'Lovepay is running on Arc Mainnet — transactions use real USDC. All payments are final and irreversible.' : 'Lovepay is currently running on Arc Testnet — all USDC is testnet tokens with no real value. This is for demonstration and development.'}
+            a={isMainnet ? 'Lovepay is running on Arc Mainnet — transactions use real USDC. All payments are final and irreversible.' : `Lovepay is currently running on ${chainLabel} — all tokens have no real value. This is for testing and development.`}
           />
         </div>
       </div>

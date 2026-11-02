@@ -2,9 +2,8 @@ import { X, Shield, Zap, ExternalLink, Copy, Check, QrCode } from 'lucide-react'
 import LovepayLogo from './LovepayLogo'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
-import { getLovepayContract, ARC_MAINNET_CHAIN_ID } from '../contract'
-import { useArcChainId } from '../store'
-import { buildAddressExplorerUrl, requireChain } from '@/onchain-facts'
+import { getLovepayContract, getChainLabel } from '../contract'
+import { useArcChainId, getExplorerAddressUrl } from '../store'
 
 interface Props { open: boolean; onClose: () => void }
 
@@ -12,9 +11,8 @@ export default function AboutModal({ open, onClose }: Props) {
   const [copied, setCopied] = useState(false)
   const chainId = useArcChainId()
   const contract = getLovepayContract(chainId)
-  const chain = requireChain(chainId)
-  const explorerUrl = buildAddressExplorerUrl(chainId, contract.address)
-  const isMainnet = chainId === ARC_MAINNET_CHAIN_ID
+  const explorerUrl = getExplorerAddressUrl(chainId, contract.address)
+
 
   const copyAddress = () => {
     void navigator.clipboard.writeText(contract.address).then(() => {
@@ -66,7 +64,7 @@ export default function AboutModal({ open, onClose }: Props) {
               <div className="grid grid-cols-3 gap-2">
                 {[
                   { icon: Shield, label: 'Immutable',   sub: 'Permanent contract' },
-                  { icon: Zap,    label: 'Sub-second',  sub: isMainnet ? 'Arc Mainnet' : 'Arc Testnet' },
+                  { icon: Zap,    label: 'Sub-second',  sub: getChainLabel(chainId) },
                   { icon: QrCode, label: 'USDC Only',   sub: 'Stablecoin' },
                 ].map(({ icon: Icon, label, sub }) => (
                   <div key={label} className="rounded-2xl p-3 text-center"
@@ -86,7 +84,7 @@ export default function AboutModal({ open, onClose }: Props) {
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
                     <span className="text-xs" style={{ color: 'var(--muted)' }}>Network</span>
-                    <span className="text-xs font-semibold" style={{ color: 'var(--ink)' }}>{chain.name}</span>
+                    <span className="text-xs font-semibold" style={{ color: 'var(--ink)' }}>{getChainLabel(chainId)}</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-xs" style={{ color: 'var(--muted)' }}>Chain ID</span>
@@ -119,7 +117,7 @@ export default function AboutModal({ open, onClose }: Props) {
               </a>
 
               <p className="text-center text-[10px]" style={{ color: 'var(--subtle)' }}>
-                Lovepay v1.0 · Built on {isMainnet ? 'Arc Mainnet' : 'Arc Testnet'} · Powered by Circle USDC
+                Lovepay v1.0 · Built on {getChainLabel(chainId)} · Powered by Circle USDC
               </p>
             </div>
           </motion.div>

@@ -174,7 +174,7 @@ interface Props { merchantAddress: string; isMerchant: boolean }
 
 export default function Dashboard({ merchantAddress, isMerchant }: Props) {
   const chainId = useArcChainId()
-  const chainLabel = chainId === 5042 ? 'Arc Mainnet' : 'Arc Testnet'
+  const chainLabel = chainId === 5042 ? 'Arc Mainnet' : chainId === 19480 ? 'QMS Testnet' : 'Arc Testnet'
   const { merchant, refetch } = useMerchant(merchantAddress)
   const { allIds, received } = useAllMyPaymentIds(merchantAddress)
   const { balance } = useUsdcBalance(merchantAddress)

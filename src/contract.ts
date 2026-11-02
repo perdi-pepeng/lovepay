@@ -3,7 +3,7 @@
  *
  * Arc Testnet (5042002): 0x16c966614e32dfa9e56a0c3a44004d589283f8f9
  * Arc Mainnet (5042):    0xD133FE191eDB4f7fd8bE0bcFEeAc0948875A7de9
- * QMS Testnet (19480):   set VITE_QMS_CONTRACT after deploy
+ * QMS Testnet (19480):   0xD133FE191eDB4f7fd8bE0bcFEeAc0948875A7de9
  */
 import artifact from '../contracts/out/LovepayRegistry.sol/LovepayRegistry.json'
 
@@ -27,7 +27,7 @@ const MAINNET_ADDRESS = (
   import.meta.env.VITE_MAINNET_CONTRACT ?? '0xD133FE191eDB4f7fd8bE0bcFEeAc0948875A7de9'
 ) as string
 const QMS_ADDRESS = (
-  import.meta.env.VITE_QMS_CONTRACT ?? ''
+  import.meta.env.VITE_QMS_CONTRACT ?? '0xD133FE191eDB4f7fd8bE0bcFEeAc0948875A7de9'
 ) as string
 
 export function getLovepayContract(chainId: number) {
