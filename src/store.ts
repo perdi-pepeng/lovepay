@@ -172,7 +172,7 @@ export function useMerchantLinkIds(address?: string) {
     functionName: 'getMerchantLinkIds',
     args: address ? [address as `0x${string}`] : undefined,
     chainId,
-    query: { enabled: !!address },
+    query: { enabled: !!address, refetchInterval: 10_000 },
   })
   return { linkIds: (data as `0x${string}`[] | undefined) ?? [], isLoading, refetch }
 }
@@ -186,7 +186,7 @@ export function usePaymentLink(linkId?: string) {
     functionName: 'paymentLinks',
     args: linkId ? [linkId as `0x${string}`] : undefined,
     chainId,
-    query: { enabled: !!linkId && linkId !== '0x0000000000000000000000000000000000000000000000000000000000000000' },
+    query: { enabled: !!linkId && linkId !== '0x0000000000000000000000000000000000000000000000000000000000000000', refetchInterval: 10_000 },
   })
   const raw = data as [`0x${string}`, string, string, bigint, string, boolean, bigint, boolean, bigint] | undefined
   const link: ChainPaymentLink | undefined = raw && raw[8] > 0n
@@ -238,7 +238,7 @@ export function useMerchantInvoiceIds(address?: string) {
     functionName: 'getMerchantInvoiceIds',
     args: address ? [address as `0x${string}`] : undefined,
     chainId,
-    query: { enabled: !!address },
+    query: { enabled: !!address, refetchInterval: 10_000 },
   })
   return { invoiceIds: (data as `0x${string}`[] | undefined) ?? [], isLoading, refetch }
 }
@@ -252,7 +252,7 @@ export function useInvoice(invoiceId?: string) {
     functionName: 'invoices',
     args: invoiceId ? [invoiceId as `0x${string}`] : undefined,
     chainId,
-    query: { enabled: !!invoiceId },
+    query: { enabled: !!invoiceId, refetchInterval: 10_000 },
   })
   const raw = data as [`0x${string}`, string, string, string, string, string, bigint, bigint, bigint, number, bigint, bigint, string] | undefined
   const invoice: ChainInvoice | undefined = raw && raw[11] > 0n
