@@ -19,6 +19,17 @@ import { useUniversalWrite } from './circle-wallet'
 export { useUniversalWrite as useCircleWrite }
 const useCircleWrite = useUniversalWrite
 
+/**
+ * Live-data polling for onchain reads: refresh every 5s, keep polling in
+ * background tabs, and refresh immediately when the user returns to the tab.
+ */
+const LIVE_QUERY = {
+  refetchInterval: 5_000,
+  refetchIntervalInBackground: true,
+  refetchOnWindowFocus: true,
+  staleTime: 0,
+} as const
+
 // ─── Active chain helper ──────────────────────────────────────────────────────
 // Returns the Arc chain the connected wallet is on, defaulting to testnet.
 export function useArcChainId(): number {
@@ -172,7 +183,7 @@ export function useMerchantLinkIds(address?: string) {
     functionName: 'getMerchantLinkIds',
     args: address ? [address as `0x${string}`] : undefined,
     chainId,
-    query: { enabled: !!address, refetchInterval: 10_000 },
+    query: { enabled: !!address, ...LIVE_QUERY },
   })
   return { linkIds: (data as `0x${string}`[] | undefined) ?? [], isLoading, refetch }
 }
@@ -186,7 +197,7 @@ export function usePaymentLink(linkId?: string) {
     functionName: 'paymentLinks',
     args: linkId ? [linkId as `0x${string}`] : undefined,
     chainId,
-    query: { enabled: !!linkId && linkId !== '0x0000000000000000000000000000000000000000000000000000000000000000', refetchInterval: 10_000 },
+    query: { enabled: !!linkId && linkId !== '0x0000000000000000000000000000000000000000000000000000000000000000', ...LIVE_QUERY },
   })
   const raw = data as [`0x${string}`, string, string, bigint, string, boolean, bigint, boolean, bigint] | undefined
   const link: ChainPaymentLink | undefined = raw && raw[8] > 0n
@@ -238,7 +249,7 @@ export function useMerchantInvoiceIds(address?: string) {
     functionName: 'getMerchantInvoiceIds',
     args: address ? [address as `0x${string}`] : undefined,
     chainId,
-    query: { enabled: !!address, refetchInterval: 10_000 },
+    query: { enabled: !!address, ...LIVE_QUERY },
   })
   return { invoiceIds: (data as `0x${string}`[] | undefined) ?? [], isLoading, refetch }
 }
@@ -252,7 +263,7 @@ export function useInvoice(invoiceId?: string) {
     functionName: 'invoices',
     args: invoiceId ? [invoiceId as `0x${string}`] : undefined,
     chainId,
-    query: { enabled: !!invoiceId, refetchInterval: 10_000 },
+    query: { enabled: !!invoiceId, ...LIVE_QUERY },
   })
   const raw = data as [`0x${string}`, string, string, string, string, string, bigint, bigint, bigint, number, bigint, bigint, string] | undefined
   const invoice: ChainInvoice | undefined = raw && raw[11] > 0n
@@ -316,7 +327,7 @@ export function useMerchantPaymentIds(address?: string) {
     functionName: 'getMerchantPaymentIds',
     args: address ? [address as `0x${string}`] : undefined,
     chainId,
-    query: { enabled: !!address, refetchInterval: 10_000 },
+    query: { enabled: !!address, ...LIVE_QUERY },
   })
   return { paymentIds: (data as `0x${string}`[] | undefined) ?? [], isLoading, refetch }
 }
@@ -348,7 +359,7 @@ export function usePayerPaymentIds(address?: string) {
     functionName: 'getPayerPaymentIds',
     args: address ? [address as `0x${string}`] : undefined,
     chainId,
-    query: { enabled: !!address, refetchInterval: 10_000 },
+    query: { enabled: !!address, ...LIVE_QUERY },
   })
   return { paymentIds: (data as `0x${string}`[] | undefined) ?? [], isLoading, refetch }
 }
@@ -385,7 +396,7 @@ export function useUsdcBalance(address?: string) {
     functionName: 'balanceOf',
     args: address ? [address as `0x${string}`] : undefined,
     chainId,
-    query: { enabled: !!address },
+    query: { enabled: !!address, ...LIVE_QUERY },
   })
   return { balance: data, isLoading, refetch }
 }

@@ -1,207 +1,3 @@
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792980188075}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792980188075}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792980188075}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792980195338}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792980195338}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792980195338}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792980195338}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792980201351}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792980201351}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792980201351}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792980201351}
-{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792980943193}
-{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792983218131}
-{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1792983218140}
-{"level":"log","message":"[ChromeTransport] chromePort disconnected","timestamp":1792983614744}
-{"level":"log","message":"[ChromeTransport] chromePort disconnected","timestamp":1792983614747}
-{"level":"debug","message":"[vite] connected.","timestamp":1792983661309}
-{"level":"debug","message":"[vite] connected.","timestamp":1792985496682}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792985521753}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985521753}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985527171}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985527172}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985527175}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985527175}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985533583}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985533583}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985533584}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985533584}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985537450}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985537450}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985537451}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985537451}
-{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792985546047}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985546047}
-{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1792985546050}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985546050}
-{"level":"debug","message":"[vite] connected.","timestamp":1792985569109}
-{"level":"debug","message":"[vite] connected.","timestamp":1792985569763}
-{"level":"debug","message":"[vite] connected.","timestamp":1792985687247}
-{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792985711483}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985711483}
-{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792985711485}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985711485}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792985716472}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985716472}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792985716477}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985716478}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792985716478}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985716478}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792985721395}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985721395}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792985721407}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985721407}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792985721407}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985721407}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792985730206}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985730207}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792985730207}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985730207}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792985730208}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985730208}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985735591}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985735591}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985735591}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985735592}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985735593}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985735593}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985740387}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985740387}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985740388}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985740388}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985740388}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985740388}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985744968}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985744968}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985744969}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985744969}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985744970}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985744970}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985761214}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985761214}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985761219}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985761220}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792985777939}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985777939}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792985777939}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985777939}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792985782644}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985782644}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792985782645}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985782645}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985787669}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985787670}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985787670}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985787670}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985791700}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985791700}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1792985791704}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792985791704}
-{"level":"debug","message":"[vite] connected.","timestamp":1792988270354}
-{"level":"debug","message":"[vite] connected.","timestamp":1792988271104}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792988286814}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792988286814}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1792988286814}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792988286815}
-{"level":"debug","message":"[vite] connected.","timestamp":1792988328036}
-{"level":"debug","message":"[vite] connected.","timestamp":1792988331301}
-{"level":"debug","message":"[vite] connected.","timestamp":1792989356091}
-{"level":"error","message":"Error checking Cross-Origin-Opener-Policy: Failed to fetch","timestamp":1792989356510}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792989381827}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792989381827}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792989381829}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792989381829}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792989381831}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792989381831}
-{"level":"error","message":"Uncaught ReferenceError: TrendingUp is not defined","timestamp":1792989382673,"source":"https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:639:34","stack":"ReferenceError: TrendingUp is not defined\n    at Dashboard (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:639:34)\n    at renderWithHooks (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:18474:26)\n    at updateFunctionComponent (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:21508:28)\n    at beginWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:22850:22)\n    at HTMLUnknownElement.callCallback2 (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:10558:22)\n    at Object.invokeGuardedCallbackDev (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:10583:24)\n    at invokeGuardedCallback (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:10617:39)\n    at beginWork$1 (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26696:15)\n    at performUnitOfWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26129:20)\n    at workLoopSync (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26068:13)"}
-{"level":"error","message":"Uncaught ReferenceError: TrendingUp is not defined","timestamp":1792989382888,"source":"https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:639:34","stack":"ReferenceError: TrendingUp is not defined\n    at Dashboard (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:639:34)\n    at renderWithHooks (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:18474:26)\n    at updateFunctionComponent (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:21508:28)\n    at beginWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:22850:22)\n    at HTMLUnknownElement.callCallback2 (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:10558:22)\n    at Object.invokeGuardedCallbackDev (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:10583:24)\n    at invokeGuardedCallback (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:10617:39)\n    at beginWork$1 (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26696:15)\n    at performUnitOfWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26129:20)\n    at workLoopSync (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26068:13)"}
-{"level":"error","message":"The above error occurred in the <Dashboard> component:\n\n    at Dashboard (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:497:37)\n    at div\n    at main\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792988284949:55:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries.","timestamp":1792989382890}
-{"level":"error","message":"Uncaught ReferenceError: TrendingUp is not defined","timestamp":1792989382898,"source":"https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:639:34","stack":"ReferenceError: TrendingUp is not defined\n    at Dashboard (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:639:34)\n    at renderWithHooks (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:18474:26)\n    at updateFunctionComponent (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:21508:28)\n    at beginWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:22850:22)\n    at HTMLUnknownElement.callCallback2 (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:10558:22)\n    at Object.invokeGuardedCallbackDev (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:10583:24)\n    at invokeGuardedCallback (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:10617:39)\n    at beginWork$1 (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26696:15)\n    at performUnitOfWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26129:20)\n    at workLoopSync (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26068:13)"}
-{"level":"error","message":"Uncaught ReferenceError: TrendingUp is not defined","timestamp":1792989382935,"source":"https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:639:34","stack":"ReferenceError: TrendingUp is not defined\n    at Dashboard (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:639:34)\n    at renderWithHooks (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:18474:26)\n    at updateFunctionComponent (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:21508:28)\n    at beginWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:22850:22)\n    at HTMLUnknownElement.callCallback2 (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:10558:22)\n    at Object.invokeGuardedCallbackDev (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:10583:24)\n    at invokeGuardedCallback (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:10617:39)\n    at beginWork$1 (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26696:15)\n    at performUnitOfWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26129:20)\n    at workLoopSync (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26068:13)"}
-{"level":"error","message":"The above error occurred in the <Dashboard> component:\n\n    at Dashboard (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:497:37)\n    at div\n    at main\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792988284949:55:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries.","timestamp":1792989382937}
-{"level":"error","message":"Uncaught ReferenceError: TrendingUp is not defined","timestamp":1792989382943,"source":"https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:639:34","stack":"ReferenceError: TrendingUp is not defined\n    at Dashboard (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:639:34)\n    at renderWithHooks (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:18474:26)\n    at updateFunctionComponent (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:21508:28)\n    at beginWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:22850:22)\n    at HTMLUnknownElement.callCallback2 (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:10558:22)\n    at Object.invokeGuardedCallbackDev (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:10583:24)\n    at invokeGuardedCallback (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:10617:39)\n    at beginWork$1 (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26696:15)\n    at performUnitOfWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26129:20)\n    at workLoopSync (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26068:13)"}
-{"level":"error","message":"Uncaught ReferenceError: TrendingUp is not defined","timestamp":1792989382948,"source":"https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:639:34","stack":"ReferenceError: TrendingUp is not defined\n    at Dashboard (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:639:34)\n    at renderWithHooks (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:18474:26)\n    at updateFunctionComponent (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:21508:28)\n    at beginWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:22850:22)\n    at HTMLUnknownElement.callCallback2 (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:10558:22)\n    at Object.invokeGuardedCallbackDev (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:10583:24)\n    at invokeGuardedCallback (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:10617:39)\n    at beginWork$1 (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26696:15)\n    at performUnitOfWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26129:20)\n    at workLoopSync (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26068:13)"}
-{"level":"error","message":"The above error occurred in the <Dashboard> component:\n\n    at Dashboard (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:497:37)\n    at div\n    at main\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792988284949:55:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries.","timestamp":1792989382950}
-{"level":"error","message":"Unhandled promise rejection: ReferenceError: TrendingUp is not defined\n    at Dashboard (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:639:34)\n    at renderWithHooks (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:18474:26)\n    at updateFunctionComponent (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:21508:28)\n    at beginWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:22850:22)\n    at beginWork$1 (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26684:22)\n    at performUnitOfWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26129:20)\n    at workLoopSync (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26068:13)\n    at renderRootSync (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26047:15)\n    at recoverFromConcurrentError (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:25664:28)\n    at performSyncWorkOnRoot (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:25810:28)","timestamp":1792989382962,"stack":"ReferenceError: TrendingUp is not defined\n    at Dashboard (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:639:34)\n    at renderWithHooks (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:18474:26)\n    at updateFunctionComponent (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:21508:28)\n    at beginWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:22850:22)\n    at beginWork$1 (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26684:22)\n    at performUnitOfWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26129:20)\n    at workLoopSync (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26068:13)\n    at renderRootSync (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26047:15)\n    at recoverFromConcurrentError (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:25664:28)\n    at performSyncWorkOnRoot (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:25810:28)"}
-{"level":"error","message":"Unhandled promise rejection: ReferenceError: TrendingUp is not defined\n    at Dashboard (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:639:34)\n    at renderWithHooks (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:18474:26)\n    at updateFunctionComponent (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:21508:28)\n    at beginWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:22850:22)\n    at beginWork$1 (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26684:22)\n    at performUnitOfWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26129:20)\n    at workLoopSync (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26068:13)\n    at renderRootSync (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26047:15)\n    at recoverFromConcurrentError (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:25664:28)\n    at performSyncWorkOnRoot (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:25810:28)","timestamp":1792989382965,"stack":"ReferenceError: TrendingUp is not defined\n    at Dashboard (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:639:34)\n    at renderWithHooks (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:18474:26)\n    at updateFunctionComponent (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:21508:28)\n    at beginWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:22850:22)\n    at beginWork$1 (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26684:22)\n    at performUnitOfWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26129:20)\n    at workLoopSync (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26068:13)\n    at renderRootSync (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26047:15)\n    at recoverFromConcurrentError (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:25664:28)\n    at performSyncWorkOnRoot (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:25810:28)"}
-{"level":"error","message":"Unhandled promise rejection: ReferenceError: TrendingUp is not defined\n    at Dashboard (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:639:34)\n    at renderWithHooks (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:18474:26)\n    at updateFunctionComponent (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:21508:28)\n    at beginWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:22850:22)\n    at beginWork$1 (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26684:22)\n    at performUnitOfWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26129:20)\n    at workLoopSync (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26068:13)\n    at renderRootSync (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26047:15)\n    at recoverFromConcurrentError (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:25664:28)\n    at performSyncWorkOnRoot (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:25810:28)","timestamp":1792989382968,"stack":"ReferenceError: TrendingUp is not defined\n    at Dashboard (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/Dashboard.tsx?t=1792989380092:639:34)\n    at renderWithHooks (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:18474:26)\n    at updateFunctionComponent (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:21508:28)\n    at beginWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:22850:22)\n    at beginWork$1 (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26684:22)\n    at performUnitOfWork (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26129:20)\n    at workLoopSync (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26068:13)\n    at renderRootSync (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:26047:15)\n    at recoverFromConcurrentError (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:25664:28)\n    at performSyncWorkOnRoot (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-YI6NTZAD.js?v=5f50fc61:25810:28)"}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792989389682}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792989389682}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792989389683}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792989389683}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792989389683}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792989389683}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792989396049}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792989396050}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792989396051}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792989396051}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792989396086}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792989396086}
-{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1792989405803}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792989405803}
-{"level":"debug","message":"[vite] connected.","timestamp":1792989425810}
-{"level":"debug","message":"[vite] connected.","timestamp":1792989429328}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792989710818}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792989710821}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792989710821}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792989710829}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792989710829}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792989716827}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792989716827}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792989716831}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792989716831}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1792989717111}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792989717112}
-{"level":"error","message":"Warning: Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render.%s \n    at MerchantProfile (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/MerchantProfile.tsx:39:43)\n    at div\n    at main\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1792989714572:55:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:78:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1792989879479}
-{"level":"debug","message":"[vite] connected.","timestamp":1792990728155}
-{"level":"debug","message":"[vite] hot updated: /src/components/AboutSection.tsx","timestamp":1792991111923}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792991111923}
-{"level":"error","message":"(previous line repeated 54× more)","timestamp":1792991111925}
-{"level":"debug","message":"[vite] hot updated: /src/components/AboutSection.tsx","timestamp":1792991111925}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1792991111926}
-{"level":"debug","message":"[vite] connected.","timestamp":1792991166777}
-{"level":"debug","message":"[vite] connected.","timestamp":1793016803012}
-{"level":"debug","message":"[vite] connected.","timestamp":1793016803937}
-{"level":"debug","message":"[vite] connected.","timestamp":1793018670801}
-{"level":"debug","message":"[vite] connected.","timestamp":1793052262894}
-{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1793054047771}
-{"level":"debug","message":"[vite] connected.","timestamp":1793054146670}
-{"level":"debug","message":"[vite] connected.","timestamp":1793110351068}
-{"level":"debug","message":"[vite] connected.","timestamp":1793110408489}
-{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1793110649561}
-{"level":"debug","message":"[vite] connected.","timestamp":1793111090160}
-{"level":"error","message":"Error checking Cross-Origin-Opener-Policy: Failed to fetch","timestamp":1793111529112}
-{"level":"debug","message":"[vite] connected.","timestamp":1793111533202}
-{"level":"debug","message":"[vite] connected.","timestamp":1793111540807}
-{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1793164398748}
-{"level":"debug","message":"[vite] connected.","timestamp":1793186119968}
-{"level":"error","message":"Error checking Cross-Origin-Opener-Policy: Failed to fetch","timestamp":1793186120496}
-{"level":"error","message":"Warning: You are calling ReactDOMClient.createRoot() on a container that has already been passed to createRoot() before. Instead, call root.render() on the existing root instead if you want to update it.","timestamp":1793614086273}
-{"level":"debug","message":"[vite] invalidate /src/main.tsx: Could not Fast Refresh (\"true\" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports","timestamp":1793614086276}
-{"level":"debug","message":"[vite] hot updated: /src/main.tsx","timestamp":1793614086276}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793614086276}
-{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1793614106582}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793614106582}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1793614106582}
-{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1793614106582}
-{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1793614106582}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1793614106582}
-{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1793614106583}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1793614106583}
-{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1793614106583}
-{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1793614106583}
-{"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1793614106583}
-{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1793614106860}
-{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793614106860}
-{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1793614106860}
-{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1793614106861}
-{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1793614106861}
-{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1793614106861}
-{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1793614106861}
-{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1793614106861}
-{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1793614106861}
-{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1793614106861}
-{"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1793614106862}
 {"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1793614117682}
 {"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793614117682}
 {"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1793614117682}
@@ -744,3 +540,105 @@
 {"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1793680714563}
 {"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1793680714564}
 {"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1793680714564}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793680714991}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1793680714992}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1793680714992}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1793680714992}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1793680714993}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1793680714993}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1793680714993}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1793680714994}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1793680714994}
+{"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1793680714995}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1793680714995}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793680720203}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793680721218}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1793680721218}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1793680721218}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1793680721218}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1793680721218}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1793680721218}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1793680721219}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1793680721219}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1793680721219}
+{"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1793680721219}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1793680721219}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793680721222}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1793680721223}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1793680721223}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1793680721223}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1793680721223}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1793680721223}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1793680721223}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1793680721223}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1793680721223}
+{"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1793680721224}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1793680721224}
+{"level":"debug","message":"(previous line repeated 1× more)","timestamp":1793680721836}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1793680721836}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1793680721837}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1793680721837}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1793680721837}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1793680721837}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1793680721837}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1793680721837}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1793680721837}
+{"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1793680721837}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1793680721837}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793680721837}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1793680721837}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1793680721837}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1793680721838}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1793680721838}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1793680721838}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1793680721838}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1793680721838}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1793680721838}
+{"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1793680721838}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1793680721838}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793680721955}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1793680721955}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1793680721955}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1793680721955}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1793680721955}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1793680721955}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1793680721955}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1793680721955}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1793680721955}
+{"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1793680721955}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1793680721955}
+{"level":"debug","message":"[vite] connected.","timestamp":1793680737895}
+{"level":"debug","message":"[vite] connected.","timestamp":1793680798079}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793680819319}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1793680819319}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1793680819320}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1793680819320}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1793680819321}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1793680819321}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1793680819322}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1793680819322}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1793680819323}
+{"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1793680819323}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1793680819323}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793680819336}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1793680819337}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1793680819337}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1793680819337}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1793680819338}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1793680819338}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1793680819338}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1793680819338}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1793680819339}
+{"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1793680819339}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1793680819339}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793680819796}
+{"level":"debug","message":"[vite] hot updated: /src/App.tsx","timestamp":1793680819797}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1793680819797}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1793680819797}
+{"level":"debug","message":"[vite] hot updated: /src/components/AboutModal.tsx","timestamp":1793680819798}
+{"level":"debug","message":"[vite] hot updated: /src/components/Dashboard.tsx","timestamp":1793680819798}
+{"level":"debug","message":"[vite] hot updated: /src/components/Sidebar.tsx","timestamp":1793680819798}
+{"level":"debug","message":"[vite] hot updated: /src/components/MerchantProfile.tsx","timestamp":1793680819799}
+{"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1793680819799}
+{"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1793680819799}
+{"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1793680819799}
