@@ -65,6 +65,6 @@ export function getChainLabel(chainId: number | undefined): string {
 
 export function getExplorerBase(chainId: number): string {
   if (chainId === ARC_MAINNET_CHAIN_ID) return 'https://explorer.arc.io'
-  if (chainId === QMS_TESTNET_CHAIN_ID)  return 'https://explorer.testnet.qms.finance'
+  if (chainId === QMS_TESTNET_CHAIN_ID)  return 'https://testnet.qmsscan.io'
   return 'https://explorer.testnet.arc.io'
 }

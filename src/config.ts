@@ -19,7 +19,7 @@ export const qmsTestnet = {
     public:  { http: ['https://rpc.testnet.qms.finance'] },
   },
   blockExplorers: {
-    default: { name: 'QMS Explorer', url: 'https://explorer.testnet.qms.finance' },
+    default: { name: 'QMSScan', url: 'https://testnet.qmsscan.io' },
   },
   testnet: true,
 } as const satisfies Chain
