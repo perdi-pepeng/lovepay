@@ -231,7 +231,10 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
                     {prefillAmount ? (
                       <div className="rounded-2xl px-4 py-3" style={{ background: 'var(--surface-muted)' }}>
                         <div className="display text-3xl font-bold tabular-nums" style={{ color: 'var(--ink)' }}>{Number(prefillAmount).toLocaleString('en-US')}</div>
-                        <div className="text-xs mt-1" style={{ color: 'var(--subtle)' }}>USDC · {chainName}</div>
+                        <div className="text-xs mt-1 flex items-center justify-between" style={{ color: 'var(--subtle)' }}>
+                          <span>USDC · {chainName}</span>
+                          {isConnected && formattedBalance && <span>Your balance: {formattedBalance} USDC</span>}
+                        </div>
                       </div>
                     ) : (
                       <div className="rounded-2xl px-4 py-3" style={{ background: 'var(--surface-muted)' }}>
