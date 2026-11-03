@@ -19,14 +19,22 @@ function parseUsdc(val: string): bigint {
   return BigInt(Math.round(num * 10 ** USDC_DECIMALS))
 }
 
+/** Exact USDC string (no rounding), trimmed to at least 2 decimals. */
 function formatUsdc(raw: bigint): string {
-  return (Number(raw) / 10 ** USDC_DECIMALS).toFixed(2)
+  const unit = 10n ** BigInt(USDC_DECIMALS)
+  const whole = raw / unit
+  const frac = (raw % unit).toString().padStart(USDC_DECIMALS, '0').replace(/0+$/, '').padEnd(2, '0')
+  return `${whole.toString()}.${frac}`
 }
 
 function parseOnchainError(error: unknown): string {
   const msg = (error as { message?: string })?.message?.toLowerCase() ?? ''
   if (msg.includes('user rejected') || msg.includes('user denied')) return 'Transaction cancelled.'
-  if (msg.includes('insufficient funds') || msg.includes('exceeds balance')) return 'Insufficient balance.'
+  if (msg.includes('insufficient funds') || msg.includes('exceeds balance') || msg.includes('insufficientbalance') || msg.includes('e450d38c')) return 'Insufficient USDC balance.'
+  if (msg.includes('wrong fixed amount')) return 'Amount must match the fixed amount of this payment link.'
+  if (msg.includes('self payment')) return 'You cannot pay your own merchant wallet.'
+  if (msg.includes('inactive link')) return 'This payment link is no longer active.'
+  if (msg.includes('invoice already paid')) return 'This invoice has already been paid.'
   if (msg.includes('inactive merchant')) return 'Merchant is not active.'
   if (msg.includes('amount must equal invoice total')) return 'Amount must match invoice total.'
   if (msg.includes('reverted')) return 'Transaction rejected by contract. Check the amount.'
@@ -115,7 +123,8 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
   const parsedRaw = amount ? parseUsdc(amount) : 0n
   const hasAmount = parsedRaw > 0n
   const hasAllowance = rawAllowance != null && hasAmount && (rawAllowance) >= parsedRaw
-  const needsApprove = hasAmount && !hasAllowance
+  const insufficientBalance = rawBalance != null && hasAmount && rawBalance < parsedRaw
+  const needsApprove = hasAmount && !hasAllowance && !insufficientBalance
 
   useEffect(() => {
     if (isApproveSuccess) {
@@ -142,6 +151,7 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
   const handleAction = () => {
     if (wrongChain) { switchChain({ chainId: expectedChainId }); return }
     if (!hasAmount || !merchantAddress || !address) return
+    if (insufficientBalance) { toast.error('Insufficient USDC balance.'); return }
     if (needsApprove) {
       approve(parsedRaw)
       setStep('approve')
@@ -250,6 +260,12 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
                     </div>
                   )}
 
+                  {insufficientBalance && isConnected && !wrongChain && (
+                    <div className="mb-3 px-3 py-2 rounded-xl text-xs" style={{ background: 'rgba(186,43,76,0.08)', color: 'var(--danger)' }}>
+                      Insufficient USDC balance. You have {formattedBalance} USDC but need {formatUsdc(parsedRaw)} USDC on {chainName}.
+                    </div>
+                  )}
+
                   {needsApprove && hasAmount && isConnected && !wrongChain && (
                     <div className="mb-3 px-3 py-2 rounded-xl text-xs" style={{ background: 'rgba(232,62,140,0.06)', color: 'var(--love)' }}>
                       Step 1/2: Approve the contract to use your USDC, then confirm payment.
@@ -266,7 +282,7 @@ export default function Checkout({ linkId, amount: prefillAmount, memo, merchant
                       Switch to {chainName}
                     </button>
                   ) : (
-                    <button disabled={!hasAmount || !merchantAddress || isPending || isConfirming}
+                    <button disabled={!hasAmount || !merchantAddress || insufficientBalance || isPending || isConfirming}
                       onClick={handleAction}
                       className="w-full py-3.5 rounded-2xl text-sm font-semibold text-white transition-all hover:scale-[1.01] active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                       style={{ background: 'var(--love)' }}>
