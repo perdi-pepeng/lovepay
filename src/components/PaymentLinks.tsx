@@ -5,7 +5,7 @@ import { toast } from 'sonner'
 import { useMerchantLinkIds, usePaymentLink, useCreatePaymentLink, useDeactivatePaymentLink, useArcChainId, useIsMerchant } from '../store'
 import { formatUSDC } from './format-utils'
 import QRModal from './QRModal'
-import { parseAmount, formatUsdc } from '@/onchain-money'
+import { parseUsdc, formatUsdc } from '@/onchain-money'
 
 function LinkCard({ linkId, onShowQR }: { linkId: string; onShowQR: (id: string, title: string, amount: bigint, memo: string) => void }) {
   const { link } = usePaymentLink(linkId)
@@ -111,7 +111,7 @@ export default function PaymentLinks({ merchantAddress, onGoToDashboard }: Props
     if (!title.trim()) return
     let parsedAmount = 0n
     if (amount.trim()) {
-      try { parsedAmount = parseAmount(chainId, amount).raw }
+      try { parsedAmount = parseUsdc(amount.trim()) }
       catch { toast.error('Invalid amount'); return }
     }
     create(title.trim(), parsedAmount, memo.trim(), multiUse)

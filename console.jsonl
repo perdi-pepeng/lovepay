@@ -592,3 +592,12 @@
 {"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1793616665235}
 {"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793616665235}
 {"level":"debug","message":"[vite] connected.","timestamp":1793616684989}
+{"level":"error","message":"Warning: Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render.%s \n    at MerchantProfile (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/components/MerchantProfile.tsx?t=1793616643263:39:43)\n    at div\n    at main\n    at div\n    at App (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/App.tsx?t=1793616663004:55:28)\n    at CircleWalletProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/src/circle-wallet.tsx:79:40)\n    at Le (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:16796:42)\n    at Web3ContextProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:32423:30)\n    at ConnectKitProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/connectkit.js?v=5f50fc61:35913:29)\n    at QueryClientProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-WZEH4STI.js?v=5f50fc61:39:30)\n    at Hydrate (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:392:11)\n    at WagmiProvider (https://iz0hhtz5gxob44qq2a56t.preview.studio.arc.io/node_modules/.vite/deps/chunk-OIINLUFU.js?v=5f50fc61:414:11)","timestamp":1793617295675}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1793678627779}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793678627779}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1793678627780}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793678627780}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1793678629181}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793678629181}
+{"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1793678629189}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793678629190}
