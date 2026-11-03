@@ -38,7 +38,7 @@ function InvoiceRow({ invoiceId, chainId }: { invoiceId: string; chainId: number
       invoice: invoiceId,
       merchant: invoice.merchant,
       amount: (Number(invoice.total) / 1e6).toFixed(6),
-      memo: encodeURIComponent(invoice.invoiceNumber),
+      memo: invoice.invoiceNumber,
       chain: String(chainId),
     })
     return `${base}?${params.toString()}`

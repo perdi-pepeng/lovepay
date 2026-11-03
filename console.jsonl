@@ -601,3 +601,6 @@
 {"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793678629181}
 {"level":"debug","message":"[vite] hot updated: /src/components/PaymentLinks.tsx","timestamp":1793678629189}
 {"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793678629190}
+{"level":"debug","message":"[vite] connected.","timestamp":1793678651271}
+{"level":"debug","message":"[vite] hot updated: /src/components/Invoices.tsx","timestamp":1793678886734}
+{"level":"debug","message":"[vite] hot updated: /src/index.css","timestamp":1793678886734}
