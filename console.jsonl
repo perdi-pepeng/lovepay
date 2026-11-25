@@ -664,3 +664,5 @@
 {"level":"debug","message":"[vite] hot updated: /src/components/Transactions.tsx","timestamp":1793680833078}
 {"level":"debug","message":"[vite] hot updated: /src/components/Guide.tsx","timestamp":1793680833078}
 {"level":"debug","message":"[vite] hot updated: /src/components/Checkout.tsx","timestamp":1793680833078}
+{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1793684278079}
+{"level":"log","message":"[vite] server connection lost. Polling for restart...","timestamp":1793684278124}
